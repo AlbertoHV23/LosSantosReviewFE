@@ -1,8 +1,8 @@
 import React from "react";
 //My components
-import Logo from "../components/common/logo";
-import Title from "../components/login/Title";
-import LoginForm from "../components/login/Form";
+import Logo from "../../components/common/logo";
+import Title from "../../components/login/Title";
+import LoginForm from "../../components/login/Form";
 
 //Material UI & Bootstrap components
 import Button from "@mui/material/Button";

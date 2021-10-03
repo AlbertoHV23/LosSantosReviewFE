@@ -1,5 +1,5 @@
 import React from "react";
-import Login from "./pages/Login";
+import Login from "./pages/login/Login";
 
 import {
   BrowserRouter as Router,
