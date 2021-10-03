@@ -1,14 +1,24 @@
-import React from 'react';
-import Login from './pages/Login';
+import React from "react";
+import Login from "./pages/Login";
 
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  NavLink,
+} from "react-router-dom";
 
 function App() {
-    return ( 
-      <>
-      <Login />
-      </>
-     );
-  }
-  
-  export default App;  
+  return (
+    <Router>
+      <Switch>
+        <Route path="/login" exact>
+          <Login />
+        </Route>
+      </Switch>
+    </Router>
+  );
+}
+
+export default App;

@@ -1,7 +1,9 @@
 import React from "react";
+// import logo from 'https://uanledu.sharepoint.com/sites/FCFMLossantos/Documentos%20compartidos/Programacion%20Web%202/Los%20Santos.png' // relative path to image 
+
 function Logo() {
     return (
-        <img src="https://eastus1-mediap.svc.ms/transform/thumbnail?provider=spo&inputFormat=png&cs=fFNQTw&docid=https%3A%2F%2Fuanledu.sharepoint.com%3A443%2F_api%2Fv2.0%2Fdrives%2Fb!Ipc-3kIi7ESzGFps5psbEYUgPYtqifNBl11lq4l1ijcRM05vd9YNSqwSPloY4hfI%2Fitems%2F01ZRX4K5AIJLO2F7XOMRDJZLL3T7VGKNZP%3Fversion%3DPublished&access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvdWFubGVkdS5zaGFyZXBvaW50LmNvbUBjYWNhOTAxMS03YjZhLTQ0ZGUtODYxZi0wOTVhMmNhODgzYjciLCJpc3MiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAiLCJuYmYiOiIxNjMzMjMwMDAwIiwiZXhwIjoiMTYzMzI1MTYwMCIsImVuZHBvaW50dXJsIjoiT09DZnZJdklKalJkWGIvb1FSdkNSczNRT0h0cGtPQkMzcUg5Mm0vMVVlbz0iLCJlbmRwb2ludHVybExlbmd0aCI6IjExNCIsImlzbG9vcGJhY2siOiJUcnVlIiwidmVyIjoiaGFzaGVkcHJvb2Z0b2tlbiIsInNpdGVpZCI6IlpHVXpaVGszTWpJdE1qSTBNaTAwTkdWakxXSXpNVGd0TldFMlkyVTJPV0l4WWpFeCIsIm5hbWVpZCI6IjAjLmZ8bWVtYmVyc2hpcHxkYW5pZWwuaGVybmFuZGV6dmxsbnZAdWFubC5lZHUubXgiLCJuaWkiOiJtaWNyb3NvZnQuc2hhcmVwb2ludCIsImlzdXNlciI6InRydWUiLCJjYWNoZWtleSI6IjBoLmZ8bWVtYmVyc2hpcHwxMDAzM2ZmZjkzMWJjYzY1QGxpdmUuY29tIiwic2Vzc2lvbmlkIjoiNzUzMTQyMjItNDI0Yi00NTA1LWE1MjctZWZmYmMxZTAyZTQ0IiwidHQiOiIwIiwidXNlUGVyc2lzdGVudENvb2tpZSI6IjIifQ.UXAwNUlvYWhCYUxCdzIzVlUwRTVweE14NE1MYndDa2ljZmEyS0V0a0RQaz0&cTag=%22c%3A%7BA2DD4A08-EEFE-4664-9CAD-7B9FEA65372F%7D%2C2%22&encodeFailures=1&srcWidth=&srcHeight=&width=196&height=196&action=Access" alt="" />
+        <img className="logo" src= 'https://uanledu.sharepoint.com/sites/FCFMLossantos/Documentos%20compartidos/Programacion%20Web%202/IMG/LSRlogo.png' />
      );
 }
 

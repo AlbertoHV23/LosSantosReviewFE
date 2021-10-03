@@ -1,0 +1,21 @@
+@import '../styles/Colors.scss';
+
+
+body{
+    background-color: $color-black;
+}
+
+.logo{
+    width: 400px;
+   
+}
+
+.title{
+    color: $color-white;
+}
+
+.delete{
+    background-color: red;
+    width: 100%;
+}
+
