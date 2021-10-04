@@ -1,15 +1,17 @@
 @import '../../styles/Colors.scss';
 
-
 body{
     background-color: $color-black;
 }
 
 .logo{
-    width: 400px;
-   
+    width: 400px; 
 }
 
 .title{
     color: $color-white;
+}
+
+.text-blue{
+    color: $color-blue;
 }

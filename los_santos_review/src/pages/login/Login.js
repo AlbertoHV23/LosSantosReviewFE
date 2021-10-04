@@ -9,6 +9,7 @@ import Button from "@mui/material/Button";
 import { Grid } from "@mui/material";
 
 import "./Login.scss";
+import LoginInformation from "../../components/login/LoginInformation";
 
 function Login() {
   return (
@@ -21,6 +22,7 @@ function Login() {
         </Grid>
         <Grid item xs={4} md={6}>
           <Button variant="outlined">Log in</Button>
+          <LoginInformation/>
         </Grid>
       </Grid>
     </>
