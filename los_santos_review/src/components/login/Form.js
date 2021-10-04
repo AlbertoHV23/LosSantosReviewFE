@@ -1,6 +1,7 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import GoogleButton from "react-google-button";
+import Button from "@mui/material/Button";
 
 function LoginForm() {
   return (
@@ -24,16 +25,14 @@ function LoginForm() {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Group className="mb-4" controlId="formBasicCheckbox">
           <Form.Check
             type="checkbox"
             label="Remember Me."
             className="text-blue"
           />
         </Form.Group>
-        <Button variant="primary" type="submit" className="mb-4">
-          Login
-        </Button>
+        <Button variant="contained"  className="mb-4">Login</Button>
         
         <GoogleButton 
           onClick={() => {
