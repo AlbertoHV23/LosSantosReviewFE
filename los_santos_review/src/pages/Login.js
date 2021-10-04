@@ -3,6 +3,7 @@ import React from "react";
 import Logo from "../components/common/logo";
 import Title from "../components/login/Title";
 import LoginForm from "../components/login/Form";
+import LoginInformation from "../components/login/LoginInformation";
 
 //Material UI & Bootstrap components
 import Button from "@mui/material/Button";
@@ -20,7 +21,10 @@ function Login() {
           <LoginForm />
         </Grid>
         <Grid item xs={4} md={6}>
-          <Button variant="outlined">Log in</Button>
+          <Button variant="outlined" >Log in</Button>
+          <Button variant="contained" color="primary" className="boton" >Contained</Button>
+          <LoginInformation />
+
         </Grid>
       </Grid>
     </>

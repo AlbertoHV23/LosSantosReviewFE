@@ -14,8 +14,29 @@ body{
     color: $color-white;
 }
 
-.delete{
-    background-color: red;
-    width: 100%;
+
+// Form
+.text-blue{
+    color: $color-blue;
 }
 
+.input-login{
+    background-color: $color-gray;
+    border-color: $color-blue;
+    border-width: 3px;
+}
+
+.input-login::placeholder{
+    color: $color-white;
+}
+
+
+// Login Information
+
+.svg{
+    width: 50%;
+}
+
+.boton{
+    background: red;
+}
