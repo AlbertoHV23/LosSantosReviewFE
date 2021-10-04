@@ -17,11 +17,10 @@ function Login() {
       <Grid container>
         <Grid item xs={4} md={6}>
           <Logo />
-          <Title title="Login" />
+          <Title title="Login" class = "title-login" />
           <LoginForm />
         </Grid>
         <Grid item xs={4} md={6}>
-          <Button variant="outlined">Log in</Button>
           <LoginInformation/>
         </Grid>
       </Grid>
