@@ -2,8 +2,6 @@ import React from "react";
 
 const imagen = './Login.svg';
 
-
-
 function LoginInformation() {
     return (
         <>
