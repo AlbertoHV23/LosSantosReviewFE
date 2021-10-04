@@ -8,10 +8,30 @@ body{
     width: 400px; 
 }
 
-.title{
+.title-login{
     color: $color-white;
 }
 
+.title-legend{
+    color: $color-pink;
+}
+
+
 .text-blue{
     color: $color-blue;
+}
+
+.input-login{
+    background-color: $color-gray;
+    border-color: $color-blue;
+    border-width: 3px;
+    border-radius: 12px;
+}
+
+.input-login::placeholder{
+    color: $color-white;
+}
+
+.svg{
+    width: 50%;
 }

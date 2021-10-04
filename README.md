@@ -20,6 +20,8 @@ CSS que se puedan usar en distintos lugares como la paleta de colores
 ## Npm
 ```bash
 npm install
+//Google Button
+npm install --save react-google-button
 ```
 
 ## Material Ui
