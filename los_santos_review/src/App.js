@@ -1,5 +1,6 @@
 import React from "react";
 import Login from "./pages/login/Login";
+import Main from "./pages/main/Main";
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,6 +8,7 @@ import {
   Link,
   NavLink,
 } from "react-router-dom";
+
 
 function App() {
   return (
@@ -18,6 +20,9 @@ function App() {
         </Route>
         <Route path="/signup" exact>
           <Login />
+        </Route>
+        <Route path="/main" exact>
+          <Main />
         </Route>
       </Switch>
     </Router>
