@@ -5,7 +5,10 @@ body{
 }
 
 .logo{
-    width: 400px; 
+    width: 350px; 
+    display:block;
+    margin:auto;
+    margin-top: 60px;
 }
 
 .title-login{
@@ -13,6 +16,7 @@ body{
 }
 
 .title-legend{
+    margin-top: 60px;
     color: $color-pink;
 }
 
@@ -34,9 +38,30 @@ body{
 
 .svg{
     width: 50%;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
 }
 
 .login-legend{
     color: white;
+    font-size: 25px;
+    width: 70%;
+    text-align: center;
+    margin: auto;
 }
 
+
+.title-login,.title-legend{
+    text-align: center;
+}
+.form-login{
+    width: 54%;
+    margin: auto;
+}
+
+.btn-login{
+    width: 240px;
+    margin: auto;
+    text-align: center;
+}
