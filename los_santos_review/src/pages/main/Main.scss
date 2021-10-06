@@ -3,3 +3,28 @@
 body{
     background-color: $color-black;
 }
+
+.logo{
+    width: 200px;
+}
+
+.title{
+    color: $color-white;
+    font-size: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: start;
+}
+
+.text{
+    text-align: right;
+}
+
+.line{
+    margin-top: 20px;
+    color: $color-white;
+}
+
+.legend{
+    color: $color-white;
+}
