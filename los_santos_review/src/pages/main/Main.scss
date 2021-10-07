@@ -8,6 +8,7 @@
 body{
     background-color: $color-black;
     font-weight: 500;
+    color: $color-white;
 }
 
 .logo{
@@ -25,21 +26,18 @@ body{
     font-size: 22px;
 }
 
-.text{
-    text-align: right;
-}
-
-.line{
-    margin-top: 20px;
-    color: $color-white;
-}
-
-.legend{
-    color: $color-white;
-}
-
 h5{
     color: $color-white;
+    font-size: 15px;
+
+    &:hover{
+        color: $color-pink;
+    }
+}
+
+a{
+    text-decoration: none;
+
 }
 
 .space{
@@ -70,4 +68,63 @@ h5{
 .icon{
     color: $color-white;
     margin: 10px;
+}
+
+.card{
+    background-color: transparent;
+    border: none;
+}
+
+.text{
+    text-align: right;
+    border: none;
+}
+
+.line{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: $color-white;
+}
+
+.title-footer{
+    color: $color-white;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+li{
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+h3{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.join{
+   display: inline-flex;
+}
+
+.email{
+    margin-right: 20px;
+    size: 20px;
+}
+
+.button{
+    background-color: $color-blue !important;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    display: block;
+    width: 50%;
+    margin-top: 10px;
+}
+
+h6{
+    color: $color-gray;
+    text-align: center;
 }

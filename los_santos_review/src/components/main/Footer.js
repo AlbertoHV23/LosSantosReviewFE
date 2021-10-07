@@ -2,17 +2,16 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
-import Button from "@restart/ui/esm/Button";
+import Button from "@mui/material/Button";
 import Legend from "../common/Legend";
 import Title from "../common/Title";
-
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 
 function Footer() {
     return (
         <>
             <Container>
                 <hr className = "line"/>
-
                 <Row>
                   <Col>
                     <li>
@@ -34,7 +33,7 @@ function Footer() {
                   <Col>
                     <li>
                         <a href="#">
-                            <h5>Critic Submisiion</h5>
+                            <h5>Critic Submission</h5>
                         </a>
                     </li>
                     <li>
@@ -54,12 +53,15 @@ function Footer() {
                     </li>
                   </Col>
                   <Col>
-                    <Title title="JOIN THE NEWSLETTER" class = "title"/>
-                    <Legend title="Get the freshest reviews, news, and more delivered right to your inbox" className = "legend"/>
-                    <Button variant="info">JOIN</Button>{' '}
+                    <div class="join">
+                        <MailOutlineIcon className="email"/>
+                        <Title title="JOIN THE NEWSLETTER" class = "title-footer"/> 
+                    </div>
+                    <h3> Get the freshest reviews, news, and more delivered right to your inbox </h3>
+                    <Button variant="primary" className="button">JOIN</Button>{' '}
                   </Col>
                   <Col>
-                    <Title title="FOLLOW US" class = "title"/>
+                    <Title title="FOLLOW US" class = "title-footer"/>
                   </Col>
                 </Row>
 
@@ -68,7 +70,7 @@ function Footer() {
                     <h6>Copyright © Los Santos. All rights reserved.</h6>
                   </Col>
                   <Col>
-                    <h6>Privacy Policy,Terms & Policies, AdChoices</h6>
+                    <h6 className="end">Privacy Policy,Terms & Policies, AdChoices</h6>
                   </Col>
                 </Row>
 
