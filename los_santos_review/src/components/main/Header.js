@@ -6,26 +6,26 @@ import Button from "@restart/ui/esm/Button";
 import { FormControl } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
 import Logo from "../common/logo";
-
+import { Search } from "@mui/icons-material";
 
 function Header() {
     return (
         <>
           <Navbar bg="dark" variant="dark">
-            <Container>
+            <Container className = "space">
               <Navbar.Brand href="#home">
                 <Logo  className="d-inline-block align-top"/>
               </Navbar.Brand>
+              <Search className="icon"/>
               <Form className="d-flex">
                 <FormControl
                   type="search"
-                  placeholder="Search"
-                  className="me-2"
+                  placeholder="Search something" 
+                  className="me-2 search"
                   aria-label="Search"
                 />
-                <Button variant="outline-light">Search</Button>
               </Form>
-              <Nav className="me-auto align-left">
+              <Nav className="navs">
                 <Nav.Link href="#home">Movies</Nav.Link>
                 <Nav.Link href="#features">Series</Nav.Link>
                 <Nav.Link href="#pricing">Videogames</Nav.Link>

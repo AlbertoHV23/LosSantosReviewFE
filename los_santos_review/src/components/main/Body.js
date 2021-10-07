@@ -14,7 +14,7 @@ function Body() {
                   <Image className="logo" src= {`${process.env.PUBLIC_URL}/assets/img/LSRlogo.png`}/>
                 </Card>
                 <Card.Footer>
-                  <small className="text-muted text">97%</small>
+                  <small className="text-muted text">0%</small>
                 </Card.Footer>
               </Col>
             ))}
