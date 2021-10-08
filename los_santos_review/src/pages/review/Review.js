@@ -6,13 +6,13 @@ import Body from "../../components/review/Body";
 import Footer from "../../components/main/Footer";
 import { Container } from "react-bootstrap";
 
-import "./Main.scss";
+import "../main/Main.scss";
 
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"></link>
 
 //Material UI & Bootstrap components
 
-function Main() {
+function Review() {
     return (
       <>
         <Header/>
@@ -23,4 +23,4 @@ function Main() {
     );
   }
   
-  export default Main;
+  export default Review;
