@@ -1,5 +1,9 @@
 @import '../../styles/Colors.scss';
 
+*{
+    font-family: 'Quicksand', sans-serif;
+}
+
 body{
     background-color: $color-black;
 }
@@ -60,8 +64,29 @@ body{
     margin: auto;
 }
 
-.btn-login{
-    width: 240px;
+.btn-login,.test{
+    width: 300px;
     margin: auto;
     text-align: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius: 12px;
+
+    
+}
+
+.test{
+    margin-top: 50px;
+    color: white;
+    border-color: $color-pink;
+    height: 40px;
+    text-align: center;
+}
+
+.test:hover{
+    margin-top: 50px;
+    color: white;
+    background-color: $color-pink;
+    height: 40px;
 }

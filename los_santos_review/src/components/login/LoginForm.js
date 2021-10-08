@@ -9,7 +9,7 @@ function LoginForm() {
     <>
       <Container>
       <Logo class="logo"/>
-      <Title title="Login" class="title-login" />
+      <Title title="LOGIN" class="title-login" />
       <Form_ />
       </Container>
 
