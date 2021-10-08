@@ -1,14 +1,13 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import GoogleButton from "react-google-button";
-import Button from "@mui/material/Button";
-import { Container } from "react-grid-system";
+import Button from 'react-bootstrap/Button';
 
 function Form_() {
   return (
     <>
       <Form className="form-login">
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-4" controlId="formBasicEmail">
           <Form.Label className="text-blue">Email:</Form.Label>
           <Form.Control
             type="email"
@@ -17,7 +16,7 @@ function Form_() {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-4" controlId="formBasicPassword">
           <Form.Label className="text-blue">Password:</Form.Label>
           <Form.Control
             type="password"
@@ -33,9 +32,11 @@ function Form_() {
             className="text-blue"
           />
         </Form.Group>
-        <Button variant="contained" className="mb-4 btn-login">
+        {/* <Button variant="contained" className="mb-4 btn-login">
           Login
-        </Button>
+        </Button> */}
+
+        <Button variant="primary" className="btn-login mb-4">Login</Button>{' '}
 
         <GoogleButton className="btn-login" type="light"
           onClick={() => {
