@@ -16,16 +16,16 @@ function Main() {
     return (
       <>
         <Header/>
-        <Container>
-          <Title title="NEW & UPCOMING" class = "title"/>
-          <Body/>
-          <Title title="MOST POPULAR" class = "title"/>
-          <Body/>
-          <Title title="TOP RATINGS" class = "title"/>
-          <Body/>
-          <Title title="WORST RATINGS" class = "title"/>
-          <Body/>
-        </Container>
+          <Container>
+            <Title title="NEW & UPCOMING" class = "title"/>
+            <Body/>
+            <Title title="MOST POPULAR" class = "title"/>
+            <Body/>
+            <Title title="TOP RATINGS" class = "title"/>
+            <Body/>
+            <Title title="WORST RATINGS" class = "title"/>
+            <Body/>
+          </Container>
         <Footer/>
 
       </>
