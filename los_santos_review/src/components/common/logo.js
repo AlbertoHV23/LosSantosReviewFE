@@ -1,8 +1,8 @@
 import React from "react";
 
-function Logo() {
+function Logo(props) {
     return (
-        <img className="logo logo-main" src= {`${process.env.PUBLIC_URL}/assets/img/LSRlogo.png`}  />
+        <img className={props.class}  src= {`${process.env.PUBLIC_URL}/assets/img/LSRlogo.png`}  />
      );
 }
 

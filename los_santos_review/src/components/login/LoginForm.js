@@ -8,7 +8,7 @@ function LoginForm() {
   return (
     <>
       <Container>
-      <Logo />
+      <Logo class="logo"/>
       <Title title="Login" class="title-login" />
       <Form_ />
       </Container>
