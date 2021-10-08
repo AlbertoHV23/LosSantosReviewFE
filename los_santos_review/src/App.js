@@ -1,6 +1,7 @@
 import React from "react";
 import Login from "./pages/login/Login";
 import Main from "./pages/main/Main";
+import Search from "./pages/search/Search"
 import {
   BrowserRouter as Router,
   Switch,
@@ -23,6 +24,9 @@ function App() {
         </Route>
         <Route path="/main" exact>
           <Main />
+        </Route>
+        <Route path="/search" exact>
+          <Search />
         </Route>
       </Switch>
     </Router>

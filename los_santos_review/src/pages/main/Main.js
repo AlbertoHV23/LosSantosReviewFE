@@ -1,6 +1,5 @@
 import React from "react";
 //My components
-import Logo from "../../components/common/logo";
 import Title from "../../components/common/Title";
 import Header from "../../components/main/Header";
 import Body from "../../components/main/Body";
