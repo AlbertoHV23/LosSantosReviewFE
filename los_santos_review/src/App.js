@@ -10,6 +10,7 @@ import {
   Link,
   NavLink,
 } from "react-router-dom";
+import SignUp from "./pages/signup/SignUp";
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
           <Login />
         </Route>
         <Route path="/signup" exact>
-          <Login />
+          <SignUp />
         </Route>
         <Route path="/main" exact>
           <Main />
