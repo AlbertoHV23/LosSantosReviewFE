@@ -13,7 +13,12 @@ body{
 
 .logo{
     width: 200px;
+}
 
+.links{
+    &:hover{
+        color: $color-white !important;
+    }
 }
 
 .title{
@@ -24,6 +29,10 @@ body{
     text-align: start;
     font-weight: 500;
     font-size: 22px;
+}
+
+.example{
+    border-radius: 30px;
 }
 
 h5{
@@ -42,6 +51,7 @@ a{
 
 .space{
     justify-content: unset !important;
+
 }
 
 .search{
@@ -95,18 +105,17 @@ a{
 
 li{
     list-style: none;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 h3{
     font-size: 15px;
-    text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
 .join{
-   display: inline-flex;
+   display: flex;
 }
 
 .email{
@@ -116,15 +125,45 @@ h3{
 
 .button{
     background-color: $color-blue !important;
-    text-align: center;
-    align-content: center;
-    justify-content: center;
-    display: block;
+    border-radius: 100px !important;
     width: 50%;
-    margin-top: 10px;
+    margin-top: 10px !important;
 }
 
 h6{
     color: $color-gray;
     text-align: center;
+    font-size: 15px;
+    text-align: start;
+    margin-top: 15px;
+}
+
+.end{
+    display: inline-flex;
+    float: right;
+}
+
+.end>a{
+    margin-left: 20px;
+
+}
+
+.end>a>h6{
+
+    &:hover{
+        color: $color-blue;
+    }
+
+}
+
+.center{
+    text-align: center;
+}
+
+.buttons>Button{
+    color: $color-white;
+
+    &:hover{
+        color: $color-blue;
+    }
 }

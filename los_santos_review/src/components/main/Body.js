@@ -4,6 +4,7 @@ import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 import Image from "../common/Image"
 import Logo from "../common/logo";
+import Example from "../common/Example";
 
 function Body() {
     return (
@@ -12,7 +13,7 @@ function Body() {
             {Array.from({ length: 6 }).map((_, idx) => (
               <Col>
                 <Card  className="card">
-                  <Logo/>
+                  <Example/>
                 </Card>
                 <Card.Footer className="text">
                   <small className="text-muted">0%</small>

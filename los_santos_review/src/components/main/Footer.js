@@ -6,6 +6,10 @@ import Button from "@mui/material/Button";
 import Legend from "../common/Legend";
 import Title from "../common/Title";
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 function Footer() {
     return (
@@ -57,11 +61,19 @@ function Footer() {
                         <MailOutlineIcon className="email"/>
                         <Title title="JOIN THE NEWSLETTER" class = "title-footer"/> 
                     </div>
-                    <h3> Get the freshest reviews, news, and more delivered right to your inbox </h3>
-                    <Button variant="primary" className="button">JOIN</Button>{' '}
+                    <div className="center"> 
+                        <h3> Get the freshest reviews, news, and more delivered right to your inbox </h3>
+                        <Button variant="primary" className="button">JOIN</Button>{' '}
+                    </div>
                   </Col>
                   <Col>
-                    <Title title="FOLLOW US" class = "title-footer"/>
+                    <div className="center buttons">
+                        <Title title="FOLLOW US" class = "title-footer"/>
+                        <Button><FacebookIcon/></Button>
+                        <Button><TwitterIcon /></Button>
+                        <Button><InstagramIcon /></Button>
+                        <Button><YouTubeIcon /></Button> 
+                    </div>
                   </Col>
                 </Row>
 
@@ -70,7 +82,17 @@ function Footer() {
                     <h6>Copyright © Los Santos. All rights reserved.</h6>
                   </Col>
                   <Col>
-                    <h6 className="end">Privacy Policy,Terms & Policies, AdChoices</h6>
+                    <div className="end">
+                        <a href="#">
+                            <h6>Privacy Policy</h6>
+                        </a>
+                        <a href="#">
+                            <h6>Terms & Policies</h6>
+                        </a>
+                        <a href="#">
+                            <h6>AdChoices</h6>
+                        </a>
+                    </div>
                   </Col>
                 </Row>
 

@@ -25,11 +25,11 @@ function Header() {
                   aria-label="Search"
                 />
               </Form>
-              <Nav className="navs">
-                <Nav.Link href="#home">Movies</Nav.Link>
-                <Nav.Link href="#features">Series</Nav.Link>
-                <Nav.Link href="#pricing">Videogames</Nav.Link>
-                <Nav.Link href="#account">Account</Nav.Link>
+              <Nav>
+                <Nav.Link className="links" href="#home">Movies</Nav.Link>
+                <Nav.Link className="links" href="#features">Series</Nav.Link>
+                <Nav.Link className="links" href="#pricing">Videogames</Nav.Link>
+                <Nav.Link className="links" href="#account">Account</Nav.Link>
               </Nav>
             </Container>
           </Navbar>
