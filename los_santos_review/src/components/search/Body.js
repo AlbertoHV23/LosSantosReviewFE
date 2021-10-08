@@ -15,8 +15,8 @@ function Body() {
                 <Card  className="card">
                   <Example/>
                 </Card>
-                <Card.Footer className="text">
-                  <small className="text-muted">0%</small>
+                <Card.Footer className="text2">
+                  <small className="text-muted">The Last of Us</small>
                 </Card.Footer>
               </Col>
             ))}

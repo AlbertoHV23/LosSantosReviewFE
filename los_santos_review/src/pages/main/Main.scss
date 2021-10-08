@@ -1,11 +1,24 @@
 @import '../../styles/Colors.scss';
 
+
+*{
+    font-family: 'Quicksand', sans-serif;
+}
+
 body{
     background-color: $color-black;
+    font-weight: 500;
+    color: $color-white;
 }
 
 .logo{
     width: 200px;
+}
+
+.links{
+    &:hover{
+        color: $color-white !important;
+    }
 }
 
 .title{
@@ -14,17 +27,143 @@ body{
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: start;
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.example{
+    border-radius: 30px;
+}
+
+h5{
+    color: $color-white;
+    font-size: 15px;
+
+    &:hover{
+        color: $color-pink;
+    }
+}
+
+a{
+    text-decoration: none;
+
+}
+
+.space{
+    justify-content: unset !important;
+
+}
+
+.search{
+    background-color: $color-darkgrey;
+    border: 0px;
+    color: $color-white;
+    border-radius: 30px;
+    
+    &:focus {
+        background-color: transparent;
+        box-shadow: 0px 0px 5px 1px var(--light);
+        border: 1.5px solid $color-pink;
+        border-radius: 5px;
+        color: $color-white;
+        border-radius: 30px;
+    }
+}
+
+.d-flex{
+    width: 100%;
+}
+
+
+.icon{
+    color: $color-white;
+    margin: 10px;
+}
+
+.card{
+    background-color: transparent;
+    border: none;
 }
 
 .text{
     text-align: right;
+    border: none;
 }
 
 .line{
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     color: $color-white;
 }
 
-.legend{
+.title-footer{
     color: $color-white;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+li{
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+h3{
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.join{
+   display: flex;
+}
+
+.email{
+    margin-right: 20px;
+    size: 20px;
+}
+
+.button{
+    background-color: $color-blue !important;
+    border-radius: 100px !important;
+    width: 50%;
+    margin-top: 10px !important;
+}
+
+h6{
+    color: $color-gray;
+    text-align: center;
+    font-size: 15px;
+    text-align: start;
+    margin-top: 15px;
+}
+
+.end{
+    display: inline-flex;
+    float: right;
+}
+
+.end>a{
+    margin-left: 20px;
+
+}
+
+.end>a>h6{
+
+    &:hover{
+        color: $color-blue;
+    }
+
+}
+
+.center{
+    text-align: center;
+}
+
+.buttons>Button{
+    color: $color-white;
+
+    &:hover{
+        color: $color-blue;
+    }
 }

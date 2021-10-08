@@ -2,11 +2,12 @@ import React from "react";
 import { Form } from "react-bootstrap";
 import GoogleButton from "react-google-button";
 import Button from "@mui/material/Button";
+import { Container } from "react-grid-system";
 
-function LoginForm() {
+function Form_() {
   return (
     <>
-      <Form>
+      <Form className="form-login">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label className="text-blue">Email:</Form.Label>
           <Form.Control
@@ -32,9 +33,11 @@ function LoginForm() {
             className="text-blue"
           />
         </Form.Group>
-        <Button variant="contained"  className="mb-4">Login</Button>
-        
-        <GoogleButton 
+        <Button variant="contained" className="mb-4 btn-login">
+          Login
+        </Button>
+
+        <GoogleButton className="btn-login" type="light"
           onClick={() => {
             console.log("Google button clicked");
           }}
@@ -44,4 +47,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default Form_;

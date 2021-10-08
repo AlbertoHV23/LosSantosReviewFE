@@ -1,6 +1,5 @@
 import React from "react";
 //My components
-import Logo from "../../components/common/logo";
 import Title from "../../components/common/Title";
 import Header from "../../components/main/Header";
 import Body from "../../components/main/Body";
@@ -9,6 +8,7 @@ import { Container } from "react-bootstrap";
 
 import "./Main.scss";
 
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"></link>
 
 //Material UI & Bootstrap components
 
@@ -17,13 +17,13 @@ function Main() {
       <>
         <Header/>
         <Container>
-          <Title title="New & Upcoming" class = "title"/>
+          <Title title="NEW & UPCOMING" class = "title"/>
           <Body/>
-          <Title title="Most Popular" class = "title"/>
+          <Title title="MOST POPULAR" class = "title"/>
           <Body/>
-          <Title title="Top Ratings" class = "title"/>
+          <Title title="TOP RATINGS" class = "title"/>
           <Body/>
-          <Title title="Worst Ratings" class = "title"/>
+          <Title title="WORST RATINGS" class = "title"/>
           <Body/>
         </Container>
         <Footer/>
