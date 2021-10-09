@@ -16,6 +16,18 @@ Tambien cuenta con una carpeta "common" donde estaran los componentes compartido
 # Styles
 CSS que se puedan usar en distintos lugares como la paleta de colores
 
+# Rutas
+## Root:
+http://localhost:3000/
+## Login:
+/login
+## Sign Up:
+/signup
+## Main:
+/
+## Review:
+/
+
 # Librerias que se han utilizado
 ## Npm
 ```bash
