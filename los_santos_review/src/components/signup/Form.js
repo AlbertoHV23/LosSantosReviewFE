@@ -15,8 +15,8 @@ function Form_() {
             </Dropdown.Toggle>
 
             <Dropdown.Menu  className="w-100 ">
-              <Dropdown.Item href="#/action-1"  className="w-100 ">User</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Critico</Dropdown.Item>
+              <Dropdown.Item className="w-100 ">Review User</Dropdown.Item>
+              <Dropdown.Item >Regular User</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </Form.Group>
