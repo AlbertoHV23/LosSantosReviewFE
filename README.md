@@ -24,9 +24,11 @@ http://localhost:3000/
 ## Sign Up:
 /signup
 ## Main:
-/
+/main
 ## Review:
-/
+/review
+## Search:
+/search
 
 # Librerias que se han utilizado
 ## Npm
