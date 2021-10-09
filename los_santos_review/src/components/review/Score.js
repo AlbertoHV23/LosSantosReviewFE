@@ -13,7 +13,7 @@ function Score() {
     return (
         <>
         <Row className="preview">
-            <Col xs={6} md={3}>
+            <Col xs={1} md={3} className="d-none d-md-block">
                 <Poster  class="poster"/>
             </Col>
             <Col xs={12} md={9}>
@@ -23,19 +23,23 @@ function Score() {
 
         <Row>
             <div className="center">
-                <Title title="GOD OF WAR 4" class = "title center"/>
+                <Title title="GOD OF WAR 4" class = "review-title center"/>
             </div>
             <Col>
-                <div className="center">
-                    <TrackChangesIcon className="icon"/>
-                    <Title title="95%" class = "title center"/>
+                <div className="center">                        
+                    <div className="items"> 
+                        <TrackChangesIcon/>
+                        <Title title="95%" class = "title title-score"/>  
+                    </div> 
                     <h3>Los Santos Score</h3>
                 </div>
             </Col>
             <Col>
                 <div className="center">
-                    <RecommendIcon className="icon"/>
-                    <Title title="78%" class = "title center"/>
+                    <div className="items"> 
+                        <RecommendIcon/>
+                        <Title title="78%" class = "title title-score"/>
+                    </div>
                     <h3>Audience Score</h3>
                 </div>
 

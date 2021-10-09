@@ -67,12 +67,12 @@ function Footer() {
                     </div>
                   </Col>
                   <Col>
-                    <div className="center buttons">
+                    <div className="center">
                         <Title title="FOLLOW US" class = "title-footer"/>
                         <Button><FacebookIcon/></Button>
-                        <Button><TwitterIcon /></Button>
-                        <Button><InstagramIcon /></Button>
-                        <Button><YouTubeIcon /></Button> 
+                        <Button><TwitterIcon/></Button>
+                        <Button><InstagramIcon/></Button>
+                        <Button><YouTubeIcon/></Button> 
                     </div>
                   </Col>
                 </Row>
