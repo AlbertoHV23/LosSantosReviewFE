@@ -25,7 +25,7 @@
 .review-title{
     margin-top: 30px;
 
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 500;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .title-score{
-    font-size: 30px;
+    font-size: 40px;
     text-align: end;
     padding: 0px;
     margin-left: 10px;
@@ -53,4 +53,69 @@
 .subtitles>h2{
     font-size: 20px;
     color: $color-pink ;
+}
+
+.filter{
+    display: inline-flex;
+
+}
+
+.filter>a{
+    padding-right: 20px;
+}
+
+.filter>a>h6{
+    color: $color-white;
+    &:hover{
+        color: $color-blue;
+    }
+
+    &:focus{
+        color: $color-blue;
+    }
+}
+
+
+.button-comment{
+    background-color: $color-pink !important;
+    border-radius: 100px !important;
+    width: 30%;
+
+    &:hover{
+        background-color: violet !important;
+    }
+}
+
+.button-rate{
+    background-color: $color-blue !important;
+    border-radius: 100px !important;
+    width: 30%;
+
+    &:hover{
+        background-color: #71b8f1 !important;
+    }
+}
+
+.comment{
+    background-color: #2a2d33 !important;
+}
+
+.pic{
+    width:70px;
+    border-radius: 50px;
+    margin-right: 20px;
+}
+
+
+.comment-icon{
+    color: $color-gray !important;
+
+    &:hover{
+        color: $color-white !important;
+    }
+}
+
+.user{
+    font-weight: 700;
+    font-size: 20px;
 }
