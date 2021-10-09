@@ -11,6 +11,7 @@ import {
   NavLink,
 } from "react-router-dom";
 import SignUp from "./pages/signup/SignUp";
+import Account from "./pages/account/Account";
 
 
 function App() {
@@ -32,6 +33,9 @@ function App() {
         </Route>
         <Route path="/review" exact>
           <Review />
+        </Route>
+        <Route path="/myaccount" exact>
+          <Account />
         </Route>
       </Switch>
     </Router>
