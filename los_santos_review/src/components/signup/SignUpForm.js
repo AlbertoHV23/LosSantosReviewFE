@@ -8,8 +8,7 @@ function SignUpForm() {
   return (
     <>
       <Container>
-      <Logo class="logo"/>
-      <Title title="LOGIN" class="title-login" />
+      <Title title="Sign In " class="title-signup pt-4" />
       <Form_ />
       </Container>
 

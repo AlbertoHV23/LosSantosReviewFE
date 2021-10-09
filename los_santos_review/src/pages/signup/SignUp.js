@@ -8,13 +8,14 @@ import "./SignUp.scss";
 import LoginInformation from "../../components/login/LoginInformation";
 import LoginForm from "../../components/login/LoginForm";
 import SignUpForm from "../../components/signup/SignUpForm";
+import SignUpInformation from "../../components/signup/SignUpInformation";
 
 function SignUp() {
   return (
     <>
       <Grid container>
         <Grid item xs={12} md={6}>
-          <LoginForm />
+          <SignUpInformation />
         </Grid>
 
         <Grid item xs={12} md={6}>

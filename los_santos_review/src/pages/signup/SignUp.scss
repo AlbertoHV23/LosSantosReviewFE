@@ -1,0 +1,80 @@
+@import '../../styles/Colors.scss';
+
+*{
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+body{
+    background-color: $color-black;
+}
+
+.title-signup{
+    color: $color-white;
+    text-align: center;
+}
+
+.title-legend{
+    margin-top: 60px;
+    color: $color-blue;
+}
+
+
+.text-pink{
+    color: $color-pink;
+}
+
+.logo{
+    width: 350px; 
+    display:block;
+    margin:auto;
+    margin-top: 60px;
+}
+
+.input-signup{
+    background-color: $color-gray;
+    border-color: $color-pink;
+    border-width: 3px;
+    border-radius: 12px;
+    text-align: left;
+}
+.input-signup::placeholder{
+    color: $color-white;
+}
+
+.form-signup{
+    width: 70%;
+    margin: auto;
+}
+
+
+.btn-signup{
+    width: 300px;
+    margin: auto;
+    text-align: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius: 12px;
+    background-color: $color-pink;
+}
+
+.btn-legend-signup{
+    width: 300px;
+    margin: auto;
+    text-align: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius: 12px;
+    margin-top: 20px;
+    color: $color-blue;
+
+}
+
+.svg-signup{
+    width: 50%;
+    display: block;
+    margin: auto;
+    margin-top: 13%;
+}
