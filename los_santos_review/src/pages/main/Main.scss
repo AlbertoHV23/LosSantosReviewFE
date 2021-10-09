@@ -128,6 +128,10 @@ h3{
     border-radius: 100px !important;
     width: 50%;
     margin-top: 10px !important;
+
+    &:hover{
+        background-color: #71b8f1 !important;
+    }
 }
 
 h6{
@@ -161,9 +165,9 @@ h6{
 }
 
 .footer-icon{
-    color: $color-white;
+    color: $color-white !important;
 
     &:hover{
-        color: $color-blue;
+        color: $color-blue !important;
     }
 }
