@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 
 import { Grid } from "@mui/material";
-import Navbar from "../../components/Account/Navbar";
+import NavbarAccount from "../../components/Account/Navbar";
 import Sliderbar from "../../components/Account/Slidebar";
 import ProfilePage from "../../components/Account/Profile";
 import Dashboard from "../../components/Account/Dashboard";
@@ -20,7 +20,7 @@ function Account() {
   return (
     <div className="account-page">
       <Router>
-        <Navbar />
+        <NavbarAccount />
         <Grid container>
           <Grid item xs={12} md={2}>
             <Sliderbar />
