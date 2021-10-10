@@ -5,7 +5,7 @@ import Logo from "../common/logo";
 
 function NavbarAccount() {
   return (
-    <>
+    <div >
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="#home">
           <Logo className="d-inline-block align-top" class="logo-navbar ml" />
@@ -26,7 +26,7 @@ function NavbarAccount() {
           </NavDropdown>
         </Nav>
       </Navbar>
-    </>
+    </div>
   );
 }
 
