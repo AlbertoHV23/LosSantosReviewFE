@@ -11,22 +11,23 @@ import {
 
 import { Grid } from "@mui/material";
 import NavbarAccount from "../../components/Account/Navbar";
-import Sliderbar from "../../components/Account/Slidebar";
 import ProfilePage from "../../components/Account/Profile";
 import Dashboard from "../../components/Account/Dashboard";
 import Security from "../../components/Account/Security";
+import Slidebar from "../../components/Account/Slidebar";
 
 function Account() {
   return (
     <div className="account-page">
       <Router>
-        <NavbarAccount />
+        <NavbarAccount/>
         <Grid container>
           <Grid item xs={12} md={2} lg={2.5}>
-            <Sliderbar />
+            <Slidebar />
           </Grid>
 
           <Grid item xs={12} md={10} lg={9.5}>
+            
             <Route path="/profile" exact>
               <ProfilePage />
             </Route>
