@@ -22,11 +22,11 @@ function Account() {
       <Router>
         <NavbarAccount />
         <Grid container>
-          <Grid item xs={12} md={2}>
+          <Grid item xs={12} md={2} lg={2.5}>
             <Sliderbar />
           </Grid>
 
-          <Grid item xs={12} md={10}>
+          <Grid item xs={12} md={10} lg={9.5}>
             <Route path="/profile" exact>
               <ProfilePage />
             </Route>

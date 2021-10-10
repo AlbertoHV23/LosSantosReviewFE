@@ -12,6 +12,8 @@ import {
 } from "react-router-dom";
 import SignUp from "./pages/signup/SignUp";
 import Account from "./pages/account/Account";
+import ProfilePage from "./components/Account/Profile";
+import Dashboard from "./components/Account/Dashboard";
 
 
 function App() {
@@ -37,6 +39,7 @@ function App() {
         <Route path="/myaccount" exact>
           <Account />
         </Route>
+        
       </Switch>
     </Router>
   );

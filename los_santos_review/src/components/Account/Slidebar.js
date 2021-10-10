@@ -1,27 +1,20 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+//icons
+import PersonIcon from '@mui/icons-material/Person';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import VpnKeyIcon from '@mui/icons-material/VpnKey';
+import Sliderbar_Item from './Sliderbar-Item';
+import SilderbarHeader from './Sliderbar-Header';
 
 function Slidebar() {
     return (
-        <div  className ="slidebar">
+        <div className="slidebar">
+          <SilderbarHeader/>
           <ul>
-
-            <li>
-            <Link to="/profile">Profile</Link>
-            </li>
-
-            <li>
-            <Link to="/dashboard">Dashboard</Link>
-            </li>
-
-            <li>
-            <Link to="/security">Security & Password</Link>
-            </li>
-
-         
-
-
+            <Sliderbar_Item url ="/profile" text ="Profile" icon ={PersonIcon}/>
+            <Sliderbar_Item url ="/dashboard" text ="Dashboard" icon ={DashboardIcon}/>
+            <Sliderbar_Item url ="/security" text ="Password & Security" icon ={VpnKeyIcon}/>
           </ul>
         </div>
       );
