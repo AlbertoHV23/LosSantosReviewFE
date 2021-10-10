@@ -34,7 +34,7 @@ function ChangePhoto() {
              
             >
               <PhotoCamera />
-              <p className="text-upload">Uplaod</p>
+              <p className="text-upload">Upload</p>
             </IconButton>
           </label>
         </Stack>
