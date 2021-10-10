@@ -4,8 +4,8 @@ import React from 'react';
 import PersonIcon from '@mui/icons-material/Person';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
-import Sliderbar_Item from './Sliderbar-Item';
-import SilderbarHeader from './Sliderbar-Header';
+import Sliderbar_Item from './Sliderbar/Sliderbar-Item';
+import SilderbarHeader from './Sliderbar/Sliderbar-Header';
 
 function Slidebar() {
     return (
