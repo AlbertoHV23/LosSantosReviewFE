@@ -11,7 +11,7 @@ function ProfileForm() {
           <Form.Label className="text-blue">Name(s):</Form.Label>
           <Form.Control
             type="text"
-            className="input-profile"
+            className="input-login"
             value ="Alberto"
           />
         </Form.Group>
@@ -20,7 +20,7 @@ function ProfileForm() {
           <Form.Label className="text-blue">Surnames(s):</Form.Label>
           <Form.Control
             type="text"
-            className="input-profile"
+            className="input-login"
             value ="Hernadez"
           />
         </Form.Group>
@@ -29,7 +29,7 @@ function ProfileForm() {
           <Form.Label className="text-blue">Username):</Form.Label>
           <Form.Control
             type="text"
-            className="input-profile"
+            className="input-login"
             value ="Alberthor"
           />
         </Form.Group>
@@ -38,7 +38,7 @@ function ProfileForm() {
           <Form.Label className="text-blue">Email:</Form.Label>
           <Form.Control
             type="email"
-            className="input-profile"
+            className="input-login"
             value = "albertho0.hdzv@gmail.com"
           />
         </Form.Group>
