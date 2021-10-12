@@ -33,6 +33,9 @@ function App() {
         <Route path="/review" exact>
           <Review />
         </Route>
+        <Route path="/myaccount" exact>
+          <Account />
+        </Route>
         <Route path="/review-form" exact>
           <ReviewForm />
         </Route>
