@@ -14,6 +14,7 @@ import SignUp from "./pages/signup/SignUp";
 import Account from "./pages/account/Account";
 import ProfilePage from "./components/Account/Profile";
 import Dashboard from "./components/Account/Dashboard";
+import ReviewForm from "./pages/review-form/ReviewForm";
 
 
 function App() {
@@ -39,7 +40,9 @@ function App() {
         <Route path="/myaccount" exact>
           <Account />
         </Route>
-        
+        <Route path="/review-form" exact>
+          <ReviewForm />
+        </Route>
       </Switch>
     </Router>
   );
