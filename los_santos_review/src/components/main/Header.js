@@ -7,8 +7,14 @@ import { FormControl } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
 import Logo from "../common/logo";
 import { Search } from "@mui/icons-material";
+import { useHistory } from "react-router-dom";
 
 function Header() {
+    const history = useHistory();
+    const routeChange = (ruta) => {
+    let path = 'myaccount';
+    history.push(path);
+    };
     return (
         <>
           <Navbar bg="dark" variant="dark">
@@ -23,13 +29,14 @@ function Header() {
                   placeholder="Search something" 
                   className="me-2 search"
                   aria-label="Search"
+                  href="/search"
                 />
               </Form>
               <Nav>
                 <Nav.Link className="links" href="#home">Movies</Nav.Link>
-                <Nav.Link className="links" href="#features">Series</Nav.Link>
-                <Nav.Link className="links" href="#pricing">Videogames</Nav.Link>
-                <Nav.Link className="links" href="#account">Account</Nav.Link>
+                <Nav.Link className="links" href="#home">Series</Nav.Link>
+                <Nav.Link className="links" href="#home">Videogames</Nav.Link>
+                <Nav.Link className="links" onClick={routeChange}>Account</Nav.Link>
               </Nav>
             </Container>
           </Navbar>
