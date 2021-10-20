@@ -4,6 +4,9 @@ import { Col } from "react-bootstrap";
 import Image from "../common/Image"
 import Logo from "../common/logo";
 import Title from "../common/Title";
+import Button from "@restart/ui/esm/Button";
+import EditIcon from '@mui/icons-material/Edit';
+
 
 function Info() {
     return (
@@ -18,6 +21,10 @@ function Info() {
         </Row>
 
         <div>
+            <div className="right">
+                <Button className="comment-icon editable mb-3"  href="/review-form"><EditIcon/> Edit Content</Button>
+            </div>    
+            <br/>
             <p>Five years after the events of The Last of Us, Ellie embarks on another journey through a 
             post-apocalyptic America on a mission of vengeance against a mysterious militia.</p>
 
@@ -38,6 +45,8 @@ function Info() {
                 </Col>
             </Row>
 
+            
+
             {/*
             <div className="inline">
                 <h3>Rating : </h3> 
@@ -56,6 +65,30 @@ function Info() {
             */}
 
         </div>
+
+        <Row>
+            <Col xs={2} md={3}>
+                <Title title="LOS SANTOS REVIEW" class = "title "/>
+            </Col>
+            <Col xs={10} md={9}>
+                <hr className = "line"/>
+            </Col>
+        </Row>
+
+        <div>
+            <div className="right">
+                <Button className="comment-icon editable mb-3"  href="/review-form"><EditIcon/> Edit Review</Button>
+            </div>    
+            <br/>
+            <p>Five years after the events of The Last of Us, Ellie embarks on another journey through a 
+            post-apocalyptic America on a mission of vengeance against a mysterious militia.</p>
+
+            <br/>
+
+
+        </div>
+
+
 
 
         </>

@@ -18,7 +18,7 @@ function Critics() {
                 <Title title="CRITIC REVIEW" class = "title"/>
             </Col>
             <Col xs={10} md={10}>
-                <hr className = "line pad"/>
+                <hr className = "line"/>
             </Col>
         </Row>
 
@@ -64,6 +64,9 @@ function Critics() {
                               <Card.Text>
                                 Some quick example text to build on the card title and make up the bulk
                                 of the card's content.
+                              </Card.Text>
+                              <Card.Text className="center">
+                                Score: 77%
                               </Card.Text>
                               <div className="right">
                                 <Button className="comment-icon"><EditIcon/></Button>
