@@ -1,0 +1,18 @@
+@import '../../styles/Colors.scss';
+
+*{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.submit{
+    color: $color-white;
+    font-weight: 700;
+    border: none;
+    width: 15%;
+    padding: 5px;
+}
+
+.editable{
+    border: none;
+    background-color: transparent;
+}
