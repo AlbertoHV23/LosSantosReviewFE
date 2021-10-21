@@ -88,10 +88,14 @@ function Info() {
         </Row>
 
         <div>
-            <div className="right">
+            <div className="right mb-0">
                 <Button className="comment-icon editable mb-3"  href="/review-form"><EditIcon/> Edit Review</Button>
+                <h3>Released Date: 10/20/2021</h3>
             </div>    
-            <br/>
+        
+            <Title title="Just what we needed" class = "title-review"/>
+            <Title title="The perfect ending." class = "title"/>
+            
             <p>Five years after the events of The Last of Us, Ellie embarks on another journey through a 
             post-apocalyptic America on a mission of vengeance against a mysterious militia.</p>
 
