@@ -79,7 +79,7 @@ function FormContent() {;
 
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridTitle">
-                      <Form.Label>Realesed Date</Form.Label>
+                      <Form.Label>Released Date</Form.Label>
                       <BootstrapDate/>
                     </Form.Group>
 

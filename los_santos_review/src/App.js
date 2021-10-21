@@ -17,6 +17,7 @@ import Dashboard from "./components/Account/Dashboard";
 import ReviewForm from "./pages/review-form/ReviewForm";
 import ContentForm from "./pages/content-form/ContentForm";
 import CategoryForm from "./pages/category-form/CategoryForm";
+import CompanyForm from "./pages/company-form/CompanyForm";
 
 
 function App() {
@@ -50,6 +51,9 @@ function App() {
         </Route>
         <Route path="/category-form" exact>
           <CategoryForm />
+        </Route>
+        <Route path="/company-form" exact>
+          <CompanyForm />
         </Route>
       </Switch>
     </Router>
