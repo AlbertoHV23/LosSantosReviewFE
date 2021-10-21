@@ -26,7 +26,7 @@ function LoginInformation() {
           alt=""
         />
         <Button variant="outline-primary" className="test"  onClick={routeChange}>
-          Sing Up
+          Sign Up
         </Button>{" "}
       </Container>
     </>
