@@ -22,7 +22,7 @@ function Info() {
 
         <div>
             <div className="right">
-                <Button className="comment-icon editable mb-3"  href="/review-form"><EditIcon/> Edit Content</Button>
+                <Button className="comment-icon editable mb-3" href="/content-form"><EditIcon/> Edit Content</Button>
             </div>    
             <br/>
             <p>Five years after the events of The Last of Us, Ellie embarks on another journey through a 
