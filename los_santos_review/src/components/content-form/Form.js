@@ -16,7 +16,7 @@ function FormContent() {;
             <Title title="Entertainment" class = "title"/> 
             <hr></hr>
         </Row>
-        
+
             <Form>
                 <Row className="mb-3 mt-3">
 
@@ -102,7 +102,8 @@ function FormContent() {;
                 </Row>
 
                 <div className="right">
-                    <Button variant="primary" className="button submit" type="submit">SUBMIT</Button>
+                    <Button variant="primary" className="button submit margin" type="submit">SUBMIT</Button>
+                    <Button variant="primary" className="button submit delete" type="submit">DELETE</Button>
                 </div>
             </Form>
         </>

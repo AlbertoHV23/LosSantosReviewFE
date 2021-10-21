@@ -7,7 +7,7 @@ import Footer from "../../components/main/Footer";
 import { Container } from "react-bootstrap";
 
 import "../main/Main.scss";
-
+import "./ContentForm.scss";
 
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"></link>
 
