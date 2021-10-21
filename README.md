@@ -44,6 +44,10 @@ http://localhost:3000/
 npm install
 //Google Button
 npm install --save react-google-button
+// Slider
+npm install react-bootstrap-range-slider
+// Date picker
+npm install react-bootstrap-date-picker
 ```
 
 ## Material Ui
