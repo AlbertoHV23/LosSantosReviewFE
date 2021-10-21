@@ -38,7 +38,7 @@ function FormReview() {;
                         <Form.Label>Category</Form.Label>
                         <Form.Control defaultValue="Content Category"></Form.Control>
                         <div className="right mt-1">
-                            <Button className="comment-icon editable"><EditIcon/> Edit Category</Button>
+                            <Button className="comment-icon editable"  href="/category-form"><EditIcon/> Edit Category</Button>
                         </div>    
                         </fieldset>
                     </Form.Group>
@@ -48,7 +48,7 @@ function FormReview() {;
                         <Form.Label>Subcategory</Form.Label>
                         <Form.Control defaultValue="Content Subcategory"/>
                         <div className="right mt-1">
-                            <Button className="comment-icon editable"><EditIcon/> Edit SubCategory</Button>
+                            <Button className="comment-icon editable" href="/category-form"><EditIcon/> Edit Subcategory</Button>
                         </div> 
                         </fieldset>
                     </Form.Group>
@@ -61,7 +61,7 @@ function FormReview() {;
                          <Form.Label>Classification</Form.Label>
                          <Form.Control defaultValue="Content Classification"></Form.Control>
                          <div className="right mt-1">
-                             <Button className="comment-icon editable"><EditIcon/> Edit Classification</Button>
+                             <Button className="comment-icon editable" href="/category-form"><EditIcon/> Edit Classification</Button>
                          </div>    
                          </fieldset>
                      </Form.Group>
@@ -71,7 +71,7 @@ function FormReview() {;
                          <Form.Label>Company</Form.Label>
                          <Form.Control defaultValue="Content Company"/>
                          <div className="right mt-1">
-                             <Button className="comment-icon editable"><EditIcon/> Edit Company</Button>
+                             <Button className="comment-icon editable" href="/company-form"><EditIcon/> Edit Company</Button>
                          </div> 
                          </fieldset>
                      </Form.Group>
