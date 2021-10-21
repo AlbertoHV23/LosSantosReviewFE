@@ -31,6 +31,16 @@ http://localhost:3000/
 /search
 ## Review Form:
 /review-form
+## Content Form:
+/content-form
+## Category Form:
+/category-form
+## Subcategory Form:
+/subcategory-form
+## Classification Form:
+/classification-form
+## Company Form:
+/Company-form
 
 # Librerias que se han utilizado
 ## Npm
