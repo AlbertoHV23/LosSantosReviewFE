@@ -3,102 +3,103 @@ import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import Button from "@restart/ui/esm/Button";
-import SliderBar from "../common/Slider";
 import EditIcon from '@mui/icons-material/Edit';
+import BootstrapDate from "../common/Date-Picker";
+import TimePicker from 'react-bootstrap-time-picker';
 import Title from "../common/Title";
 
-function FormReview() {;
+function FormContent() {;
     return (
         <>
 
         <Row>
-            <Title title="Review" class = "title"/> 
+            <Title title="Entertainment" class = "title"/> 
             <hr></hr>
         </Row>
-
+        
             <Form>
                 <Row className="mb-3 mt-3">
 
                     <Form.Group as={Col} controlId="formGridState">
                       <Form.Label>Content</Form.Label>
-                      <Form.Select defaultValue="Choose Content to Review">
-                        <option>The last of us  II</option>
-                        <option>God Of War</option>
-                      </Form.Select>
-                        <div className="right mt-1">
-                            <Button className="comment-icon editable" href="/content-form"><EditIcon/> Edit Content</Button>
-                        </div> 
+                      <Form.Control placeholder="Title"></Form.Control>
                     </Form.Group>
                 </Row>
                 
                 <Row className="mb-3 mt-3">
                      
                     <Form.Group as={Col} controlId="formGridState">
-                        <fieldset disabled>
                         <Form.Label>Category</Form.Label>
-                        <Form.Control defaultValue="Content Category"></Form.Control>
+                        <Form.Select defaultValue="Choose Content Category">
+                        <option hidden selected>Choose Content Category</option>
+                        </Form.Select>
                         <div className="right mt-1">
                             <Button className="comment-icon editable"><EditIcon/> Edit Category</Button>
                         </div>    
-                        </fieldset>
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridState">
-                        <fieldset disabled>
                         <Form.Label>Subcategory</Form.Label>
-                        <Form.Control defaultValue="Content Subcategory"/>
+                        <Form.Select defaultValue="Choose Content Subcategory">
+                        <option hidden selected>Choose Content Subcategory</option>
+                        </Form.Select>
                         <div className="right mt-1">
                             <Button className="comment-icon editable"><EditIcon/> Edit SubCategory</Button>
                         </div> 
-                        </fieldset>
                     </Form.Group>
                 </Row>
 
                 <Row className="mb-3 mt-3">
                      
                      <Form.Group as={Col} controlId="formGridState">
-                         <fieldset disabled>
                          <Form.Label>Classification</Form.Label>
-                         <Form.Control defaultValue="Content Classification"></Form.Control>
+                         <Form.Select defaultValue="Choose Content Classification">
+                            <option hidden selected>Choose Content Classification</option>
+                         </Form.Select>
                          <div className="right mt-1">
                              <Button className="comment-icon editable"><EditIcon/> Edit Classification</Button>
                          </div>    
-                         </fieldset>
                      </Form.Group>
  
                      <Form.Group as={Col} controlId="formGridState">
-                         <fieldset disabled>
                          <Form.Label>Company</Form.Label>
-                         <Form.Control defaultValue="Content Company"/>
+                         <Form.Select defaultValue="Choose Content Company">
+                            <option hidden selected>Choose Content Company</option>
+                         </Form.Select>
                          <div className="right mt-1">
                              <Button className="comment-icon editable"><EditIcon/> Edit Company</Button>
                          </div> 
-                         </fieldset>
                      </Form.Group>
                  </Row>
 
-                <Row className="mb-3">
-                    <Form.Group as={Col} controlId="formGridTitle">
-                      <Form.Label>Title</Form.Label>
-                      <Form.Control placeholder="Enter Review Title" />
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridSubtitlle">
-                      <Form.Label>Subtitle</Form.Label>
-                      <Form.Control placeholder="Enter Review Subtitle" />
-                    </Form.Group>
-                </Row>
-
-            
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                  <Form.Label>Los Santos Review</Form.Label>
+                  <Form.Label>Description</Form.Label>
                   <Form.Control as="textarea" rows={3} />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="">
-                    <Form.Label>Rating</Form.Label>
-                    <SliderBar/>
-                </Form.Group>
+                <Row className="mb-3">
+                    <Form.Group as={Col} controlId="formGridTitle">
+                      <Form.Label>Realesed Date</Form.Label>
+                      <BootstrapDate/>
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="formGridSubtitlle">
+                      <Form.Label>Duration</Form.Label>
+                      <Form.Control  type="number" placeholder="Enter minutes total" />
+                    </Form.Group>
+                </Row>
+
+                <Row className="mb-3">
+                    <Form.Group as={Col} controlId="formFile" className="mb-3">
+                        <Form.Label>Poster</Form.Label>
+                        <Form.Control type="file" />
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="formGridSubtitlle">
+                      <Form.Label>Trailer Link</Form.Label>
+                      <Form.Control placeholder="Enter link" />
+                    </Form.Group>
+                </Row>
 
                 <div className="right">
                     <Button variant="primary" className="button submit" type="submit">SUBMIT</Button>
@@ -108,4 +109,4 @@ function FormReview() {;
      );
 }
 
-export default FormReview;
+export default FormContent;
