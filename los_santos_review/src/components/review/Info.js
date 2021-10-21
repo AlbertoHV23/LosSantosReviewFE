@@ -35,13 +35,25 @@ function Info() {
                     <h2>Rating</h2> 
                     <h3>M</h3>
                 </Col>
-                <Col xs={5} md={5} className="center subtitles">
-                    <h2>Genre</h2> 
-                    <h3>Action | Adventure | Drama | Horror | Thriller</h3>
+                <Col xs={2} md={2} className="center subtitles">
+                    <h2>Category</h2> 
+                    <h3>Action </h3>
                 </Col>
-                <Col xs={5} md={5} className="center subtitles">
-                    <h2>Director(s)</h2> 
-                    <h3>Neil Druckmann, Kurt Margenau, Anthony Newman</h3>
+                <Col xs={2} md={2} className="center subtitles">
+                    <h2>Subcategory</h2> 
+                    <h3>Shooter </h3>
+                </Col>
+                <Col xs={2} md={2} className="center subtitles">
+                    <h2>Company</h2> 
+                    <h3>Naughty Dog</h3>
+                </Col>
+                <Col xs={2} md={2} className="center subtitles">
+                    <h2>Released Date</h2> 
+                    <h3>10/14/2020</h3>
+                </Col>
+                <Col xs={2} md={2} className="center subtitles">
+                    <h2>Duration</h2> 
+                    <h3>600 min</h3>
                 </Col>
             </Row>
 
