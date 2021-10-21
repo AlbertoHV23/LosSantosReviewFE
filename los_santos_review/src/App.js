@@ -16,6 +16,7 @@ import ProfilePage from "./components/Account/Profile";
 import Dashboard from "./components/Account/Dashboard";
 import ReviewForm from "./pages/review-form/ReviewForm";
 import ContentForm from "./pages/content-form/ContentForm";
+import CategoryForm from "./pages/category-form/CategoryForm";
 
 
 function App() {
@@ -46,6 +47,9 @@ function App() {
         </Route>
         <Route path="/content-form" exact>
           <ContentForm />
+        </Route>
+        <Route path="/category-form" exact>
+          <CategoryForm />
         </Route>
       </Switch>
     </Router>
