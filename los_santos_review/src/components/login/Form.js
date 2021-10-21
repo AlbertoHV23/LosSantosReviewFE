@@ -36,7 +36,7 @@ function Form_() {
           Login
         </Button> */}
 
-        <Button variant="primary" className="btn-login mb-4">Login</Button>{' '}
+        <Button variant="primary" className="btn-login mb-4">Log In</Button>{' '}
 
         <GoogleButton className="btn-login" type="light"
           onClick={() => {
