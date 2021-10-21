@@ -33,12 +33,8 @@ http://localhost:3000/
 /review-form
 ## Content Form:
 /content-form
-## Category Form:
+## Category | Subcategory | Classification Form:
 /category-form
-## Subcategory Form:
-/subcategory-form
-## Classification Form:
-/classification-form
 ## Company Form:
 /Company-form
 
