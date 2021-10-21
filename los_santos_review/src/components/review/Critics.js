@@ -9,6 +9,8 @@ import { Card } from "react-bootstrap";
 import Profile from "../common/Profile";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { Form } from "react-bootstrap";
+import SliderBar from "../common/Slider";
 
 function Critics() {
     return (
@@ -39,10 +41,60 @@ function Critics() {
             <Col>
                 <div className="right">
                 <Button variant="primary" className="button-comment">COMMENT</Button>{' '}
+                {/*
                 <Button variant="primary" className="button-rate">RATE</Button>{' '}
+                */}
                 </div>
             </Col>
         </Row>
+
+        <Row>
+            <Form>
+                <Row className="mb-3 mt-3">
+
+                    <Form.Group as={Col} controlId="formGridState">
+                      <Form.Label>Comment</Form.Label>
+                      <Form.Control as="textarea" placeholder="Please share your opinion" rows={3} />
+                    </Form.Group>
+
+                </Row>
+
+                <Row className="mb-3 mt-3">
+
+                    <Form.Group as={Col} controlId="formGridState">
+                      <Form.Label>Rate</Form.Label>
+                      <SliderBar/>
+                    </Form.Group>
+                </Row>
+                
+
+                <div className="right">
+                    <Button variant="primary" className="button submit margin" type="submit">SUBMIT</Button>
+                </div>
+            </Form>
+        </Row>
+
+        {/*
+
+        <Row>
+            <Form>
+                <Row className="mb-3 mt-3">
+
+                    <Form.Group as={Col} controlId="formGridState">
+                      <Form.Label>Rate</Form.Label>
+                      <SliderBar/>
+                    </Form.Group>
+                </Row>
+                
+
+
+                <div className="right">
+                    <Button variant="primary" className="button submit margin" type="submit">SUBMIT</Button>
+                </div>
+            </Form>
+        </Row>
+
+        */}
 
         {Array.from({ length: 3 }).map((_, idx) => (
             <Row>
