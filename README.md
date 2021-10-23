@@ -1,20 +1,24 @@
-# LosSantosReview Front End
+# Los Santos Review 
 
 # Integrantes:
-Edgar Donato Calvillo Lumbreras 1937846
-Luis Gerardo Becerra Jimenez 1825240
-Alberto Daniel Hernandez Villanueva 1814187
-Romelia Alejandra Gonzalez Soto 1937840
+* Alberto Daniel Hernandez Villanueva 1814187
+* Romelia Alejandra Gonzalez Soto 1937840
+* Edgar Donato Calvillo Lumbreras 1937846
+* Luis Gerardo Becerra Jimenez 1825240
 
-# Pages
+# Carpetas
+## Pages
 En esta carpeta estaran todas las paginas que serán urilizadas en el proyecto. Cada pagina tendra su propio folder donde se almacenara el jsx y el sccs de estas misma.
 
-# Componentes
+## Componentes
 Cada page tendra su propio folder donde estaran alojados todos los componentes que se utilizen en este mismo.
 Tambien cuenta con una carpeta "common" donde estaran los componentes compartidos.
 
-# Styles
-CSS que se puedan usar en distintos lugares como la paleta de colores
+## Styles
+CSS que se puedan usar en distintos lugares como la paleta de colores.
+
+## Themes
+Temas que se utilizaran en la aplicacion.
 
 # Rutas
 ## Root:
@@ -37,6 +41,8 @@ http://localhost:3000/
 /category-form
 ## Company Form:
 /Company-form
+## Account:
+/myaccount
 
 # Librerias que se han utilizado
 ## Npm
