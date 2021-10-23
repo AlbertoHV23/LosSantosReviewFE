@@ -13,7 +13,7 @@ function Slidebar() {
           <SilderbarHeader/>
           <ul>
             <Sliderbar_Item url ="/profile" text ="Profile" icon ={PersonIcon}/>
-            <Sliderbar_Item url ="/dashboard" text ="Dashboard" icon ={DashboardIcon}/>
+            {/* <Sliderbar_Item url ="/dashboard" text ="Dashboard" icon ={DashboardIcon}/> */}
             <Sliderbar_Item url ="/security" text ="Password " icon ={PasswordIcon}/>
           </ul>
         </div>
