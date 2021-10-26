@@ -2,8 +2,29 @@ import React from "react";
 import { Dropdown, Form } from "react-bootstrap";
 import GoogleButton from "react-google-button";
 import Button from "react-bootstrap/Button";
+import axios from "axios";
+
+
+
 
 function Form_() {
+  const handleSubmit = e => {
+    /*event.preventDefault();
+  
+    const user = {
+      email: this.state.name,
+      password: this.state.password
+    };
+  
+    axios.post(`${process.env.URL}api/auth/login/`,{user})
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })*/
+  
+    console.log("Hola soy Diosito");
+  }
+
   return (
     <>
       <Form className="form-signup">
@@ -66,7 +87,7 @@ function Form_() {
           />
         </Form.Group>
 
-        <Button variant="primary" className="btn-signup mb-4">
+        <Button variant="primary" className="btn-signup mb-4"  >
           Sign Up
         </Button>{" "}
 
