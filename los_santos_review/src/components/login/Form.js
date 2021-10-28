@@ -4,8 +4,37 @@ import GoogleButton from "react-google-button";
 import Button from 'react-bootstrap/Button';
 import axios from "axios";
 
+
 function Form_() {
   let email, password;
+
+  const EmailHandler = (e) =>{
+    email = e.target.value
+    console.log(email)
+  }
+  
+  const PasswordHandler = (e) =>{
+    password = e.target.value
+    console.log(password)
+  }
+
+  const Submit = (e) =>{
+    axios.post(`https://lossantos-api.herokuapp.com/api/auth/login/`,{
+      email,
+      password
+    })
+    .then(res => {
+
+      //const {}
+      window.localStorage.setItem(
+        'user' , JSON.stringify(res)
+      )
+      const user = JSON.parse(localStorage.getItem('user'))
+      console.log(user);
+
+    })
+  }
+
   return (
     <>
       <Form className="form-login">
@@ -15,6 +44,7 @@ function Form_() {
             type="email"
             placeholder="example@email.com"
             className="input-login"
+            onChange={EmailHandler}
           />
         </Form.Group>
 
@@ -24,6 +54,7 @@ function Form_() {
             type="password"
             placeholder="********"
             className="input-login"
+            onChange={PasswordHandler}
           />
         </Form.Group>
 
@@ -38,21 +69,7 @@ function Form_() {
           Login
         </Button> */}
 
-        <Button variant="primary" className="btn-login mb-4" onClick= {() => {
-          axios.post(`https://lossantos-api.herokuapp.com/api/auth/login/`,{
-            email,
-            password
-          })
-          .then(res => {
-            //const {}
-            window.localStorage.setItem(
-              'user' , JSON.stringify(res)
-            )
-            const user = JSON.parse(localStorage.getItem('user'))
-            console.log(user);
-          })
-          
-        }}>Log In</Button>{' '}
+        <Button variant="primary" className="btn-login mb-4" onClick= {Submit}>Log In</Button>{' '}
 
         <GoogleButton className="btn-login" type="light"
           onClick={() => {
