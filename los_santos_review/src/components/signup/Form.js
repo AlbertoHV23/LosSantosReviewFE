@@ -8,22 +8,6 @@ import axios from "axios";
 
 
 function Form_() {
-  const handleSubmit = e => {
-    /*event.preventDefault();
-  
-    const user = {
-      email: this.state.name,
-      password: this.state.password
-    };
-  
-    axios.post(`${process.env.URL}api/auth/login/`,{user})
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      })*/
-  
-    console.log("Hola soy Diosito");
-  }
 
   return (
     <>
