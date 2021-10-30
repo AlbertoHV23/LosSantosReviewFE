@@ -4,10 +4,9 @@ import GoogleButton from "react-google-button";
 import Button from 'react-bootstrap/Button';
 import axios from "axios";
 
-
 function Form_() {
   let email, password;
-
+  
   const EmailHandler = (e) =>{
     email = e.target.value
     console.log(email)
@@ -26,17 +25,33 @@ function Form_() {
     .then(res => {
 
       //const {}
+    
       window.localStorage.setItem(
         'user' , JSON.stringify(res)
       )
       const user = JSON.parse(localStorage.getItem('user'))
       console.log(user);
 
+      window.location = "main"
+
     })
+    .catch(err => {
+      const errorMsg =JSON.parse(err.request.response) ;
+
+      errorMsg.errors.forEach(e => {
+      
+        alert(e.msg);
+  
+      });
+
+    })
+
   }
 
   return (
+
     <>
+
       <Form className="form-login">
         <Form.Group className="mb-4" controlId="formBasicEmail">
           <Form.Label className="text-blue">Email:</Form.Label>
@@ -46,6 +61,7 @@ function Form_() {
             className="input-login"
             onChange={EmailHandler}
           />
+
         </Form.Group>
 
         <Form.Group className="mb-4" controlId="formBasicPassword">
@@ -70,6 +86,7 @@ function Form_() {
         </Button> */}
 
         <Button variant="primary" className="btn-login mb-4" onClick= {Submit}>Log In</Button>{' '}
+
 
         <GoogleButton className="btn-login" type="light"
           onClick={() => {
