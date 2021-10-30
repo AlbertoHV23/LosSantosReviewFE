@@ -6,7 +6,7 @@ import axios from "axios";
 
 function Form_() {
   let email, password;
-  
+
   const EmailHandler = (e) =>{
     email = e.target.value
     console.log(email)
@@ -38,11 +38,17 @@ function Form_() {
     .catch(err => {
       const errorMsg =JSON.parse(err.request.response) ;
 
-      errorMsg.errors.forEach(e => {
+      if(errorMsg.errors != null){
+        errorMsg.errors.forEach(e => {
       
-        alert(e.msg);
+          alert(e.msg);
   
-      });
+        });
+      }
+      else{
+        alert("Wrong email or password")
+      }
+
 
     })
 
