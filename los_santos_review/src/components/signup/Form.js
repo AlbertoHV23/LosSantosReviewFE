@@ -1,29 +1,54 @@
-import React from "react";
 import { Dropdown, Form } from "react-bootstrap";
 import GoogleButton from "react-google-button";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
-
-
-
+import React, { Component } from 'react'
+import Select from 'react-select'
 
 function Form_() {
+
+  let roles = [];
+
+  const getRoles = (e) =>{
+    axios.get(`https://lossantos-api.herokuapp.com/api/role`,{roles})
+    .then(res => {
+
+      res.data.roles.forEach(element => {
+        roles.push({
+          value: element.id,
+          label: element.name});
+      })
+
+      console.log(roles)
+        
+      
+    })
+    .catch(err => {
+      const errorMsg =JSON.parse(err.request.response) ;
+
+      if(errorMsg.errors != null){
+        errorMsg.errors.forEach(e => {
+      
+          alert(e.msg);
+  
+        });
+      }
+      else{
+        alert("Wrong email or password")
+      }
+
+
+    })
+  }
+
+  getRoles()
 
   return (
     <>
       <Form className="form-signup">
         <Form.Group className="mb-4" controlId="formBasicDropdown">
           <Form.Label className="text-pink">Rol:</Form.Label>
-          <Dropdown className="input-signup">
-            <Dropdown.Toggle variant="" id="dropdown-basic" className="w-100 input-signup " >
-              Rol
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu  className="w-100 ">
-              <Dropdown.Item className="w-100 ">Review User</Dropdown.Item>
-              <Dropdown.Item >Regular User</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+          <Select options={roles} />
         </Form.Group>
 
         <Form.Group className="mb-4" controlId="formBasicEmail">
@@ -71,7 +96,7 @@ function Form_() {
           />
         </Form.Group>
 
-        <Button variant="primary" className="btn-signup mb-4"  >
+        <Button variant="primary" className="btn-signup mb-4">
           Sign Up
         </Button>{" "}
 
