@@ -74,6 +74,34 @@ function Form_() {
     })
   }
 
+  const styles = {
+    option: (provided, state) => ({
+      ...provided,
+      fontWeight: state.isSelected ? "bold" : "normal",
+      color: "white",
+      backgroundColor: "#616161",
+      fontSize: state.selectProps.myFontSize
+    }),
+    placeholder: (provided, state) => ({
+      ...provided,
+      fontWeight: state.isSelected ? "bold" : "normal",
+      color: "#ff66c4",
+    }),
+    singleValue: (provided, state) => ({
+      ...provided,
+      fontWeight: state.isSelected ? "bold" : "bold",
+      color: "#ff66c4",
+    }),
+    control: (provided, state) => ({
+      ...provided,
+      backgroundColor: "#616161",
+      borderRadius: "12px",
+      borderColor: "#ff66c4",
+      borderWidth: "3px"
+
+    }),
+   
+  };
   getRoles()
 
   
@@ -123,7 +151,7 @@ function Form_() {
       <Form className="form-signup">
         <Form.Group className="mb-4" controlId="formBasicDropdown">
           <Form.Label className="text-pink">Rol:</Form.Label>
-          <Select options={roles} onChange={RoleHandler} />
+          <Select options={roles} onChange={RoleHandler} styles={styles} defaultInputValue = {roles.data}/>
           
         </Form.Group>
 
