@@ -9,12 +9,10 @@ function Form_() {
 
   const EmailHandler = (e) =>{
     email = e.target.value
-    console.log(email)
   }
   
   const PasswordHandler = (e) =>{
     password = e.target.value
-    console.log(password)
   }
 
   const Submit = (e) =>{
@@ -30,8 +28,6 @@ function Form_() {
         'user' , JSON.stringify(res)
       )
       const user = JSON.parse(localStorage.getItem('user'))
-      console.log(user);
-
       window.location = "main"
 
     })
@@ -96,7 +92,6 @@ function Form_() {
 
         <GoogleButton className="btn-login" type="light"
           onClick={() => {
-            console.log("Google button clicked");
           }}
         />
       </Form>

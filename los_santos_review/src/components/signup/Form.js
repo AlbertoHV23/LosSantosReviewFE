@@ -12,34 +12,28 @@ function Form_() {
 
   const RoleHandler = (e) =>{
     role = e.value 
-    console.log(role)
   }
 
   const UsernameHandler = (e) =>{
     username = e.target.value
-    console.log(username)
   }
 
   const NameHandler = (e) =>{
     name = e.target.value
-    console.log(name)
   }
 
   const SurnameHandler = (e) =>{
     lastName = e.target.value
-    console.log(lastName)
   }
   
   
   const EmailHandler = (e) =>{
     email = e.target.value
-    console.log(email)
   }
   
 
   const PasswordHandler = (e) =>{
     password = e.target.value
-    console.log(password)
   }
 
   const getRoles = (e) =>{
@@ -52,7 +46,6 @@ function Form_() {
           label: element.name});
       })
 
-      console.log(roles)
 
       role = roles[1].value
       
@@ -123,7 +116,6 @@ function Form_() {
         'user' , JSON.stringify(res)
       )
       const user = JSON.parse(localStorage.getItem('user'))
-      console.log(user);
 
       window.location = "main"
 
