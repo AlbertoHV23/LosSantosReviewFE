@@ -14,12 +14,13 @@ function SilderbarHeader() {
 
       res.data.roles.forEach(element => {
         if(element.id == role){
-          role_name = element.name
+
+          window.localStorage.setItem(
+            'role' , element.name
+          )
         }
         
       });
-
-      console.log(role_name)
 
     })
     .catch(err => {
@@ -35,11 +36,8 @@ function SilderbarHeader() {
       else{
         alert("Not found")
       }
-
-
     })
   }
-
 
   const GetSession = (e) =>{
     
@@ -55,12 +53,15 @@ function SilderbarHeader() {
     console.log(lastname)
     console.log(role)
 
-    GetRole()
     
   }
 
   GetSession()
+  GetRole()
 
+  
+  window.localStorage.getItem('role')
+  role_name = localStorage.getItem('role')
  
   return (
     <div className="sliderbar-header">
@@ -74,7 +75,7 @@ function SilderbarHeader() {
 
       
       <h2 className="text-center">{name + " " + lastname}</h2>
-      <h2 className="text-center">{role_name}</h2>
+      <p className="text-center">{role_name}</p>
     </div>
   );
 }
