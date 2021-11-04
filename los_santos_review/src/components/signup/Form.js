@@ -8,6 +8,7 @@ import Select from 'react-select'
 function Form_() {
 
   let roles = [];
+  let role_name;
   let role,username, name, lastName, email, password;
 
   const RoleHandler = (e) =>{
@@ -53,7 +54,8 @@ function Form_() {
       })
 
       console.log(roles)
-        
+
+      role = roles[1].value
       
     })
     .catch(err => {
@@ -126,6 +128,7 @@ function Form_() {
 
       window.location = "main"
 
+
     })
     .catch(err => {
       const errorMsg =JSON.parse(err.request.response) ;
@@ -151,7 +154,7 @@ function Form_() {
       <Form className="form-signup">
         <Form.Group className="mb-4" controlId="formBasicDropdown">
           <Form.Label className="text-pink">Rol:</Form.Label>
-          <Select options={roles} onChange={RoleHandler} styles={styles} defaultInputValue = {roles.data}/>
+          <Select options={roles} onChange={RoleHandler} styles={styles} defaultValue={{value: role, label: 'User'}}/>
           
         </Form.Group>
 
