@@ -8,7 +8,6 @@ import Select from 'react-select'
 function Form_() {
 
   let roles = [];
-  let role_name;
   let role,username, name, lastName, email, password;
 
   const RoleHandler = (e) =>{
