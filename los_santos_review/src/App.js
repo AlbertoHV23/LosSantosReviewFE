@@ -7,13 +7,11 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  NavLink,
+  
 } from "react-router-dom";
 import SignUp from "./pages/signup/SignUp";
 import Account from "./pages/account/Account";
-import ProfilePage from "./components/Account/Profile";
-import Dashboard from "./components/Account/Dashboard";
+
 import ReviewForm from "./pages/review-form/ReviewForm";
 import ContentForm from "./pages/content-form/ContentForm";
 import CategoryForm from "./pages/category-form/CategoryForm";

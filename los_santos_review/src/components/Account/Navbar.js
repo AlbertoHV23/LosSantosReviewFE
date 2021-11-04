@@ -1,6 +1,6 @@
 import { Avatar } from "@mui/material";
 import React from "react";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import Logo from "../common/logo";
 
 function NavbarAccount() {

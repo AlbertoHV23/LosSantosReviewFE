@@ -2,10 +2,10 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
-import Image from "../common/Image"
-import Logo from "../common/logo";
+// import Image from "../common/Image"
+// import Logo from "../common/logo";
 import Example from "../common/Example";
-import Button from "@restart/ui/esm/Button";
+// import Button from "@restart/ui/esm/Button";
 import { useHistory } from "react-router-dom";
 
 function Body() {

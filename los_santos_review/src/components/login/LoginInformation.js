@@ -5,7 +5,7 @@ import { Container } from "react-grid-system";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
 
-const imagen = "./Login.svg";
+// const imagen = "./Login.svg";
 function LoginInformation() {
   const history = useHistory();
   const routeChange = (ruta) => {
@@ -23,7 +23,7 @@ function LoginInformation() {
         <img
           className="svg"
           src={`${process.env.PUBLIC_URL}/assets/img/Login.svg`}
-          alt=""
+          alt = "Alternative text"
         />
         <Button variant="outline-primary" className="test"  onClick={routeChange}>
           Sign Up

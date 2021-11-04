@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 import Button from "@mui/material/Button";
-import Legend from "../common/Legend";
+// import Legend from "../common/Legend";
 import Title from "../common/Title";
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import TwitterIcon from '@mui/icons-material/Twitter';

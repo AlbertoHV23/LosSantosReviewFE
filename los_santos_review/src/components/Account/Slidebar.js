@@ -2,7 +2,7 @@ import React from 'react';
 
 //icons
 import PersonIcon from '@mui/icons-material/Person';
-import DashboardIcon from '@mui/icons-material/Dashboard';
+// import DashboardIcon from '@mui/icons-material/Dashboard';
 import Sliderbar_Item from './Sliderbar/Sliderbar-Item';
 import SilderbarHeader from './Sliderbar/Sliderbar-Header';
 import PasswordIcon from '@mui/icons-material/Password';
