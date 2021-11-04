@@ -40,20 +40,12 @@ function SilderbarHeader() {
   }
 
   const GetSession = (e) =>{
-    
     window.localStorage.getItem('user')
     const user = JSON.parse(localStorage.getItem('user'))
-    console.log(user.data.newUser);
-
     name = user.data.newUser.name
     lastname = user.data.newUser.lastName
     role = user.data.newUser.role
-
-    console.log(name)
-    console.log(lastname)
-    console.log(role)
-
-    
+ 
   }
 
   GetSession()

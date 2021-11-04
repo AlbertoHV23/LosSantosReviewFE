@@ -4,6 +4,14 @@ import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import Logo from "../common/logo";
 
 function NavbarAccount() {
+  let  username;
+  const GetSession = (e) =>{
+    window.localStorage.getItem('user')
+    const user = JSON.parse(localStorage.getItem('user'))
+    username = user.data.newUser.username
+  }
+
+  GetSession()
   return (
     <div >
       <Navbar bg="dark" variant="dark">
@@ -17,7 +25,7 @@ function NavbarAccount() {
             src= {`${process.env.PUBLIC_URL}/assets/img/avatars/Alberto.jpg`}
             sx={{ width: 37, height: 37 }}
           />
-          <NavDropdown title="Alberto Hernandez" id="collasible-nav-dropdown">
+          <NavDropdown title={username} id="collasible-nav-dropdown" className="ml-4">
             <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">Dashboard</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.3">Security</NavDropdown.Item>
