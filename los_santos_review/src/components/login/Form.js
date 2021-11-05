@@ -23,6 +23,7 @@ function Form_() {
     .then(res => {
 
       //const {}
+      console.log(res)
     
       window.localStorage.setItem(
         'user' , JSON.stringify(res)
