@@ -1,13 +1,13 @@
 import React from "react";
-import axios from 'axios';
+// import axios from 'axios';
 //My components
 
 //Material UI & Bootstrap components
 import { Grid } from "@mui/material";
 
 import "./SignUp.scss";
-import LoginInformation from "../../components/login/LoginInformation";
-import LoginForm from "../../components/login/LoginForm";
+// import LoginInformation from "../../components/login/LoginInformation";
+// import LoginForm from "../../components/login/LoginForm";
 import SignUpForm from "../../components/signup/SignUpForm";
 import SignUpInformation from "../../components/signup/SignUpInformation";
 

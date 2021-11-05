@@ -19,39 +19,39 @@ function Footer() {
                 <Row>
                   <Col>
                     <li>
-                        <a href="#">
+                        <a href="Help">
                             <h5>Help</h5>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="About Los Santos">
                             <h5>About Los Santos</h5>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="What's the Santos Certifictae?">
                             <h5>What's the Santos Certifictae?</h5>
                         </a>
                     </li>
                   </Col>
                   <Col>
                     <li>
-                        <a href="#">
+                        <a href="Critic Submission">
                             <h5>Critic Submission</h5>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="Licensing">
                             <h5>Licensing</h5>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="Advertise">
                             <h5>Advertise</h5>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="Carrers">
                             <h5>Carrers</h5>
                         </a>
                     </li>
@@ -83,13 +83,13 @@ function Footer() {
                   </Col>
                   <Col>
                     <div className="end">
-                        <a href="#">
+                        <a href="Privacy Policy">
                             <h6>Privacy Policy</h6>
                         </a>
-                        <a href="#">
+                        <a href="Terms & Policies">
                             <h6>Terms & Policies</h6>
                         </a>
-                        <a href="#">
+                        <a href="AdChoices">
                             <h6>AdChoices</h6>
                         </a>
                     </div>

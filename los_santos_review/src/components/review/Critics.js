@@ -27,13 +27,13 @@ function Critics() {
         <Row>
             <Col>
               <div className="filter">
-                  <a href="#">
+                  <a href="All">
                       <h6>All</h6>
                   </a>
-                  <a href="#">
+                  <a href="Top Critics">
                       <h6>Top Critics</h6>
                   </a>
-                  <a href="#">
+                  <a href="Fresh">
                       <h6>Fresh</h6>
                   </a>
               </div>

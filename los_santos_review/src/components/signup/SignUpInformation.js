@@ -6,7 +6,6 @@ import Button from 'react-bootstrap/Button';
 import { useHistory } from "react-router-dom";
 
 
-const imagen = './Login.svg';
 function SignUpInformation() {
   const history = useHistory();
   const routeChange = (ruta) => {

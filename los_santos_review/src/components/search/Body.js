@@ -2,8 +2,6 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
-import Image from "../common/Image"
-import Logo from "../common/logo";
 import Example from "../common/Example";
 
 function Body() {

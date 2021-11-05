@@ -1,8 +1,8 @@
-import { Dropdown, Form } from "react-bootstrap";
-import GoogleButton from "react-google-button";
+import { Form } from "react-bootstrap";
+// import GoogleButton from "react-google-button";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
-import React, { Component } from 'react'
+import React from 'react'
 import Select from 'react-select'
 
 function Form_() {
@@ -115,7 +115,7 @@ function Form_() {
       window.localStorage.setItem(
         'user' , JSON.stringify(res)
       )
-      const user = JSON.parse(localStorage.getItem('user'))
+      // const user = JSON.parse(localStorage.getItem('user'))
 
       window.location = "main"
 

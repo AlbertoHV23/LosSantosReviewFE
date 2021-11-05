@@ -28,7 +28,7 @@ function Form_() {
       window.localStorage.setItem(
         'user' , JSON.stringify(res)
       )
-      const user = JSON.parse(localStorage.getItem('user'))
+      // const user = JSON.parse(localStorage.getItem('user'))
       window.location = "main"
 
     })

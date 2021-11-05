@@ -1,6 +1,6 @@
 import React from "react";
 //My components
-import Title from "../../components/common/Title";
+// import Title from "../../components/common/Title";
 import Header from "../../components/main/Header";
 import FormReview from "../../components/review-form/Form";
 import Footer from "../../components/main/Footer";

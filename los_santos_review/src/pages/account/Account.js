@@ -3,10 +3,10 @@ import "./Account.scss";
 
 import {
   BrowserRouter as Router,
-  Switch,
+  // Switch,
   Route,
-  Link,
-  NavLink,
+  // Link,
+  // NavLink,
 } from "react-router-dom";
 
 import { Grid } from "@mui/material";
