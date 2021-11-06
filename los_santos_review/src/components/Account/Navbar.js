@@ -11,6 +11,10 @@ function NavbarAccount() {
     username = user.data.newUser.username
   }
 
+  const ClearStorage = (e) =>{
+    localStorage.clear()
+  }
+
   GetSession()
   return (
     <div >
@@ -30,7 +34,7 @@ function NavbarAccount() {
             <NavDropdown.Item href="#action/3.2">Dashboard</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.3">Security</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">Log Out</NavDropdown.Item>
+            <NavDropdown.Item href="/login" onClick={ClearStorage}>Log Out</NavDropdown.Item>
           </NavDropdown>
         </Nav>
       </Navbar>

@@ -51,7 +51,47 @@ function ProfileForm() {
             alert(e.msg);
           });
         } else {
-          alert("Wrong");
+          alert("Something went wrong, please try again.");
+        }
+      });
+  };
+
+  const Delete = (e) => {
+    
+    localStorage.clear()
+
+    axios({
+      method: "delete",
+      url: `https://lossantos-api.herokuapp.com/api/user/`+uid,
+      headers: {
+        "Access-Control-Allow-Headers" : "*",
+        'Content-Type' : 'application/json',
+        'Accept' : 'application/json',
+        'Authorization' : 'Bearer' + token,
+        "x-token": token
+
+      },
+      data: {
+        uid
+      },
+    })
+      .then((res) => {
+        console.log(res.data);
+        console.log("Account deleted")
+
+        window.location = "login"
+      })
+      .catch((err) => {
+        const errorMsg = JSON.parse(err.request.response);
+        
+
+        if (errorMsg.errors != null) {
+          errorMsg.errors.forEach((e) => {
+            alert(e.msg);
+          });
+        } else {
+          alert("Something went wrong, please try again.");
+          
         }
       });
   };
@@ -102,7 +142,13 @@ function ProfileForm() {
         <Button variant="primary" className="btn-login mb-4" onClick={Submit}>
           Save
         </Button>
+
+        <Button variant="danger" className="btn-login btn-delete mb-4" onClick={() => { if (window.confirm('Are you sure you wish to delete your account?')) Delete() }}>
+          Delete Account
+        </Button>
       </Form>
+
+      
     </>
   );
 }
