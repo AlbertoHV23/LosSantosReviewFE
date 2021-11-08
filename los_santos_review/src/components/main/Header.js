@@ -8,6 +8,7 @@ import { Nav } from "react-bootstrap";
 import Logo from "../common/logo";
 import { Search } from "@mui/icons-material";
 import { useHistory } from "react-router-dom";
+import { Dropdown } from "react-bootstrap";
 
 function Header() {
     const history = useHistory();
@@ -37,6 +38,20 @@ function Header() {
                 <Nav.Link className="links" href="#home">Series</Nav.Link>
                 <Nav.Link className="links" href="#home">Videogames</Nav.Link>
                 <Nav.Link className="links" onClick={routeChange}>Account</Nav.Link>
+                <Dropdown>
+                  <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    Create
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="/review-form">Review</Dropdown.Item>
+                    <Dropdown.Item href="/category-form">Category</Dropdown.Item>
+                    <Dropdown.Item href="/category-form">Classification</Dropdown.Item>
+                    <Dropdown.Item href="/content-form">Content</Dropdown.Item>
+                    <Dropdown.Item href="/company-form">Company</Dropdown.Item>
+                    <Dropdown.Item href="/category-form">Subcategory</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </Nav>
             </Container>
           </Navbar>

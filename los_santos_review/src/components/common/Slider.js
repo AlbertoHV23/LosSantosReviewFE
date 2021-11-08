@@ -13,7 +13,6 @@ const SliderBar = () => {
     <RangeSlider
       value={value}
       onChange={changeEvent => setValue(changeEvent.target.value)}
-      onAfterChange={e => setFinalValue(e.target.value)}
       tooltipPlacement='top'
       tooltipLabel={currentValue => `${currentValue}%`}
       tooltip='on'
