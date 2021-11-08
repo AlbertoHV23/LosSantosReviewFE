@@ -34,7 +34,7 @@ function FormContent() {;
                         <option hidden selected>Choose Content Category</option>
                         </Form.Select>
                         <div className="right mt-1">
-                            <Button className="comment-icon editable"><EditIcon/> Edit Category</Button>
+                            <Button className="comment-icon editable" href="/category-form"><EditIcon/> Edit Category</Button>
                         </div>    
                     </Form.Group>
 
@@ -44,7 +44,7 @@ function FormContent() {;
                         <option hidden selected>Choose Content Subcategory</option>
                         </Form.Select>
                         <div className="right mt-1">
-                            <Button className="comment-icon editable"><EditIcon/> Edit SubCategory</Button>
+                            <Button className="comment-icon editable" href="/category-form"><EditIcon/> Edit SubCategory</Button>
                         </div> 
                     </Form.Group>
                 </Row>
@@ -57,7 +57,7 @@ function FormContent() {;
                             <option hidden selected>Choose Content Classification</option>
                          </Form.Select>
                          <div className="right mt-1">
-                             <Button className="comment-icon editable"><EditIcon/> Edit Classification</Button>
+                             <Button className="comment-icon editable" href="/category-form"><EditIcon/> Edit Classification</Button>
                          </div>    
                      </Form.Group>
  
@@ -67,7 +67,7 @@ function FormContent() {;
                             <option hidden selected>Choose Content Company</option>
                          </Form.Select>
                          <div className="right mt-1">
-                             <Button className="comment-icon editable"><EditIcon/> Edit Company</Button>
+                             <Button className="comment-icon editable" href="/company-form"><EditIcon/> Edit Company</Button>
                          </div> 
                      </Form.Group>
                  </Row>

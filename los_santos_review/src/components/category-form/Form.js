@@ -4,8 +4,11 @@ import { Col } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import Button from "@restart/ui/esm/Button";
 import Title from "../common/Title";
+import axios from "axios";
 
-function FormCategory() {;
+
+
+function FormCategory() {
     return (
         <>
 
@@ -25,7 +28,7 @@ function FormCategory() {;
                 
 
                 <div className="right">
-                    <Button variant="primary" className="button submit margin" type="submit">SUBMIT</Button>
+                    <Button variant="primary" className="button submit margin" type="submit">SAVE</Button>
                     <Button variant="primary" className="button submit delete" type="submit">DELETE</Button>
                 </div>
             </Form>
@@ -53,7 +56,7 @@ function FormCategory() {;
                 
 
                 <div className="right">
-                    <Button variant="primary" className="button submit margin" type="submit">SUBMIT</Button>
+                    <Button variant="primary" className="button submit margin" type="submit">SAVE</Button>
                     <Button variant="primary" className="button submit delete" type="submit">DELETE</Button>
                 </div>
             </Form>
@@ -78,7 +81,7 @@ function FormCategory() {;
                 
 
                 <div className="right">
-                    <Button variant="primary" className="button submit margin" type="submit">SUBMIT</Button>
+                    <Button variant="primary" className="button submit margin" type="submit">SAVE</Button>
                     <Button variant="primary" className="button submit delete" type="submit">DELETE</Button>
                 </div>
             </Form>
