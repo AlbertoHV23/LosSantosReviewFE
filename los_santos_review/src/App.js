@@ -16,6 +16,7 @@ import ReviewForm from "./pages/review-form/ReviewForm";
 import ContentForm from "./pages/content-form/ContentForm";
 import CategoryForm from "./pages/category-form/CategoryForm";
 import CompanyForm from "./pages/company-form/CompanyForm";
+import RoleForm from "./pages/role-form/RoleForm";
 
 
 function App() {
@@ -52,6 +53,9 @@ function App() {
         </Route>
         <Route path="/company-form" exact>
           <CompanyForm />
+        </Route>
+        <Route path="/role-form" exact>
+          <RoleForm />
         </Route>
       </Switch>
     </Router>

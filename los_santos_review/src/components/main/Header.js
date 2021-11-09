@@ -39,16 +39,17 @@ function Header() {
                 <Nav.Link className="links" href="#home">Videogames</Nav.Link>
                 <Nav.Link className="links" onClick={routeChange}>Account</Nav.Link>
                 <Dropdown>
-                  <Dropdown.Toggle variant="success" id="dropdown-basic">
+                  <Dropdown.Toggle variant="info" id="dropdown-basic">
                     Create
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
-                    <Dropdown.Item href="/review-form">Review</Dropdown.Item>
                     <Dropdown.Item href="/category-form">Category</Dropdown.Item>
                     <Dropdown.Item href="/category-form">Classification</Dropdown.Item>
-                    <Dropdown.Item href="/content-form">Content</Dropdown.Item>
                     <Dropdown.Item href="/company-form">Company</Dropdown.Item>
+                    <Dropdown.Item href="/content-form">Content</Dropdown.Item>
+                    <Dropdown.Item href="/review-form">Review</Dropdown.Item>
+                    <Dropdown.Item href="/role-form">Role</Dropdown.Item>
                     <Dropdown.Item href="/category-form">Subcategory</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
