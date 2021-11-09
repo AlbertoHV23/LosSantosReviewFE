@@ -5,13 +5,16 @@ import { Form } from "react-bootstrap";
 import Button from "@restart/ui/esm/Button";
 import Title from "../common/Title";
 import axios from "axios";
+import Select from 'react-select'
 
 
 
 function FormCategory() {
     let Name; //Category
     let ClassName,ClassDescription; //Classification
+    let SubCategory, uidCategory; //Subcategory
     let username, name, lastName, email, role, uid, token; // SESSION VARS
+    let Categories = [];
 
   const GetSession = (e) => {
     window.localStorage.getItem("user");
@@ -28,11 +31,78 @@ function FormCategory() {
     console.log(token);
   };
 
+  
+  const getCategorys = (e) =>{
+    axios.get(`https://lossantos-api.herokuapp.com/api/category`)
+    .then(res => {
+        console.log(res.data.categories[0])
+        res.data.categories[0].forEach(element => {
+            Categories.push({
+              value: element.uid,
+              label: element.name});
+          })
+    
+    
+
+     
+      
+    })
+    .catch(err => {
+      const errorMsg =JSON.parse(err.request.response) ;
+
+      if(errorMsg.errors != null){
+        errorMsg.errors.forEach(e => {
+      
+          alert(e.msg);
+  
+        });
+      }
+      else{
+        alert("Wrong email or password")
+      }
+
+
+    })
+  }
+
+
   GetSession()
+  getCategorys()
+  
+  const styles = {
+    option: (provided, state) => ({
+      ...provided,
+      fontWeight: state.isSelected ? "bold" : "normal",
+      color: "black",
+      backgroundColor: "white",
+      fontSize: state.selectProps.myFontSize
+    }),
+    placeholder: (provided, state) => ({
+      ...provided,
+      fontWeight: state.isSelected ? "bold" : "normal",
+      color: "black",
+    }),
+    singleValue: (provided, state) => ({
+      ...provided,
+      fontWeight: state.isSelected ? "bold" : "bold",
+      color: "black",
+    }),
+    control: (provided, state) => ({
+      ...provided,
+      backgroundColor: "white",
+    //   borderRadius: "12px",
+    //   borderColor: "#ff66c4",
+    //   borderWidth: "3px"
+
+    }),
+   
+  };
 
     const CategoryHandler = (e) =>{ Name = e.target.value }
     const ClassficationHandler = (e) =>{ ClassName = e.target.value}
-    const ClasDescriptionHandler = (e) =>{ ClassDescription = e.target.value; console.log(ClassDescription)}
+    const ClasDescriptionHandler = (e) =>{ ClassDescription = e.target.value}
+    const SubCategoryHandler = (e) =>{ SubCategory = e.target.value}
+    const DropdownCategoryHandler = (e) =>{ uidCategory = e.value }
 
     const CategorySubmit = (e) => {
         axios({
@@ -87,7 +157,33 @@ function FormCategory() {
             }
           });
       };
- 
+    const SubCategorySubmit = (e) => {
+        axios({
+            method: "post",
+            url: `https://lossantos-api.herokuapp.com/api/subcategory/`,
+            headers: {
+              "x-token": token
+            },
+            data: {
+              'name': SubCategory,
+              'category': uidCategory,
+            },
+          })
+            .then((res) => {
+              console.log(res.data);
+            })
+            .catch((err) => {
+              const errorMsg = JSON.parse(err.request.response);
+      
+              if (errorMsg.errors != null) {
+                errorMsg.errors.forEach((e) => {
+                  alert(e.msg);
+                });
+              } else {
+                alert("Something went wrong, please try again.");
+              }
+            });
+      };
     return (
         <>
 
@@ -125,20 +221,21 @@ function FormCategory() {
 
                     <Form.Group as={Col} controlId="formGridState">
                       <Form.Label>Category</Form.Label>
-                      <Form.Select defaultValue="Choose Content to Review">
-                      <option hidden selected>Choose Category</option>
-                      </Form.Select>
-                    </Form.Group>
+                      <Select options={Categories} styles={styles} placeholder ="Choose a category" onChange={DropdownCategoryHandler}/>
 
-                    <Form.Group as={Col} controlId="formGridState">
+                    </Form.Group>
+                    
+
+
+                    <Form.Group as={Col} controlId="formGridState" >
                       <Form.Label>Subcategory Name</Form.Label>
-                      <Form.Control placeholder="Enter SubCategory Name"></Form.Control>
+                      <Form.Control placeholder="Enter SubCategory Name" onChange={SubCategoryHandler}></Form.Control>
                     </Form.Group>
                 </Row>
                 
 
                 <div className="right">
-                    <Button variant="primary" className="button submit margin" >SAVE</Button>
+                    <Button variant="primary" className="button submit margin"  onClick={SubCategorySubmit}>SAVE</Button>
                     <Button variant="primary" className="button submit delete" >DELETE</Button>
                 </div>
             </Form>
