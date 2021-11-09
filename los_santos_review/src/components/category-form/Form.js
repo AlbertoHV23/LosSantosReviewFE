@@ -58,7 +58,7 @@ function FormCategory() {
         });
       }
       else{
-        alert("Wrong email or password")
+        alert("Something went wrong, please try again.")
       }
 
 

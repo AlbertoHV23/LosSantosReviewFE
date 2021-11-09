@@ -39,7 +39,7 @@ function Header() {
                 <Nav.Link className="links" href="#home">Videogames</Nav.Link>
                 <Nav.Link className="links" onClick={routeChange}>Account</Nav.Link>
                 <Dropdown>
-                  <Dropdown.Toggle variant="info" id="dropdown-basic">
+                  <Dropdown.Toggle variant="success" id="dropdown-basic">
                     Create
                   </Dropdown.Toggle>
 
