@@ -5,6 +5,7 @@ import axios from "axios";
 
 function ProfileForm() {
   let username, name, lastName, email, role, uid, token;
+
   const GetSession = (e) => {
     window.localStorage.getItem("user");
     const user = JSON.parse(localStorage.getItem("user"));
@@ -19,12 +20,21 @@ function ProfileForm() {
 
     console.log(token);
   };
+
   const NameHandler = (e) => {
     name = e.target.value;
   };
 
   const LastNameHandler = (e) => {
     lastName = e.target.value;
+  };
+
+  const UsernameHandler = (e) => {
+    username = e.target.value;
+  };
+
+  const EmailHandler = (e) => {
+    email = e.target.value;
   };
 
   const Submit = (e) => {
@@ -38,10 +48,23 @@ function ProfileForm() {
         uid,
         name,
         lastName,
+        username,
+        email
       },
     })
       .then((res) => {
         console.log(res.data);
+
+        res.data.token = token;
+        alert(res.data.token)
+
+        window.localStorage.setItem(
+          'user' , JSON.stringify(res)
+        )
+
+        window.location = "myaccount"
+
+        alert("The information was successfully updated.");
       })
       .catch((err) => {
         const errorMsg = JSON.parse(err.request.response);
@@ -106,7 +129,7 @@ function ProfileForm() {
           <Form.Control
             type="text"
             className="input-login"
-            placeholder={name}
+            defaultValue={name}
             onChange={NameHandler}
           />
         </Form.Group>
@@ -116,17 +139,18 @@ function ProfileForm() {
           <Form.Control
             type="text"
             className="input-login"
-            placeholder={lastName}
+            defaultValue={lastName}
             onChange={LastNameHandler}
           />
         </Form.Group>
 
         <Form.Group className="mb-4" controlId="formBasicPassword">
-          <Form.Label className="text-blue">Username):</Form.Label>
+          <Form.Label className="text-blue">Username:</Form.Label>
           <Form.Control
             type="text"
             className="input-login"
-            placeholder={username}
+            defaultValue={username}
+            onChange={UsernameHandler}
           />
         </Form.Group>
 
@@ -135,7 +159,8 @@ function ProfileForm() {
           <Form.Control
             type="email"
             className="input-login"
-            placeholder={email}
+            defaultValue={email}
+            onChange={EmailHandler}
           />
         </Form.Group>
 
