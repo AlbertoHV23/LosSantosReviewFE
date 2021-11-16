@@ -4,11 +4,259 @@ import { Col } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import Button from "@restart/ui/esm/Button";
 import EditIcon from '@mui/icons-material/Edit';
-import BootstrapDate from "../common/Date-Picker";
-// import TimePicker from 'react-bootstrap-time-picker';
 import Title from "../common/Title";
+import axios from "axios";
+import Select from 'react-select'
 
-function FormContent() {;
+function FormContent() {
+
+    const styles = {
+        option: (provided, state) => ({
+          ...provided,
+          fontWeight: state.isSelected ? "bold" : "normal",
+          color: "black",
+          backgroundColor: "white",
+          fontSize: state.selectProps.myFontSize
+        }),
+        placeholder: (provided, state) => ({
+          ...provided,
+          fontWeight: state.isSelected ? "bold" : "normal",
+          color: "black",
+        }),
+        singleValue: (provided, state) => ({
+          ...provided,
+          fontWeight: state.isSelected ? "bold" : "bold",
+          color: "black",
+        }),
+        control: (provided, state) => ({
+          ...provided,
+          backgroundColor: "white",
+        //   borderRadius: "12px",
+        //   borderColor: "#ff66c4",
+        //   borderWidth: "3px"
+    
+        }),
+       
+    };
+
+    let title, description, date, duration, poster, trailer, category, subcategory, classification, company; // Content vars
+    let username, name, lastName, email, role, uid, token; // SESSION VARS
+    let Categories = [];
+    let Subcategories = [];
+    let Classifications = [];
+    let Companies = [];
+
+    const GetSession = (e) => {
+        window.localStorage.getItem("user");
+        const user = JSON.parse(localStorage.getItem("user"));
+        console.log(user);
+        username = user.data.newUser.username;
+        name = user.data.newUser.name;
+        lastName = user.data.newUser.lastName;
+        email = user.data.newUser.email;
+        role = user.data.newUser.role;
+        uid = user.data.newUser.uid;
+        token = user.data.token;
+
+        console.log(token);
+
+    };
+
+    GetSession();
+
+    const getCategories = (e) =>{
+        axios.get(`https://lossantos-api.herokuapp.com/api/category`)
+        .then(res => {
+            console.log(res.data)
+
+            res.data.categories[0].forEach(element => {
+                Categories.push({
+                  value: element.uid,
+                  label: element.name});
+                
+            }) 
+
+
+        })
+        .catch(err => {
+          const errorMsg =JSON.parse(err.request.response) ;
+    
+          if(errorMsg.errors != null){
+            errorMsg.errors.forEach(e => {
+          
+              alert(e.msg);
+      
+            });
+          }
+          else{
+            alert("Something went wrong, please try again.")
+          }
+    
+    
+        })
+    }
+
+    getCategories()
+
+    const getSubCategories = (e) =>{
+        
+        axios.get(`https://lossantos-api.herokuapp.com/api/subcategory`)
+        .then(res => {
+            console.log(res.data)
+
+            Subcategories.length = 0
+
+            res.data.subcategories[0].forEach(element => {
+                if(category == element.category){
+                    Subcategories.push({
+                    value: element.uid,
+                    label: element.name});
+                } 
+            }) 
+
+
+        })
+        .catch(err => {
+          const errorMsg =JSON.parse(err.request.response) ;
+    
+          if(errorMsg.errors != null){
+            errorMsg.errors.forEach(e => {
+          
+              alert(e.msg);
+      
+            });
+          }
+          else{
+            alert("Something went wrong, please try again.")
+          }
+    
+    
+        })
+    }
+
+    const getClassifications = (e) =>{
+        
+        axios.get(`https://lossantos-api.herokuapp.com/api/classification`)
+        .then(res => {
+            console.log(res.data)
+
+            res.data.classifications.forEach(element => {
+                    Classifications.push({
+                    value: element.id,
+                    label: element.name});
+                
+            }) 
+            
+        })
+        .catch(err => {
+          const errorMsg =JSON.parse(err.request.response) ;
+    
+          if(errorMsg.errors != null){
+            errorMsg.errors.forEach(e => {
+          
+              alert(e.msg);
+      
+            });
+          }
+          else{
+            alert("Something went wrong, please try again.")
+          }
+    
+    
+        })
+    }
+
+    getClassifications()
+
+    const getCompanies = (e) =>{
+        
+        axios.get(`https://lossantos-api.herokuapp.com/api/company`)
+        .then(res => {
+            console.log(res.data)
+
+            
+            res.data.companies.forEach(element => {
+                    Companies.push({
+                    value: element.uid,
+                    label: element.name});
+                
+            }) 
+            
+            
+        })
+        .catch(err => {
+          const errorMsg =JSON.parse(err.request.response) ;
+    
+          if(errorMsg.errors != null){
+            errorMsg.errors.forEach(e => {
+          
+              alert(e.msg);
+      
+            });
+          }
+          else{
+            alert("Something went wrong, please try again.")
+          }
+    
+    
+        })
+    }
+
+    getCompanies()
+
+    const CategoryHandler = (e) =>{ 
+    
+        category = e.value
+        getSubCategories()
+        document.getElementById("subcategory").value = null;
+    }
+
+    const SubcategoryHandler = (e) =>{ subcategory = e.value}
+    const ClassificationHandler = (e) =>{ classification = e.value}
+    const CompanyHandler = (e) =>{ company = e.value}
+    const TitleHandler = (e) =>{ title = e.target.value}
+    const DescriptionHandler = (e) =>{ description = e.target.value}
+    const DateHandler = (e) =>{ date = e.target.value}
+    const DurationHandler = (e) =>{ duration = e.target.value}
+    const TrailerHandler = (e) =>{ trailer = e.target.value}
+
+    const Submit = (e) => {
+        axios({
+          method: "post",
+          url: `https://lossantos-api.herokuapp.com/api/content/`,
+          headers: {
+            "x-token": token
+          },
+          data: {
+            "title" : title,
+            "description" : description,
+            "trailerLink" : trailer,
+            "duration" : duration,
+            "category" : category,
+            "subcategory" : subcategory,
+            "company" : company,
+            "classification" : classification
+          },
+        })
+          .then((res) => {
+            console.log(res.data);
+            alert("The information was successfully updated.");
+          })
+          .catch((err) => {
+            const errorMsg = JSON.parse(err.request.response);
+    
+            if (errorMsg.errors != null) {
+              errorMsg.errors.forEach((e) => {
+                alert(e.msg);
+              });
+            } else {
+              alert("Something went wrong, please try again.");
+            }
+          });
+    };
+
+
+
     return (
         <>
 
@@ -22,7 +270,7 @@ function FormContent() {;
 
                     <Form.Group as={Col} controlId="formGridState">
                       <Form.Label>Content</Form.Label>
-                      <Form.Control placeholder="Title"></Form.Control>
+                      <Form.Control placeholder="Title" onChange={TitleHandler}></Form.Control>
                     </Form.Group>
                 </Row>
                 
@@ -30,9 +278,7 @@ function FormContent() {;
                      
                     <Form.Group as={Col} controlId="formGridState">
                         <Form.Label>Category</Form.Label>
-                        <Form.Select defaultValue="Choose Content Category">
-                        <option hidden selected>Choose Content Category</option>
-                        </Form.Select>
+                        <Select options={Categories} styles={styles} placeholder ="Choose Category" onChange={CategoryHandler} />
                         <div className="right mt-1">
                             <Button className="comment-icon editable" href="/category-form"><EditIcon/> Edit Category</Button>
                         </div>    
@@ -40,9 +286,7 @@ function FormContent() {;
 
                     <Form.Group as={Col} controlId="formGridState">
                         <Form.Label>Subcategory</Form.Label>
-                        <Form.Select defaultValue="Choose Content Subcategory">
-                        <option hidden selected>Choose Content Subcategory</option>
-                        </Form.Select>
+                        <Select id={"subcategory"} options={Subcategories} styles={styles} placeholder ="Choose Subcategory" onChange={SubcategoryHandler}/>
                         <div className="right mt-1">
                             <Button className="comment-icon editable" href="/category-form"><EditIcon/> Edit SubCategory</Button>
                         </div> 
@@ -53,9 +297,7 @@ function FormContent() {;
                      
                      <Form.Group as={Col} controlId="formGridState">
                          <Form.Label>Classification</Form.Label>
-                         <Form.Select defaultValue="Choose Content Classification">
-                            <option hidden selected>Choose Content Classification</option>
-                         </Form.Select>
+                         <Select options={Classifications} styles={styles} placeholder ="Choose Classification" onChange={ClassificationHandler}/>
                          <div className="right mt-1">
                              <Button className="comment-icon editable" href="/category-form"><EditIcon/> Edit Classification</Button>
                          </div>    
@@ -63,9 +305,7 @@ function FormContent() {;
  
                      <Form.Group as={Col} controlId="formGridState">
                          <Form.Label>Company</Form.Label>
-                         <Form.Select defaultValue="Choose Content Company">
-                            <option hidden selected>Choose Content Company</option>
-                         </Form.Select>
+                         <Select options={Companies} styles={styles} placeholder ="Choose a Company" onChange={CompanyHandler}/>
                          <div className="right mt-1">
                              <Button className="comment-icon editable" href="/company-form"><EditIcon/> Edit Company</Button>
                          </div> 
@@ -74,18 +314,18 @@ function FormContent() {;
 
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                   <Form.Label>Description</Form.Label>
-                  <Form.Control as="textarea" rows={3} />
+                  <Form.Control as="textarea" rows={3}  onChange={DescriptionHandler}/>
                 </Form.Group>
 
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridTitle">
                       <Form.Label>Released Date</Form.Label>
-                      <BootstrapDate/>
+                      <Form.Control type="date" name="dob" placeholder="Realesed Date" onChange={DateHandler}/>
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridSubtitlle">
                       <Form.Label>Duration</Form.Label>
-                      <Form.Control  type="number" placeholder="Enter minutes total" />
+                      <Form.Control  type="number" placeholder="Enter minutes total" onChange={DurationHandler} />
                     </Form.Group>
                 </Row>
 
@@ -97,13 +337,13 @@ function FormContent() {;
 
                     <Form.Group as={Col} controlId="formGridSubtitlle">
                       <Form.Label>Trailer Link</Form.Label>
-                      <Form.Control placeholder="Enter link" />
+                      <Form.Control placeholder="Enter link" onChange={TrailerHandler}/>
                     </Form.Group>
                 </Row>
 
                 <div className="right">
-                    <Button variant="primary" className="button submit margin" type="submit">SUBMIT</Button>
-                    <Button variant="primary" className="button submit delete" type="submit">DELETE</Button>
+                    <Button variant="primary" className="button submit margin" onClick={Submit}>SUBMIT</Button>
+                    <Button variant="primary" className="button submit delete" >DELETE</Button>
                 </div>
             </Form>
         </>

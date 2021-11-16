@@ -27,9 +27,6 @@ function FormRole() {
 
         console.log(token);
 
-        selected_name = JSON.parse(localStorage.getItem("role_name"))
-        selected_description = JSON.parse(localStorage.getItem("role_description"))
-
     };
 
     GetSession();
@@ -54,6 +51,9 @@ function FormRole() {
                     window.localStorage.setItem(
                         'role_description' , JSON.stringify(element.description)
                     )
+
+                    selected_name = JSON.parse(localStorage.getItem("role_name"))
+                    selected_description = JSON.parse(localStorage.getItem("role_description"))
 
                     window.location = "role-form"
                 }
@@ -144,7 +144,50 @@ function FormRole() {
             const errorMsg = JSON.stringify(err.request.response);
             alert(errorMsg);
           });
-      };
+    };
+
+    const Delete = (e) => {
+  
+      axios({
+        method: "delete",
+        url: `https://lossantos-api.herokuapp.com/api/role/`+ JSON.parse(localStorage.getItem("role_id")),
+        headers: {
+          "Access-Control-Allow-Headers" : "*",
+          'Content-Type' : 'application/json',
+          'Accept' : 'application/json',
+          'Authorization' : 'Bearer' + token,
+          "x-token": token
+  
+        },
+      })
+        .then((res) => {
+          console.log(res.data);
+          console.log("Role deleted");
+
+          window.localStorage.removeItem('role_id')
+          window.localStorage.removeItem('role_name')
+          window.localStorage.removeItem('role_description')
+
+
+          alert("Role deleted successfully")
+
+          window.location = "role-form"
+        })
+        .catch((err) => {
+          const errorMsg = JSON.parse(err.request.response);
+          
+  
+          if (errorMsg.errors != null) {
+            errorMsg.errors.forEach((e) => {
+              alert(e.msg);
+            });
+          } else {
+            alert("Something went wrong, please try again.");
+            
+          }
+        });
+    };
+  
 
     const styles = {
         option: (provided, state) => ({
@@ -238,7 +281,7 @@ function FormRole() {
 
                 <div className="right">
                     <Button variant="primary" className="button submit margin" onClick={Edit}>EDIT</Button>
-                    <Button variant="primary" className="button submit delete" type="submit">DELETE</Button>
+                    <Button variant="primary" className="button submit delete" onClick={Delete}>DELETE</Button>
                 </div>
             </Form>
             </>
