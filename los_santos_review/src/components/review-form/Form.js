@@ -6,8 +6,113 @@ import Button from "@restart/ui/esm/Button";
 import SliderBar from "../common/Slider";
 import EditIcon from '@mui/icons-material/Edit';
 import Title from "../common/Title";
+import axios from "axios";
+import Select from 'react-select'
 
-function FormReview() {;
+function FormReview() {
+    let username, name, lastName, email, role, uid, token; // SESSION VARS
+    let ContentsDropdown = [];
+    let CONTENTS = [];
+    let SelectedContent;
+
+    const GetSession = (e) => {
+        window.localStorage.getItem("user");
+        const user = JSON.parse(localStorage.getItem("user"));
+        username = user.data.newUser.username;
+        name = user.data.newUser.name;
+        lastName = user.data.newUser.lastName;
+        email = user.data.newUser.email;
+        role = user.data.newUser.role;
+        uid = user.data.newUser.uid;
+        token = user.data.token; 
+      };
+
+      const getContents = (e) =>{
+        axios.get(`https://lossantos-api.herokuapp.com/api/content`)
+        .then(res => {
+            // console.log(res.data.contents);
+            res.data.contents.forEach(element => {
+                ContentsDropdown.push({
+                  value: element.uid,
+                  label: element.title
+                });
+                  
+                  CONTENTS.push({
+                    title: element.title,
+                    description: element.description,
+                    realiseDate: element.realiseDate,
+                    trailerLink: element.trailerLink,
+                    duration: element.duration,
+                    category: element.category,
+                    subcategory: element.subcategory,
+                    company: element.company,
+                    classification: element.classification,
+                    uid: element.uid
+                });
+              })
+          
+              
+        })
+        .catch(err => {
+          const errorMsg =JSON.parse(err.request.response) ;
+          if(errorMsg.errors != null){
+            errorMsg.errors.forEach(e => {
+              alert(e.msg);
+            });
+          }
+          else{
+            alert("Something went wrong, please try again.")
+          }
+    
+        })
+      }
+    
+      GetSession()
+      getContents()
+
+      console.log(CONTENTS)
+      const styles = {
+        option: (provided, state) => ({
+          ...provided,
+          fontWeight: state.isSelected ? "bold" : "normal",
+          color: "black",
+          backgroundColor: "white",
+          fontSize: state.selectProps.myFontSize
+        }),
+        placeholder: (provided, state) => ({
+          ...provided,
+          fontWeight: state.isSelected ? "bold" : "normal",
+          color: "black",
+        }),
+        singleValue: (provided, state) => ({
+          ...provided,
+          fontWeight: state.isSelected ? "bold" : "bold",
+          color: "black",
+        }),
+        control: (provided, state) => ({
+          ...provided,
+          backgroundColor: "white",
+        //   borderRadius: "12px",
+        //   borderColor: "#ff66c4",
+        //   borderWidth: "3px"
+    
+        }),
+       
+      };
+    
+      const DropdownCategoryHandler = (e) =>{ 
+        //   uidCategory = e.value
+         console.log(e.value);
+         CONTENTS.forEach(element => { 
+
+             if(element.uid == e.value ){
+                 SelectedContent = element
+                 console.log(SelectedContent)
+                
+             }
+         })
+         }
+    
     return (
         <>
 
@@ -21,10 +126,12 @@ function FormReview() {;
 
                     <Form.Group as={Col} controlId="formGridState">
                       <Form.Label>Content</Form.Label>
-                      <Form.Select defaultValue="Choose Content to Review">
+                      <Select options={ContentsDropdown} styles={styles} placeholder ="Choose Content to Review" onChange={DropdownCategoryHandler}  />
+
+                      {/* <Form.Select defaultValue="Choose Content to Review">
                         <option>The last of us  II</option>
                         <option>God Of War</option>
-                      </Form.Select>
+                      </Form.Select> */}
                         <div className="right mt-1">
                             <Button className="comment-icon editable" href="/content-form"><EditIcon/> Edit Content</Button>
                         </div> 
