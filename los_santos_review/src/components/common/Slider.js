@@ -7,7 +7,10 @@ const SliderBar = () => {
 
   const [ value, setValue ] = useState(50); 
   const [ setFinalValue ] = React.useState(null);
-
+  
+  window.localStorage.setItem(
+    'rate' , value
+  )
 
   return (
     <RangeSlider
