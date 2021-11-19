@@ -280,7 +280,6 @@ function FormReview() {
                 <Form.Group className="mb-3" controlId="">
                     <Form.Label>Rating </Form.Label>
                      <SliderBar/>
-                    <input placeholder="Enter a value" type="number" onChange = {ratingHandler}/>
                 </Form.Group>
 
                 <div className="right">
