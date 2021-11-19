@@ -127,11 +127,8 @@ function FormReview() {
       
       const Submit = (e) => { 
         rating = window.localStorage.getItem("rate");
-        console.log(rating)
-        console.log(title)
-        console.log(subtitle)
-        console.log(body)
-        // SubmitRating()
+    
+        SubmitRating()
         SubmitReview()
       };
 
@@ -173,7 +170,7 @@ function FormReview() {
             'subtitle': subtitle,
             'body': body,
             'content': SelectedContent.uid,
-            'User': uid
+            'user': uid
           },
         })
           .then((res) => {
