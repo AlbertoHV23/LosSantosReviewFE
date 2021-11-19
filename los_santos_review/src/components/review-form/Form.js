@@ -183,6 +183,14 @@ function FormReview() {
           });
       };
 
+      const EditContent = (e) => { 
+        window.localStorage.setItem(
+            'content' , JSON.stringify(SelectedContent)
+          )
+    
+      };
+
+    
 
 
     return (
@@ -205,7 +213,7 @@ function FormReview() {
                         <option>God Of War</option>
                       </Form.Select> */}
                         <div className="right mt-1">
-                            <Button className="comment-icon editable" href="/content-form"><EditIcon/> Edit Content</Button>
+                            <Button className="comment-icon editable" href="/content-form" onClick = {EditContent}><EditIcon/> Edit Content</Button>
                         </div> 
                     </Form.Group>
                 </Row>

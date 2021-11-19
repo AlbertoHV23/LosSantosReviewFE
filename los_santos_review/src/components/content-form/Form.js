@@ -61,8 +61,17 @@ function FormContent() {
         console.log(token);
 
     };
+    const GetContent = (e) => {
+      window.localStorage.getItem("content");
+      const content= JSON.parse(localStorage.getItem("content"));
+      console.log(content);
+   
+
+  };
 
     GetSession();
+    // GetContent();
+
 
     const getCategories = (e) =>{
         axios.get(`https://lossantos-api.herokuapp.com/api/category`)
