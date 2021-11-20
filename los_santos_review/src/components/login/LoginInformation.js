@@ -7,10 +7,15 @@ import { useHistory } from "react-router-dom";
 
 // const imagen = "./Login.svg";
 function LoginInformation() {
+  
   const history = useHistory();
   const routeChange = (ruta) => {
+    localStorage.clear()
+  window.localStorage.setItem(
+    'user' , "No session"
+  )
     let path = 'signup';
-    history.push(path);
+    // history.push(path);
   };
   return (
     <>
@@ -25,7 +30,7 @@ function LoginInformation() {
           src={`${process.env.PUBLIC_URL}/assets/img/Login.svg`}
           alt = "Alternative text"
         />
-        <Button variant="outline-primary" className="test"  onClick={routeChange}>
+        <Button variant="outline-primary" className="test" href="/signup" onClick={routeChange}>
           Sign Up
         </Button>{" "}
       </Container>
