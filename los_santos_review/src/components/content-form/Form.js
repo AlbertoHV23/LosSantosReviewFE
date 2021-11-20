@@ -351,8 +351,7 @@ function FormContent() {
                 </Row>
 
                 <div className="right">
-                    <Button variant="primary" className="button submit margin" onClick={Submit}>SUBMIT</Button>
-                    <Button variant="primary" className="button submit delete" >DELETE</Button>
+                    <Button variant="primary" className="button submit margin" onClick={Submit}>ADD</Button>
                 </div>
             </Form>
         </>
