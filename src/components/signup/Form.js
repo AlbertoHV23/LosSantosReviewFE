@@ -116,8 +116,8 @@ function Form_() {
         'user' , JSON.stringify(res)
       )
       // const user = JSON.parse(localStorage.getItem('user'))
-
-      window.location = "main"
+      alert("User Successfully added");
+      window.location = "login"
 
 
     })

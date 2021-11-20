@@ -198,6 +198,8 @@ function FormReview() {
         })
           .then((res) => {
             console.log(res.data);
+           alert("The information was successfully updated.");
+
   
           })
           .catch((err) => {
@@ -223,6 +225,8 @@ function FormReview() {
         })
           .then((res) => {
             console.log(res.data);
+           alert("The information was successfully updated.");
+
   
           })
           .catch((err) => {
