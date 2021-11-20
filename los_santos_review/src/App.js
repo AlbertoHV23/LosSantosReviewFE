@@ -20,6 +20,7 @@ import RoleForm from "./pages/role-form/RoleForm";
 import EditCategoryForm from "./pages/edit-category/EditCategoryForm";
 import EditContentForm from "./pages/edit-content/EditContentForm";
 
+
 function App() {
   return (
     
@@ -58,9 +59,16 @@ function App() {
         <Route path="/role-form" exact>
           <RoleForm />
         </Route>
+        <Route path="/profile" exact>
+          <Account />
+        </Route>
+        <Route path="/security" exact>
+          <Account />
+        </Route>
       </Switch>
     </Router>
   );
 }
 
 export default App;
+
