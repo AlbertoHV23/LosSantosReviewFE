@@ -39,13 +39,14 @@ function FormCompany() {
        
     };
 
-    const [ companyName, setValue ] = useState(); 
-    const [ comapnyLogo, setValue2 ] = useState(); 
-    const [ companyDate, setValue3 ] = useState(); 
-    const [ companyCountry, setValue4 ] = useState(); 
-    const [ countryName, setValue5 ] = useState(); 
+    const [ companyId ,setValueId] = useState();
+    const [ companyName, setValueName ] = useState(); 
+    const [ comapnyLogo, setValueLogo ] = useState(); 
+    const [ companyDate, setValueDate ] = useState(); 
+    const [ companyCountry, setValueCountry ] = useState(); 
+    const [ countryName, setValueCountryName ] = useState(); 
 
-    let company_selected,selected_name,selected_logo,selected_date,selected_country;
+    let company_selected, selected_name;
     let company_name, company_country, company_date, company_logo; // Company vars
     let username, name, lastName, email, role, uid, token; // SESSION VARS
     let Countries = [];
@@ -83,7 +84,7 @@ function FormCompany() {
                       window.localStorage.setItem(
                         'country' , element.name
                       )
-                      setValue5(element.name)
+                      setValueCountryName(element.name)
                   }
             }) 
         })
@@ -116,10 +117,10 @@ function FormCompany() {
                 label: element.name});
 
                 if(element.uid == company_selected){
-                  console.log(element.realiseDate)
-                  setValue(element.name)
-                  setValue3(element.realiseDate.substring(0, 10))
-                  setValue4(element.country)
+                  setValueId(element.uid)
+                  setValueName(element.name)
+                  setValueDate(element.realiseDate.substring(0, 10))
+                  setValueCountry(element.country)
 
                   getCountries()
                 }
@@ -130,11 +131,7 @@ function FormCompany() {
         const errorMsg =JSON.parse(err.request.response) ;
   
         if(errorMsg.errors != null){
-          errorMsg.errors.forEach(e => {
-        
-            alert(e.msg);
-    
-          });
+          alert(errorMsg)
         }
         else{
           alert("Something went wrong, please try again.")
@@ -149,9 +146,10 @@ function FormCompany() {
     const DateHandler = (e) =>{ company_date = e.target.value}
     const ImageHandler = (e) =>{company_logo = e.target.value}
 
+    
     const EditNameHandler = (e) =>{ selected_name = e.target.value }
-    const EditCountryHandler = (e) =>{selected_country = e.value}
-    const EditDateHandler = (e) =>{ selected_date = e.target.value}
+    const EditCountryHandler = (e) =>{setValueCountry(e.value)}
+    const EditDateHandler = (e) =>{ setValueDate(e.target.value)}
     const EditImageHandler = (e) =>{company_logo = e.target.value}
 
     const CompanyHandler = (e) =>{
@@ -192,20 +190,19 @@ function FormCompany() {
     const Edit = (e) => {
       axios({
         method: "put",
-        url: `https://lossantos-api.herokuapp.com/api/company/`+ company_selected,
+        url: `https://lossantos-api.herokuapp.com/api/company/`+ companyId,
         headers: {
           "x-token": token
         },
         data: {
           "name" : selected_name,
-          "country" : selected_country,
-          "realiseDate" : selected_date
+          "country" : companyCountry
         },
       })
         .then((res) => {
           console.log(res.data);
   
-          window.location = "role-form"
+          window.location = "company-form"
   
           alert("The information was successfully updated.");
         })
@@ -214,6 +211,42 @@ function FormCompany() {
           const errorMsg = JSON.stringify(err.request.response);
           alert(errorMsg);
         });
+  };
+
+  const Delete = (e) => {
+  
+    axios({
+      method: "delete",
+      url: `https://lossantos-api.herokuapp.com/api/company/`+ companyId,
+      headers: {
+        "Access-Control-Allow-Headers" : "*",
+        'Content-Type' : 'application/json',
+        'Accept' : 'application/json',
+        'Authorization' : 'Bearer' + token,
+        "x-token": token
+
+      },
+    })
+      .then((res) => {
+        console.log(res.data);
+        console.log("Company deleted");
+        alert("Company deleted successfully")
+
+        window.location = "company-form"
+      })
+      .catch((err) => {
+        const errorMsg = JSON.parse(err.request.response);
+        
+
+        if (errorMsg.errors != null) {
+          errorMsg.errors.forEach((e) => {
+            alert(e.msg);
+          });
+        } else {
+          alert("Something went wrong, please try again.");
+          
+        }
+      });
   };
 
     return (
@@ -274,7 +307,7 @@ function FormCompany() {
                     
                     <Form.Group as={Col} controlId="formGridSubtitlle">
                       <Form.Label>Company Name</Form.Label>
-                      <Form.Control placeholder="Enter Company Name" onChange={EditNameHandler} defaultValue={companyName} onChange={EditNameHandler}/>
+                      <Form.Control placeholder="Enter Company Name" defaultValue={companyName} onChange={EditNameHandler}/>
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formFile" className="mb-3">
@@ -297,7 +330,7 @@ function FormCompany() {
 
                 <div className="right">
                     <Button variant="primary" className="button submit margin" onClick={Edit}>EDIT</Button>
-                    <Button variant="primary" className="button submit delete" >DELETE</Button>
+                    <Button variant="primary" className="button submit delete" onClick={Delete}>DELETE</Button>
                 </div>
             </Form>
         </>
