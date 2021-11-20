@@ -19,8 +19,16 @@ function FormReview() {
     let CONTENTS = [];
     let SelectedContent;
 
-    // Declaración de una variable de estado que llamaremos "count"  const [count, setCount] = useState(0);
-    const [state, setstate] = useState(0);;
+    let Reviews = [];
+    let content_id,review_title,review_sub,review_desc, user;
+
+    const [reviewId, setstateReviewId] = useState();
+    const [reviewTitle, setstateReviewTitle] = useState();
+    const [reviewSubtitle, setstateReviewSubtitle] = useState();
+    const [reviewDesc, setstateReviewDesc] = useState();
+    const [reviewCalification, setstate] = useState();
+
+
 
     const GetSession = (e) => {
         window.localStorage.getItem("user");
@@ -78,6 +86,46 @@ function FormReview() {
       GetSession()
       getContents()
 
+    const getReviews = (e) =>{
+        axios.get(`https://lossantos-api.herokuapp.com/api/review`)
+        .then(res => {
+            console.log(res.data)
+            res.data.reviews.forEach(element => {
+                Reviews.push({
+                  value: element.uid,
+                  label: element.title});
+
+                  if(element.uid == reviewId ){
+                    setstateReviewTitle(element.title)
+                    setstateReviewSubtitle(element.subtitle)
+                    setstateReviewDesc(element.body)
+                    review_title = element.title
+                    review_sub = element.subtitle
+                    review_desc = element.body
+                    content_id = element.content
+                    user = element.user
+                  }
+            }) 
+
+        })
+        .catch(err => {
+          const errorMsg =JSON.parse(err.request.response);
+    
+          if(errorMsg.errors != null){
+            errorMsg.errors.forEach(e => {
+          
+              alert(e.msg);
+      
+            });
+          }
+          else{
+            alert("Something went wrong, please try again.")
+          }
+    
+        })
+    }
+
+    getReviews()
 
       const styles = {
         option: (provided, state) => ({
@@ -183,6 +231,85 @@ function FormReview() {
           });
       };
 
+      const ReviewHandler = (e) =>{
+        setstateReviewId(e.value)
+      }
+
+      const EditTitleHandler = (e) =>{
+        review_title = e.target.value;
+      }
+      const EditSubtitleHandler = (e) =>{
+        review_sub = e.target.value;
+      }
+      const EditDescHandler = (e) =>{
+        review_desc = e.target.value;
+      }
+
+      const EditReview = (e) => {
+        axios({
+          method: "put",
+          url: `https://lossantos-api.herokuapp.com/api/review/`+ reviewId,
+          headers: {
+            "x-token": token
+          },
+          data: {
+            "title" : review_title,
+            "subtitle" : review_sub,
+            "body" : review_desc,
+            'content' : content_id,
+            'user' : user
+          },
+        })
+          .then((res) => {
+            console.log(res.data);
+    
+            window.location = "review-form"
+    
+            alert("The information was successfully updated.");
+          })
+          .catch((err) => {
+            
+            const errorMsg = JSON.stringify(err.request.response);
+            alert(errorMsg);
+          });
+    };
+
+    const Delete = (e) => {
+  
+      axios({
+        method: "delete",
+        url: `https://lossantos-api.herokuapp.com/api/review/`+ reviewId,
+        headers: {
+          "Access-Control-Allow-Headers" : "*",
+          'Content-Type' : 'application/json',
+          'Accept' : 'application/json',
+          'Authorization' : 'Bearer' + token,
+          "x-token": token
+  
+        },
+      })
+        .then((res) => {
+          console.log(res.data);
+          console.log("Role deleted");
+          alert("Role deleted successfully")
+
+          window.location = "role-form"
+        })
+        .catch((err) => {
+          const errorMsg = JSON.parse(err.request.response);
+          
+  
+          if (errorMsg.errors != null) {
+            errorMsg.errors.forEach((e) => {
+              alert(e.msg);
+            });
+          } else {
+            alert("Something went wrong, please try again.");
+            
+          }
+        });
+    };
+
     return (
         <>
 
@@ -207,55 +334,6 @@ function FormReview() {
                         </div> 
                     </Form.Group>
                 </Row>
-                
-                {/* <Row className="mb-3 mt-3">
-                     
-                    <Form.Group as={Col} controlId="formGridState">
-                        <fieldset disabled>
-                        <Form.Label>Category</Form.Label>
-                        <Form.Control defaultValue = {state}></Form.Control>
-                        <div className="right mt-1">
-                            <Button className="comment-icon editable"  href="/category-form"><EditIcon/> Edit Category</Button>
-                        </div>    
-                        </fieldset>
-                        <button onClick={() => this.setstate(this.state + 1)}>
-                        Click me
-                      </button>
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridState">
-                        <fieldset disabled>
-                        <Form.Label>Subcategory</Form.Label>
-                        <Form.Control defaultValue="Content Subcategory"/>
-                        <div className="right mt-1">
-                            <Button className="comment-icon editable" href="/category-form"><EditIcon/> Edit Subcategory</Button>
-                        </div> 
-                        </fieldset>
-                    </Form.Group>
-                </Row> */}
-
-                {/* <Row className="mb-3 mt-3">
-                     
-                     <Form.Group as={Col} controlId="formGridState">
-                         <fieldset disabled>
-                         <Form.Label>Classification</Form.Label>
-                         <Form.Control defaultValue="Content Classification"></Form.Control>
-                         <div className="right mt-1">
-                             <Button className="comment-icon editable" href="/category-form"><EditIcon/> Edit Classification</Button>
-                         </div>    
-                         </fieldset>
-                     </Form.Group>
- 
-                     <Form.Group as={Col} controlId="formGridState">
-                         <fieldset disabled>
-                         <Form.Label>Company</Form.Label>
-                         <Form.Control defaultValue="Content Company"/>
-                         <div className="right mt-1">
-                             <Button className="comment-icon editable" href="/company-form"><EditIcon/> Edit Company</Button>
-                         </div> 
-                         </fieldset>
-                     </Form.Group>
-                 </Row> */}
 
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridTitle">
@@ -294,35 +372,28 @@ function FormReview() {
                 <Row className="mt-3 mb-3">
                     <Form.Group as={Col} controlId="formGridState">
                       <Form.Label>Select Review</Form.Label>
-                      <Select options={ContentsDropdown} styles={styles} placeholder ="Choose Review" onChange={DropdownCategoryHandler}  />
+                      <Select options={Reviews} styles={styles} placeholder ="Choose Review" onChange={ReviewHandler}  />
                     </Form.Group>
                 </Row>
               
 
-                <Row className="">
-                    <Form.Group as={Col} controlId="formGridState">
-                      <Form.Label>Content</Form.Label>
-                      <Select options={ContentsDropdown} styles={styles} placeholder ="Choose Content to Review" onChange={DropdownCategoryHandler}  />
-                        <div className="right mt-2">
-                            <Button className="comment-icon editable" href="/content-form"><EditIcon/> Edit Content</Button>
-                        </div> 
-                    </Form.Group>
+                <Row className="mb-3">
 
                     <Form.Group as={Col} controlId="formGridTitle">
                       <Form.Label>Title</Form.Label>
-                      <Form.Control placeholder="Enter Review Title" onChange={titleHandler}/>
+                      <Form.Control placeholder="Enter Review Title" onChange={EditTitleHandler} defaultValue={reviewTitle}/>
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridSubtitlle" >
                       <Form.Label>Subtitle</Form.Label>
-                      <Form.Control placeholder="Enter Review Subtitle" onChange={subtitleHandler} />
+                      <Form.Control placeholder="Enter Review Subtitle" onChange={EditSubtitleHandler} defaultValue={reviewSubtitle}/>
                     </Form.Group>
                 </Row>
 
             
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                   <Form.Label>Los Santos Review</Form.Label>
-                  <Form.Control as="textarea" rows={3} onChange={bodyHandler}/>
+                  <Form.Control as="textarea" rows={3} onChange={EditDescHandler} defaultValue={reviewDesc}/>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="">
@@ -331,8 +402,8 @@ function FormReview() {
                 </Form.Group>
 
                 <div className="right">
-                    <Button variant="primary" className="button submit margin" onClick = {Submit}>EDIT</Button>
-                    <Button variant="primary" className="button submit delete" >DELETE</Button>
+                    <Button variant="primary" className="button submit margin" onClick = {EditReview}>EDIT</Button>
+                    <Button variant="primary" className="button submit delete" onClick = {Delete}>DELETE</Button>
                 </div>
             </Form>
         </>
