@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 import { Form } from "react-bootstrap";
@@ -6,6 +6,7 @@ import Button from "@restart/ui/esm/Button";
 import Title from "../common/Title";
 import axios from "axios";
 import Select from 'react-select'
+import { CompressOutlined } from "@mui/icons-material";
 
 function FormCompany() {
 
@@ -38,9 +39,17 @@ function FormCompany() {
        
     };
 
+    const [ companyName, setValue ] = useState(); 
+    const [ comapnyLogo, setValue2 ] = useState(); 
+    const [ companyDate, setValue3 ] = useState(); 
+    const [ companyCountry, setValue4 ] = useState(); 
+    const [ countryName, setValue5 ] = useState(); 
+
+    let company_selected,selected_name,selected_logo,selected_date,selected_country;
     let company_name, company_country, company_date, company_logo; // Company vars
     let username, name, lastName, email, role, uid, token; // SESSION VARS
     let Countries = [];
+    let Companies = [];
 
     const GetSession = (e) => {
         window.localStorage.getItem("user");
@@ -70,9 +79,13 @@ function FormCompany() {
                   value: element.uid,
                   label: element.name});
                 
+                  if(element.uid == companyCountry){
+                      window.localStorage.setItem(
+                        'country' , element.name
+                      )
+                      setValue5(element.name)
+                  }
             }) 
-
-
         })
         .catch(err => {
           const errorMsg =JSON.parse(err.request.response) ;
@@ -87,18 +100,64 @@ function FormCompany() {
           else{
             alert("Something went wrong, please try again.")
           }
-    
-    
         })
     }
 
     getCountries()
 
+    const getCompanies = (e) =>{
+      axios.get(`https://lossantos-api.herokuapp.com/api/company`)
+      .then(res => {
+          console.log(res.data)
+
+          res.data.companies.forEach(element => {
+              Companies.push({
+                value: element.uid,
+                label: element.name});
+
+                if(element.uid == company_selected){
+                  console.log(element.realiseDate)
+                  setValue(element.name)
+                  setValue3(element.realiseDate.substring(0, 10))
+                  setValue4(element.country)
+
+                  getCountries()
+                }
+              
+          }) 
+      })
+      .catch(err => {
+        const errorMsg =JSON.parse(err.request.response) ;
+  
+        if(errorMsg.errors != null){
+          errorMsg.errors.forEach(e => {
+        
+            alert(e.msg);
+    
+          });
+        }
+        else{
+          alert("Something went wrong, please try again.")
+        }
+      })
+    } 
+
+    getCompanies()
 
     const NameHandler = (e) =>{ company_name = e.target.value }
     const CountryHandler = (e) =>{company_country = e.value}
     const DateHandler = (e) =>{ company_date = e.target.value}
     const ImageHandler = (e) =>{company_logo = e.target.value}
+
+    const EditNameHandler = (e) =>{ selected_name = e.target.value }
+    const EditCountryHandler = (e) =>{selected_country = e.value}
+    const EditDateHandler = (e) =>{ selected_date = e.target.value}
+    const EditImageHandler = (e) =>{company_logo = e.target.value}
+
+    const CompanyHandler = (e) =>{
+      company_selected = e.value
+      getCompanies()
+    }
 
     const Submit = (e) => {
         axios({
@@ -110,7 +169,7 @@ function FormCompany() {
           data: {
             "name" : company_name,
             "country" : company_country,
-            "realiseDat" : company_date
+            "realiseDate" : company_date
           },
         })
           .then((res) => {
@@ -130,7 +189,32 @@ function FormCompany() {
           });
     };
 
-
+    const Edit = (e) => {
+      axios({
+        method: "put",
+        url: `https://lossantos-api.herokuapp.com/api/company/`+ company_selected,
+        headers: {
+          "x-token": token
+        },
+        data: {
+          "name" : selected_name,
+          "country" : selected_country,
+          "realiseDate" : selected_date
+        },
+      })
+        .then((res) => {
+          console.log(res.data);
+  
+          window.location = "role-form"
+  
+          alert("The information was successfully updated.");
+        })
+        .catch((err) => {
+          
+          const errorMsg = JSON.stringify(err.request.response);
+          alert(errorMsg);
+        });
+  };
 
     return (
         <>
@@ -182,7 +266,7 @@ function FormCompany() {
                 <Row>
                   <Form.Group as={Col} controlId="formGridState">
                         <Form.Label>Select Company</Form.Label>
-                        <Select  styles={styles} placeholder ="Choose Company" />
+                        <Select options={Companies} styles={styles} placeholder ="Choose Company" onChange={CompanyHandler}/>
                     </Form.Group>
                 </Row>         
 
@@ -190,29 +274,29 @@ function FormCompany() {
                     
                     <Form.Group as={Col} controlId="formGridSubtitlle">
                       <Form.Label>Company Name</Form.Label>
-                      <Form.Control placeholder="Enter Company Name" onChange={NameHandler}/>
+                      <Form.Control placeholder="Enter Company Name" onChange={EditNameHandler} defaultValue={companyName} onChange={EditNameHandler}/>
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formFile" className="mb-3">
                         <Form.Label>Company Logo</Form.Label>
-                        <Form.Control type="file" />
+                        <Form.Control type="file" defaultValue={comapnyLogo} />
                     </Form.Group>
                 </Row>
 
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridTitle">
                       <Form.Label>Released Date</Form.Label>
-                      <Form.Control type="date" name="dob" placeholder="Realesed Date" onChange={DateHandler} />
+                      <Form.Control type="date" name="dob" placeholder="Realesed Date" onChange={EditDateHandler} defaultValue={companyDate} onChange={EditDateHandler}/>
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridState">
                          <Form.Label>Country</Form.Label>
-                         <Select options={Countries} styles={styles} placeholder ="Choose a country" onChange={CountryHandler} />
+                         <Select options={Countries} styles={styles} onChange={EditCountryHandler}  defaultValue={companyCountry} placeholder={countryName}/>
                      </Form.Group>
                 </Row>
 
                 <div className="right">
-                    <Button variant="primary" className="button submit margin" onClick={Submit}>EDIT</Button>
+                    <Button variant="primary" className="button submit margin" onClick={Edit}>EDIT</Button>
                     <Button variant="primary" className="button submit delete" >DELETE</Button>
                 </div>
             </Form>
