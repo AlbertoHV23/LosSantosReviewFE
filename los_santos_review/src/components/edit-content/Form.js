@@ -268,11 +268,18 @@ function EditContent() {
         <>
 
         <Row>
-            <Title title="Entertainment" class = "title"/> 
+            <Title title="Edit Content" class = "title"/> 
             <hr></hr>
         </Row>
 
             <Form>
+                <Row className="mb-3 mt-3">
+
+                  <Form.Group as={Col} controlId="formGridState">
+                  <Form.Label>Select Content</Form.Label>
+                  <Select options={Categories} styles={styles} placeholder ="Choose Content" onChange={CategoryHandler} />
+                  </Form.Group>
+                </Row>
                 <Row className="mb-3 mt-3">
 
                     <Form.Group as={Col} controlId="formGridState">
@@ -349,7 +356,7 @@ function EditContent() {
                 </Row>
 
                 <div className="right">
-                    <Button variant="primary" className="button submit margin" onClick={Submit}>SUBMIT</Button>
+                    <Button variant="primary" className="button submit margin" onClick={Submit}>EDIT</Button>
                     <Button variant="primary" className="button submit delete" >DELETE</Button>
                 </div>
             </Form>
