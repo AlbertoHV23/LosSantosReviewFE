@@ -38,7 +38,7 @@ function ChangePhoto() {
 
   const uploadImage = () => {
     if(!file){
-      alert('No has seleccionado una imagen')
+      alert('You have not selected an image')
       return
     }
 
@@ -48,8 +48,8 @@ function ChangePhoto() {
     fetch('https://lossantos-api.herokuapp.com/api/uploads/user/' + uid, {
       method: 'PUT',
       body: formData
-    }).then(res=> res.text())
-    .then(res => console.log(res))
+    })
+    .then(res=> res.text())
     .catch(err => {
       console.error(err)
     })

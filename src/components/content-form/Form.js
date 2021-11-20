@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 import { Form } from "react-bootstrap";
@@ -249,6 +249,7 @@ function FormContent() {
         })
           .then((res) => {
             console.log(res.data);
+            uploadImage();
             alert("The information was successfully updated.");
           })
           .catch((err) => {
@@ -264,7 +265,33 @@ function FormContent() {
           });
     };
 
+  //Variables y Funciones para subir imagenes
+  const [file,setFile] = useState(null)
 
+  const selectImage = (e) => {
+    setFile(e.target.files[0])
+  }
+
+  const uploadImage = () => {
+    if(!file){
+      alert('You have not selected an image')
+      return
+    }
+
+    const formData = new FormData()
+    formData.append('archivo', file)
+
+    fetch('https://lossantos-api.herokuapp.com/api/uploads/content/' + uid, {
+      method: 'PUT',
+      body: formData
+    })
+    .then(res=> res.text())
+    .catch(err => {
+      console.error(err)
+    })
+
+    setFile(null)
+  }
 
     return (
         <>
@@ -341,7 +368,7 @@ function FormContent() {
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="formFile" className="mb-3">
                         <Form.Label>Poster</Form.Label>
-                        <Form.Control type="file" />
+                        <Form.Control onChange={selectImage} type="file" />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridSubtitlle">
