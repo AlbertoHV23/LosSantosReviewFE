@@ -4,11 +4,12 @@ import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import Logo from "../common/logo";
 
 function NavbarAccount() {
-  let  username;
+  let  username,avatar;
   const GetSession = (e) =>{
     window.localStorage.getItem('user')
     const user = JSON.parse(localStorage.getItem('user'))
     username = user.data.newUser.username
+    avatar = user.data.newUser.image
   }
 
   const ClearStorage = (e) =>{
@@ -17,7 +18,6 @@ function NavbarAccount() {
       'user' , "No session"
     )
     let vari = window.localStorage.getItem('user')
-    console.log(vari)
   }
 
   GetSession()
@@ -31,7 +31,7 @@ function NavbarAccount() {
         <Nav  className="justify-content-end mr" style={{ width: "100%" }}>
           <Avatar
             alt="Avatar"
-            src= {`${process.env.PUBLIC_URL}/assets/img/avatars/Alberto.jpg`}
+            src= {avatar}
             sx={{ width: 37, height: 37 }}
           />
           <NavDropdown title={username} id="collasible-nav-dropdown" className="ml-4">
