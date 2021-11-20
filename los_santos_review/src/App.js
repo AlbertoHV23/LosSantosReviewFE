@@ -58,12 +58,6 @@ function App() {
         <Route path="/role-form" exact>
           <RoleForm />
         </Route>
-        <Route path="/edit-category" exact>
-          <EditCategoryForm />
-        </Route>
-        <Route path="/edit-content" exact>
-          <EditContentForm />
-        </Route>
       </Switch>
     </Router>
   );

@@ -53,18 +53,14 @@ function ProfileForm() {
       },
     })
       .then((res) => {
-        console.log(res.data);
-
         res.data.token = token;
-        alert(res.data.token)
-
         window.localStorage.setItem(
           'user' , JSON.stringify(res)
         )
 
+        alert("The information was successfully updated.");
         window.location = "myaccount"
 
-        alert("The information was successfully updated.");
       })
       .catch((err) => {
         const errorMsg = JSON.parse(err.request.response);
@@ -92,14 +88,12 @@ function ProfileForm() {
         'Accept' : 'application/json',
         'Authorization' : 'Bearer' + token,
         "x-token": token
-
       },
       data: {
         uid
       },
     })
       .then((res) => {
-        console.log(res.data);
         console.log("Account deleted")
 
         window.location = "login"
