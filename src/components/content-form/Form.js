@@ -70,7 +70,7 @@ function FormContent() {
   };
 
     GetSession();
-    // GetContent();
+    GetContent();
 
 
     const getCategories = (e) =>{
@@ -111,7 +111,8 @@ function FormContent() {
         
         axios.get(`https://lossantos-api.herokuapp.com/api/subcategory`)
         .then(res => {
-            console.log(res.data)
+            console.log('test')
+            console.log(res.data.subcategories)
 
             res.data.subcategories.forEach(element => {
                 if(category == element.category){
