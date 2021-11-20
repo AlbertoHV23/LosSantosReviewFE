@@ -7,20 +7,31 @@ import TrackChangesIcon from '@mui/icons-material/TrackChanges';
 import RecommendIcon from '@mui/icons-material/Recommend';
 
 function Score() {
+    const content = localStorage.getItem("contentUID")
+    const contents = JSON.parse(localStorage.getItem("content"));
+    let Selectedcontent;
+
+    contents.forEach(element => {
+        if(element.uid == content){
+            Selectedcontent = element;
+        }
+    });
+
+    
     return (
         <>
         <Row className="preview">
             <Col xs={1} md={3} className="d-none d-md-block">
-                <Poster  class="poster"/>
+                <Poster  class="poster" source = {Selectedcontent.image }/>
             </Col>
             <Col xs={12} md={9}>
-                    <iframe title="Trailer" className="embed-responsive-item video" src="https://www.youtube.com/embed/AN3jEjjcZ-k" allowfullscreen></iframe>
+                    <iframe title="Trailer" className="embed-responsive-item video" src={Selectedcontent.trailerLink} allowfullscreen></iframe>
             </Col>
         </Row>
 
         <Row>
             <div className="center">
-                <Title title="GOD OF WAR 4" class = "review-title center"/>
+                <Title title={Selectedcontent.title} class = "review-title center"/>
             </div>
             <Col>
                 <div className="center">                        

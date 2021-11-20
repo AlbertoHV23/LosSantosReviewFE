@@ -7,6 +7,16 @@ import EditIcon from '@mui/icons-material/Edit';
 
 
 function Info() {
+    const content = localStorage.getItem("contentUID")
+    const contents = JSON.parse(localStorage.getItem("content"));
+    let Selectedcontent;
+
+    contents.forEach(element => {
+        if(element.uid == content){
+            Selectedcontent = element;
+        }
+    });
+
     return (
         <>
         <Row>
@@ -23,8 +33,7 @@ function Info() {
                 <Button className="comment-icon editable mb-3" href="/content-form"><EditIcon/> Edit Content</Button>
             </div>    
             <br/>
-            <p>Five years after the events of The Last of Us, Ellie embarks on another journey through a 
-            post-apocalyptic America on a mission of vengeance against a mysterious militia.</p>
+            <p>{Selectedcontent.description}</p>
 
             <br/>
 
@@ -47,11 +56,11 @@ function Info() {
                 </Col>
                 <Col xs={2} md={2} className="center subtitles">
                     <h2>Released Date</h2> 
-                    <h3>10/14/2020</h3>
+                    <h3>{Selectedcontent.realiseDate.substring(0, 10)}</h3>
                 </Col>
                 <Col xs={2} md={2} className="center subtitles">
                     <h2>Duration</h2> 
-                    <h3>600 min</h3>
+                    <h3>{Selectedcontent.duration} min</h3>
                 </Col>
             </Row>
 
@@ -88,7 +97,7 @@ function Info() {
         <div>
             <div className="right mb-0">
                 <Button className="comment-icon editable mb-3"  href="/review-form"><EditIcon/> Edit Review</Button>
-                <h3>Released Date: 10/20/2021</h3>
+                <h3>Released Date: {Selectedcontent.realiseDate.substring(0, 10)}</h3>
             </div>    
         
             <Title title="Just what we needed" class = "title-review"/>
