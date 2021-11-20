@@ -17,7 +17,8 @@ import ContentForm from "./pages/content-form/ContentForm";
 import CategoryForm from "./pages/category-form/CategoryForm";
 import CompanyForm from "./pages/company-form/CompanyForm";
 import RoleForm from "./pages/role-form/RoleForm";
-
+import EditCategoryForm from "./pages/edit-category/EditCategoryForm";
+import EditContentForm from "./pages/edit-content/EditContentForm";
 
 function App() {
   return (
@@ -56,6 +57,12 @@ function App() {
         </Route>
         <Route path="/role-form" exact>
           <RoleForm />
+        </Route>
+        <Route path="/edit-category" exact>
+          <EditCategoryForm />
+        </Route>
+        <Route path="/edit-content" exact>
+          <EditContentForm />
         </Route>
       </Switch>
     </Router>

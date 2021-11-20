@@ -3,6 +3,7 @@ import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import Button from "@restart/ui/esm/Button";
+import EditIcon from '@mui/icons-material/Edit';
 import Title from "../common/Title";
 import axios from "axios";
 import Select from 'react-select'
@@ -205,9 +206,10 @@ function FormCategory() {
                 
 
                 <div className="right">
-                      
-                    <Button variant="primary" className="button submit margin"   onClick={CategorySubmit} >SAVE</Button>
-                    <Button variant="primary" className="button submit delete">DELETE</Button>
+
+                    <Button className="comment-icon editable m-4" href="/edit-category"><EditIcon/> Edit Category</Button>
+                    <Button variant="primary" className="button submit margin "   onClick={CategorySubmit} >ADD</Button>
+
                 </div>
             </Form>
 
@@ -235,8 +237,8 @@ function FormCategory() {
                 
 
                 <div className="right">
-                    <Button variant="primary" className="button submit margin"  onClick={SubCategorySubmit}>SAVE</Button>
-                    <Button variant="primary" className="button submit delete" >DELETE</Button>
+                    <Button className="comment-icon editable m-4" href="/edit-category"><EditIcon/> Edit SubCategory</Button>
+                    <Button variant="primary" className="button submit margin"  onClick={SubCategorySubmit}>ADD</Button>
                 </div>
             </Form>
 
@@ -260,8 +262,8 @@ function FormCategory() {
                 
 
                 <div className="right">
-                    <Button variant="primary" className="button submit margin" onClick={ClassficationSubmit}>SAVE</Button>
-                    <Button variant="primary" className="button submit delete" >DELETE</Button>
+                    <Button className="comment-icon editable m-4" href="/edit-category"><EditIcon/> Edit Classification</Button>
+                    <Button variant="primary" className="button submit margin" onClick={ClassficationSubmit}>ADD</Button>
                 </div>
             </Form>
         </>

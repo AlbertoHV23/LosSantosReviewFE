@@ -8,7 +8,7 @@ import Title from "../common/Title";
 import axios from "axios";
 import Select from 'react-select'
 
-function FormContent() {
+function EditContent() {
 
     const styles = {
         option: (provided, state) => ({
@@ -65,8 +65,6 @@ function FormContent() {
       window.localStorage.getItem("content");
       const content= JSON.parse(localStorage.getItem("content"));
       console.log(content);
-   
-
   };
 
     GetSession();
@@ -359,4 +357,4 @@ function FormContent() {
      );
 }
 
-export default FormContent;
+export default EditContent;

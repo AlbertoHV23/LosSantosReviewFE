@@ -168,7 +168,51 @@ function FormCompany() {
                 </Row>
 
                 <div className="right">
-                    <Button variant="primary" className="button submit margin" onClick={Submit}>SUBMIT</Button>
+                    <Button variant="primary" className="button submit margin" onClick={Submit}>ADD</Button>
+                </div>
+            </Form>
+          
+        <Row>
+            <Title title="Edit Company" class = "title"/> 
+            <hr></hr>
+        </Row>
+
+            <Form>
+
+                <Row>
+                  <Form.Group as={Col} controlId="formGridState">
+                        <Form.Label>Select Company</Form.Label>
+                        <Select  styles={styles} placeholder ="Choose Company" />
+                    </Form.Group>
+                </Row>         
+
+                <Row className="mb-3 mt-3">
+                    
+                    <Form.Group as={Col} controlId="formGridSubtitlle">
+                      <Form.Label>Company Name</Form.Label>
+                      <Form.Control placeholder="Enter Company Name" onChange={NameHandler}/>
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="formFile" className="mb-3">
+                        <Form.Label>Company Logo</Form.Label>
+                        <Form.Control type="file" />
+                    </Form.Group>
+                </Row>
+
+                <Row className="mb-3">
+                    <Form.Group as={Col} controlId="formGridTitle">
+                      <Form.Label>Released Date</Form.Label>
+                      <Form.Control type="date" name="dob" placeholder="Realesed Date" onChange={DateHandler} />
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="formGridState">
+                         <Form.Label>Country</Form.Label>
+                         <Select options={Countries} styles={styles} placeholder ="Choose a country" onChange={CountryHandler} />
+                     </Form.Group>
+                </Row>
+
+                <div className="right">
+                    <Button variant="primary" className="button submit margin" onClick={Submit}>EDIT</Button>
                     <Button variant="primary" className="button submit delete" >DELETE</Button>
                 </div>
             </Form>
