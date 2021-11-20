@@ -114,10 +114,10 @@ function FormContent() {
             console.log(res.data)
 
             res.data.subcategories.forEach(element => {
-                if(category == element.category._id){
+                if(category == element.category){
                     Subcategories.push({
-                    value: element.uid,
-                    label: element.name});
+                    value: element.subcategories._id,
+                    label: element.subcategories.name});
                 } 
             }) 
 
@@ -218,10 +218,10 @@ function FormContent() {
         document.getElementById("subcategory").value = null;
     }
 
-    const SubcategoryHandler = (e) =>{ subcategory = e.value}
-    const ClassificationHandler = (e) =>{ classification = e.value}
+    const SubcategoryHandler = (e) =>{ subcategory = e.value;  console.log(subcategory)}
+    const ClassificationHandler = (e) =>{ classification = e.value; console.log(classification) }
     const CompanyHandler = (e) =>{ company = e.value}
-    const TitleHandler = (e) =>{ title = e.target.value}
+    const TitleHandler = (e) =>{ title = e.target.value;  console.log(title)}
     const DescriptionHandler = (e) =>{ description = e.target.value}
     const DateHandler = (e) =>{ date = e.target.value}
     const DurationHandler = (e) =>{ duration = e.target.value}
@@ -230,7 +230,7 @@ function FormContent() {
     const Submit = (e) => {
       trailer  = trailer.replace('watch?v=', 'embed/')
         axios({
-          method: "post",
+          method: "POST",
           url: `https://lossantos-api.herokuapp.com/api/content/`,
           headers: {
             "x-token": token
@@ -248,7 +248,6 @@ function FormContent() {
         })
           .then((res) => {
             console.log(res.data);
-            uploadImage();
             alert("The information was successfully updated.");
           })
           .catch((err) => {

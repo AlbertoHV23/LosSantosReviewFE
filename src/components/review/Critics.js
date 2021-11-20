@@ -137,8 +137,8 @@ function Critics() {
       }
 
       GetSession();
-      getComments();
-      console.log(Comentarios)
+      // getComments();
+      // console.log(Comentarios)
      
     
     return (

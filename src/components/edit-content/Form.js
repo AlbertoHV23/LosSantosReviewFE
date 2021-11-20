@@ -113,11 +113,11 @@ function EditContent() {
 
             Subcategories.length = 0
 
-            res.data.subcategories[0].forEach(element => {
+            res.data.subcategories.forEach(element => {
                 if(category == element.category){
                     Subcategories.push({
-                    value: element.uid,
-                    label: element.name});
+                    value: element.subcategories._id,
+                    label: element.subcategories.name});
                 } 
             }) 
 

@@ -113,7 +113,7 @@ function EditCategory() {
       .then(res => {
           console.log(res.data)
 
-          res.data.subcategories[0].forEach(element => {
+          res.data.subcategories.forEach(element => {
                   Subcategories.push({
                   value: element.uid,
                   label: element.name});
@@ -121,7 +121,7 @@ function EditCategory() {
                   if(element.uid == subId){
                     setValueSubId(element.uid)
                     setValueSubName(element.name)
-                    setValueSubCatId(element.category)
+                    setValueSubCatId(element.category._id)
                     subcategory_name = element.name
                   }
           }) 

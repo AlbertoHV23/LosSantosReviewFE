@@ -12,7 +12,7 @@ const Input = styled("input")({
 
 
 function ChangePhoto() {
-  let username, name, lastName, email, role, uid, token; // SESSION VARS
+  let username, name, lastName, email, role, uid, token,avatar; // SESSION VARS
   let archivo;
   var data = new FormData();
   
@@ -26,6 +26,8 @@ function ChangePhoto() {
     role = user.data.newUser.role;
     uid = user.data.newUser.uid;
     token = user.data.token; 
+    avatar = user.data.newUser.image
+
   };
 
   GetSession()
@@ -47,11 +49,19 @@ function ChangePhoto() {
 
     fetch('https://lossantos-api.herokuapp.com/api/uploads/user/' + uid, {
       method: 'PUT',
-      body: formData
+      body: formData  
     })
-    .then(res=> res.text())
+    .then(res =>{
+        console.log(res.data)
+        const user = JSON.parse(localStorage.getItem("user"));
+        user.image = res.image;
+        window.localStorage.setItem(
+          'user' , JSON.stringify(user)
+        )
+
+    })
     .catch(err => {
-      console.error(err)
+     alert(err)
     })
 
     setFile(null)
@@ -59,14 +69,11 @@ function ChangePhoto() {
 
   return (
     <div className="change-photo ">
-      <form encType="multipart/form-data" >
-       <input onChange={selectImage} type="file" name="fileName"/>
-       <input onClick={uploadImage} type="button" value="upload"></input>
-      </form >
+    
   
     <Avatar
       alt="Avatar"
-      src={`${process.env.PUBLIC_URL}/assets/img/avatars/Alberto.jpg`}
+      src={avatar}
       sx={{ width: 180, height: 180 }}
       className="avatar"
     />
@@ -76,18 +83,10 @@ function ChangePhoto() {
       spacing={2}
       className="camera"
     >
-      <label htmlFor="icon-button-file" className="btn-camera">
-        <Input accept="image/*" id="icon-button-file" type="file" />
-        <IconButton
-          color="primary"
-          aria-label="upload picture"
-          component="span"
-         
-        >
-          <PhotoCamera />
-          <p className="text-upload">Upload</p>
-        </IconButton>
-      </label>
+      <form encType="multipart/form-data" className = "centrado" >
+       <input onChange={selectImage} type="file" name="fileName" />
+       <input onClick={uploadImage} type="button" value="Upload"></input>
+      </form >
     </Stack>
   </div>
   );

@@ -20,11 +20,11 @@ function Main() {
             <Title title="NEW & UPCOMING" class = "title"/>
             <Body/>
             <Title title="MOST POPULAR" class = "title"/>
-            {/* <Body/> */}
+            <Body/>
             <Title title="TOP RATINGS" class = "title"/>
-            {/* <Body/> */}
+            <Body/>
             <Title title="WORST RATINGS" class = "title"/>
-            {/* <Body/> */}
+            <Body/>
           </Container>
         <Footer/>
 
