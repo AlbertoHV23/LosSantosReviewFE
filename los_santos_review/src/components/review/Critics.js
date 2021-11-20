@@ -11,8 +11,102 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Form } from "react-bootstrap";
 import SliderBar from "../common/Slider";
+import axios from "axios";
+
 
 function Critics() {
+    let username, name, lastName, email, role, uid, token;
+    let comment;
+
+    const GetSession = (e) => {
+      window.localStorage.getItem("user");
+      const user = JSON.parse(localStorage.getItem("user"));
+      console.log(user);
+      username = user.data.newUser.username;
+      name = user.data.newUser.name;
+      lastName = user.data.newUser.lastName;
+      email = user.data.newUser.email;
+      role = user.data.newUser.role;
+      uid = user.data.newUser.uid;
+      token = user.data.token;
+  
+      console.log(token);
+    };
+    
+    const CommentHandler = (e) => {
+        comment = e.target.value;
+        console.log(comment)
+      };
+    
+      const Submit = (e) => {
+        // SubmitComment();
+        SubmitRate();
+      };
+
+    const SubmitComment = (e) => {
+        axios({
+          method: "POST",
+          url: `https://lossantos-api.herokuapp.com/api/coment/`,
+          headers: {
+            "x-token": token
+          },
+          data: {
+            'user': uid,
+            'coment':comment,
+            'review': '61975510be4c010016884fba',
+          },
+        })
+        .then((res) => {
+            console.log(res.data);
+            alert("The information was successfully updated.");
+          })
+          .catch((err) => {
+            const errorMsg = JSON.parse(err.request.response);
+    
+            if (errorMsg.errors != null) {
+              errorMsg.errors.forEach((e) => {
+                alert(e.msg);
+              });
+            } else {
+              alert("Something went wrong, please try again.");
+            }
+          });
+      };
+
+      const SubmitRate = (e) => {
+        const score = JSON.parse(localStorage.getItem("rate"));
+
+        axios({
+          method: "POST",
+          url: `https://lossantos-api.herokuapp.com/api/rating`,
+          headers: {
+            "x-token": token
+          },
+          data: {
+            'score': score,
+            'content':'61975510be4c010016884fba',
+            'user': uid,
+          },
+        })
+        .then((res) => {
+            console.log(res.data);
+            alert("The information was successfully updated.");
+          })
+          .catch((err) => {
+            const errorMsg = JSON.parse(err.request.response);
+    
+            if (errorMsg.errors != null) {
+              errorMsg.errors.forEach((e) => {
+                alert(e.msg);
+              });
+            } else {
+              alert("Something went wrong, please try again.");
+            }
+          });
+      };
+
+      GetSession()
+    
     return (
         <>
         <Row>
@@ -54,7 +148,7 @@ function Critics() {
 
                     <Form.Group as={Col} controlId="formGridState">
                       <Form.Label>Comment</Form.Label>
-                      <Form.Control as="textarea" placeholder="Please share your opinion" rows={3} />
+                      <Form.Control as="textarea" placeholder="Please share your opinion" rows={3} onChange = {CommentHandler} />
                     </Form.Group>
 
                 </Row>
@@ -69,7 +163,7 @@ function Critics() {
                 
 
                 <div className="right">
-                    <Button variant="primary" className="button submit margin" type="submit">SUBMIT</Button>
+                    <Button variant="primary" className="button submit margin" onClick = {Submit}>SUBMIT</Button>
                 </div>
             </Form>
         </Row>

@@ -66,9 +66,11 @@ function ChangePhoto() {
   //   };
 
   const uploadAction = (e) => {
-    var data = new FormData();
+    var archivo = new FormData();
     var imagedata = document.querySelector('input[type="file"]').files[0];
-    data.append("data", imagedata);
+    archivo.append("data", imagedata);
+    console.log(archivo)
+    console.log(imagedata)
     fetch("https://lossantos-api.herokuapp.com/api/uploads/user/" +uid, {
       method: "PUT",
       headers: {
@@ -76,9 +78,8 @@ function ChangePhoto() {
         "Accept": "application/json",
         "type": "formData"
       },
-      body: {
-        'archivo': data
-        }
+      body: imagedata
+        
     }).then(function (res) {
       if (res.ok) {
         alert("Perfect! ");
@@ -97,6 +98,7 @@ function ChangePhoto() {
            <input type="file" name="fileName" /> 
           <input type="button" value="upload" onClick={uploadAction.bind(this)}></input>
           </form >
+
         <Avatar
           alt="Avatar"
           src={`${process.env.PUBLIC_URL}/assets/img/avatars/Alberto.jpg`}
