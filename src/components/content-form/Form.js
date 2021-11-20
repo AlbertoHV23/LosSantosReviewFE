@@ -113,10 +113,8 @@ function FormContent() {
         .then(res => {
             console.log(res.data)
 
-            Subcategories.length = 0
-
-            res.data.subcategories[0].forEach(element => {
-                if(category == element.category){
+            res.data.subcategories.forEach(element => {
+                if(category == element.category._id){
                     Subcategories.push({
                     value: element.uid,
                     label: element.name});
