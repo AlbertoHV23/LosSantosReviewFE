@@ -4,7 +4,7 @@ import axios from "axios";
 
 function SilderbarHeader() {
 
-  let name, lastname, role, role_name;
+  let name, lastname, role,avatar, role_name;
 
   const GetRole = (e) =>{
     axios.get(`https://lossantos-api.herokuapp.com/api/role/`,{
@@ -45,7 +45,8 @@ function SilderbarHeader() {
     name = user.data.newUser.name
     lastname = user.data.newUser.lastName
     role = user.data.newUser.role
- 
+    avatar = user.data.newUser.image
+    
   }
 
   GetSession()
@@ -59,7 +60,7 @@ function SilderbarHeader() {
     <div className="sliderbar-header">
       <Avatar
         alt="Avatar"
-        src={`${process.env.PUBLIC_URL}/assets/img/avatars/Alberto.jpg`}
+        src={avatar}
         sx={{ width: 80, height: 80 }}
         className="avatar"
       />

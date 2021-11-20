@@ -72,13 +72,14 @@ function ChangePhoto() {
     console.log(archivo)
     console.log(imagedata)
     fetch("https://lossantos-api.herokuapp.com/api/uploads/user/" +uid, {
+   
       method: "PUT",
       headers: {
         "Content-Type": "multipart/form-data",
         "Accept": "application/json",
         "type": "formData"
       },
-      body: imagedata
+      body: archivo
         
     }).then(function (res) {
       if (res.ok) {
