@@ -42,12 +42,16 @@ function Info() {
       };
 
     getReviwes()
-    const Reviews = JSON.parse(localStorage.getItem("reviews"));
+        const Reviews = JSON.parse(localStorage.getItem("reviews"));
       let SelectedReviews;
   
       Reviews.forEach(element => {
           if(element.content._id == content){
             SelectedReviews = element;
+            window.localStorage.setItem(
+                "reviewId",
+                JSON.stringify(SelectedReviews)
+              );
           }
       });
 
