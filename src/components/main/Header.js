@@ -20,7 +20,7 @@ function Header() {
         <>
           <Navbar bg="dark" variant="dark">
             <Container className = "space">
-              <Navbar.Brand href="#home">
+              <Navbar.Brand href="/main">
                 <Logo  className="d-inline-block align-top" class="logo-main"/>
               </Navbar.Brand>
               <Search className="icon"/>
