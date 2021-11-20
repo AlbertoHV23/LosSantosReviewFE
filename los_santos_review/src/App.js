@@ -57,6 +57,12 @@ function App() {
         <Route path="/role-form" exact>
           <RoleForm />
         </Route>
+        <Route path="/profile" exact>
+          <Account />
+        </Route>
+        <Route path="/security" exact>
+          <Account />
+        </Route>
       </Switch>
     </Router>
   );
