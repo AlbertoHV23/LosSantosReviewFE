@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 import { Form } from "react-bootstrap";
@@ -8,7 +8,12 @@ import axios from "axios";
 import Select from 'react-select'
 
 function FormRole() {
-    let role_selected,selected_name,selected_description;
+
+    const [ roleId, setValue ] = useState(); 
+    const [ roleName, setValue2 ] = useState(); 
+    const [ roleDesc, setValue3 ] = useState(); 
+
+    let role_selected, selected_name, selected_description;
     let role_name, role_description; // Role vars
     let username, name, lastName, email, role, uid, token; // SESSION VARS
     let Roles = [];
@@ -42,26 +47,15 @@ function FormRole() {
 
                 if(element.id == role_selected){
                     console.log("found")
-                    window.localStorage.setItem(
-                        'role_id' , JSON.stringify(element.id)
-                    )
-                    window.localStorage.setItem(
-                        'role_name' , JSON.stringify(element.name)
-                    )
-                    window.localStorage.setItem(
-                        'role_description' , JSON.stringify(element.description)
-                    )
-
-                    selected_name = JSON.parse(localStorage.getItem("role_name"))
-                    selected_description = JSON.parse(localStorage.getItem("role_description"))
-
-                    window.location = "role-form"
+                    setValue(element.id)
+                    setValue2(element.name)
+                    setValue3(element.description)
                 }
             }) 
 
         })
         .catch(err => {
-          const errorMsg =JSON.parse(err.request.response) ;
+          const errorMsg =JSON.parse(err.request.response);
     
           if(errorMsg.errors != null){
             errorMsg.errors.forEach(e => {
@@ -73,7 +67,6 @@ function FormRole() {
           else{
             alert("Something went wrong, please try again.")
           }
-    
     
         })
     }
@@ -163,12 +156,6 @@ function FormRole() {
         .then((res) => {
           console.log(res.data);
           console.log("Role deleted");
-
-          window.localStorage.removeItem('role_id')
-          window.localStorage.removeItem('role_name')
-          window.localStorage.removeItem('role_description')
-
-
           alert("Role deleted successfully")
 
           window.location = "role-form"
@@ -267,7 +254,7 @@ function FormRole() {
 
                     <Form.Group as={Col} controlId="formGridState">
                       <Form.Label>Role Name</Form.Label>
-                      <Form.Control placeholder="Enter Role Name" onChange={SelectedNameHandler} defaultValue={JSON.parse(localStorage.getItem("role_name"))}></Form.Control>
+                      <Form.Control placeholder="Enter Role Name" onChange={SelectedNameHandler} defaultValue={roleName}></Form.Control>
                     </Form.Group>
                 </Row>
                 
@@ -275,7 +262,7 @@ function FormRole() {
 
                     <Form.Group as={Col} controlId="formGridState">
                       <Form.Label>Role Description</Form.Label>
-                      <Form.Control  as="textarea" rows={3} placeholder="Enter Description..." onChange={SelectedDescriptionHandler} defaultValue={JSON.parse(localStorage.getItem("role_description"))}></Form.Control>
+                      <Form.Control  as="textarea" rows={3} placeholder="Enter Description..." onChange={SelectedDescriptionHandler} defaultValue={roleDesc}></Form.Control>
                     </Form.Group>
                 </Row>
 
