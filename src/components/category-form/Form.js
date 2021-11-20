@@ -116,20 +116,22 @@ function FormCategory() {
             'name': Name
           },
         })
-          .then((res) => {
-            console.log(res.data);
-          })
-          .catch((err) => {
-            const errorMsg = JSON.parse(err.request.response);
-    
-            if (errorMsg.errors != null) {
-              errorMsg.errors.forEach((e) => {
-                alert(e.msg);
-              });
-            } else {
-              alert("Something went wrong, please try again.");
-            }
-          });
+        .then((res) => {
+          console.log(res.data);
+          alert("The information was successfully updated.");
+          window.location.reload(false);
+        })
+        .catch((err) => {
+          const errorMsg = JSON.parse(err.request.response);
+  
+          if (errorMsg.errors != null) {
+            errorMsg.errors.forEach((e) => {
+              alert(e.msg);
+            });
+          } else {
+            alert("Something went wrong, please try again.");
+          }
+        });
       };
     const ClassficationSubmit = (e) => {
         axios({
@@ -143,20 +145,22 @@ function FormCategory() {
             'description': ClassDescription,
           },
         })
-          .then((res) => {
-            console.log(res.data);
-          })
-          .catch((err) => {
-            const errorMsg = JSON.parse(err.request.response);
-    
-            if (errorMsg.errors != null) {
-              errorMsg.errors.forEach((e) => {
-                alert(e.msg);
-              });
-            } else {
-              alert("Something went wrong, please try again.");
-            }
-          });
+        .then((res) => {
+          console.log(res.data);
+          alert("The information was successfully updated.");
+          window.location.reload(false);
+        })
+        .catch((err) => {
+          const errorMsg = JSON.parse(err.request.response);
+  
+          if (errorMsg.errors != null) {
+            errorMsg.errors.forEach((e) => {
+              alert(e.msg);
+            });
+          } else {
+            alert("Something went wrong, please try again.");
+          }
+        });
       };
     const SubCategorySubmit = (e) => {
         axios({
@@ -170,20 +174,23 @@ function FormCategory() {
               'category': uidCategory,
             },
           })
-            .then((res) => {
-              console.log(res.data);
-            })
-            .catch((err) => {
-              const errorMsg = JSON.parse(err.request.response);
-      
-              if (errorMsg.errors != null) {
-                errorMsg.errors.forEach((e) => {
-                  alert(e.msg);
-                });
-              } else {
-                alert("Something went wrong, please try again.");
-              }
-            });
+          .then((res) => {
+            console.log(res.data);
+            alert("The information was successfully updated.");
+            window.location.reload(false);
+            
+          })
+          .catch((err) => {
+            const errorMsg = JSON.parse(err.request.response);
+    
+            if (errorMsg.errors != null) {
+              errorMsg.errors.forEach((e) => {
+                alert(e.msg);
+              });
+            } else {
+              alert("Something went wrong, please try again.");
+            }
+          });
       };
     return (
         <>

@@ -12,11 +12,15 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { Form } from "react-bootstrap";
 import SliderBar from "../common/Slider";
 import axios from "axios";
+import { Reviews } from "@mui/icons-material";
 
 
 function Critics() {
     let username, name, lastName, email, role, uid, token;
     let comment;
+    let Review;
+    let Comentarios = [];
+    Review = JSON.parse(localStorage.getItem("reviewId"));
 
     const GetSession = (e) => {
       window.localStorage.getItem("user");
@@ -30,18 +34,18 @@ function Critics() {
       uid = user.data.newUser.uid;
       token = user.data.token;
   
-      console.log(token);
     };
     
     const CommentHandler = (e) => {
         comment = e.target.value;
-        console.log(comment)
       };
     
       const Submit = (e) => {
-        // SubmitComment();
+        SubmitComment();
         SubmitRate();
       };
+
+
 
     const SubmitComment = (e) => {
         axios({
@@ -53,11 +57,10 @@ function Critics() {
           data: {
             'user': uid,
             'coment':comment,
-            'review': '61975510be4c010016884fba',
+            'review': Review.uid,
           },
         })
         .then((res) => {
-            console.log(res.data);
             alert("The information was successfully updated.");
           })
           .catch((err) => {
@@ -84,7 +87,7 @@ function Critics() {
           },
           data: {
             'score': score,
-            'content':'61975510be4c010016884fba',
+            'content':Review.uid,
             'user': uid,
           },
         })
@@ -105,7 +108,38 @@ function Critics() {
           });
       };
 
-      GetSession()
+      const getComments = (e) => {
+        console.log(Review.uid)
+        axios
+          .get(`https://lossantos-api.herokuapp.com/api/coment/`+ Review.uid)
+          .then((res) => {
+            console.log(res.data);
+            //  window.localStorage.setItem(
+            //   "",
+            //   JSON.stringify(res.data.reviews)
+            // );
+            setText(res.data.comments)
+          })
+          .catch((err) => {
+            const errorMsg = JSON.parse(err.request.response);
+    
+            if (errorMsg.errors != null) {
+              errorMsg.errors.forEach((e) => {
+                alert(e.msg);
+              });
+            } else {
+              alert("Wrong email or password");
+            }
+          });
+      };
+      function setText(parametro){
+        Comentarios = parametro
+      }
+
+      GetSession();
+      getComments();
+      console.log(Comentarios)
+     
     
     return (
         <>
@@ -190,37 +224,36 @@ function Critics() {
 
         */}
 
-        {Array.from({ length: 3 }).map((_, idx) => (
-            <Row>
-                <Col xs={1} md={1}>
-                </Col>
-                {Array.from({ length: 2 }).map((_, idx) => (
-                    <Col xs={12} md={5}>
-                        <Card className="mb-4 mt-4 comment">
-                            <Card.Header className="d-flex">
-                                <div className="pic">
-                                    <Profile/>
-                                </div>
-                                <div>
-                                    <h3 className="user">Gordon Ramsay</h3>
-                                    <h3>Owner of Creative Ltd.</h3>
-                                </div>
-                            </Card.Header>
-                            <Card.Body>
-                              <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk
-                                of the card's content.
-                              </Card.Text>
-                              <Card.Text className="center">
-                                Score: 77%
-                              </Card.Text>
-                            </Card.Body>
-                        </Card>
+{Comentarios.map(function (d, idx) {
+          return (
+            <Col xs={12} md={12}>
+            <Card className="mb-4 mt-4 comment">
+                <Card.Header className="d-flex">
+                    <div className="pic">
+                        <Profile/>
+                    </div>
+                    <div>
+                        <h3 className="user">Gordon Ramsay</h3>
+                        <h3>Owner of Creative Ltd.</h3>
+                    </div>
+                </Card.Header>
+                <Card.Body>
+                  <Card.Text>
+                    Some quick example text to build on the card title and make up the bulk
+                    of the card's content.
+                  </Card.Text>
+                  <Card.Text className="center">
+                    Score: 77%
+                  </Card.Text>
+                </Card.Body>
+            </Card>
 
-                    </Col>
-                ))}
-            </Row>
-        ))}
+        </Col>
+          );
+        })}
+       
+
+        
 
         </>
      );
