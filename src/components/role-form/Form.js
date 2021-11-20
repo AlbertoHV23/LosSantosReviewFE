@@ -13,7 +13,7 @@ function FormRole() {
     const [ roleName, setValue2 ] = useState(); 
     const [ roleDesc, setValue3 ] = useState(); 
 
-    let role_selected, selected_name, selected_description;
+    let role_selected;
     let role_name, role_description; // Role vars
     let username, name, lastName, email, role, uid, token; // SESSION VARS
     let Roles = [];
@@ -81,8 +81,8 @@ function FormRole() {
     const NameHandler = (e) =>{ role_name = e.target.value }
     const DescriptionHandler = (e) =>{ role_description = e.target.value}
 
-    const SelectedNameHandler = (e) =>{selected_name = e.target.value}
-    const SelectedDescriptionHandler = (e) =>{ selected_description = e.target.value}
+    const EditNameHandler = (e) =>{ setValue2(e.target.value)}
+    const EditDescriptionHandler = (e) =>{ setValue3(e.target.value)}
 
     const Submit = (e) => {
         axios({
@@ -98,7 +98,10 @@ function FormRole() {
         })
           .then((res) => {
             console.log(res.data);
+            window.location = "role-form"
+
             alert("The information was successfully updated.");
+          
           })
           .catch((err) => {
             const errorMsg = JSON.parse(err.request.response);
@@ -116,13 +119,13 @@ function FormRole() {
     const Edit = (e) => {
         axios({
           method: "put",
-          url: `https://lossantos-api.herokuapp.com/api/role/`+ JSON.parse(localStorage.getItem("role_id")),
+          url: `https://lossantos-api.herokuapp.com/api/role/`+ roleId,
           headers: {
             "x-token": token
           },
           data: {
-            "name" : selected_name,
-            "description" : selected_description
+            "name" : roleName,
+            "description" : roleDesc
           },
         })
           .then((res) => {
@@ -143,7 +146,7 @@ function FormRole() {
   
       axios({
         method: "delete",
-        url: `https://lossantos-api.herokuapp.com/api/role/`+ JSON.parse(localStorage.getItem("role_id")),
+        url: `https://lossantos-api.herokuapp.com/api/role/`+ roleId,
         headers: {
           "Access-Control-Allow-Headers" : "*",
           'Content-Type' : 'application/json',
@@ -254,7 +257,7 @@ function FormRole() {
 
                     <Form.Group as={Col} controlId="formGridState">
                       <Form.Label>Role Name</Form.Label>
-                      <Form.Control placeholder="Enter Role Name" onChange={SelectedNameHandler} defaultValue={roleName}></Form.Control>
+                      <Form.Control placeholder="Enter Role Name" onChange={EditNameHandler} defaultValue={roleName} ></Form.Control>
                     </Form.Group>
                 </Row>
                 
@@ -262,7 +265,7 @@ function FormRole() {
 
                     <Form.Group as={Col} controlId="formGridState">
                       <Form.Label>Role Description</Form.Label>
-                      <Form.Control  as="textarea" rows={3} placeholder="Enter Description..." onChange={SelectedDescriptionHandler} defaultValue={roleDesc}></Form.Control>
+                      <Form.Control  as="textarea" rows={3} placeholder="Enter Description..." onChange={EditDescriptionHandler} defaultValue={roleDesc}></Form.Control>
                     </Form.Group>
                 </Row>
 
