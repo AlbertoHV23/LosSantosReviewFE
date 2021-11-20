@@ -51,7 +51,30 @@ function Form_() {
     })
 
   }
+  
+  const getContents = (e) => {
+    axios
+      .get(`https://lossantos-api.herokuapp.com/api/content`)
+      .then((res) => {
+        window.localStorage.setItem(
+          "content",
+          JSON.stringify(res.data.contents)
+        );
+      })
+      .catch((err) => {
+        const errorMsg = JSON.parse(err.request.response);
 
+        if (errorMsg.errors != null) {
+          errorMsg.errors.forEach((e) => {
+            alert(e.msg);
+          });
+        } else {
+          alert("Wrong email or password");
+        }
+      });
+  };
+
+  getContents();
   return (
 
     <>
