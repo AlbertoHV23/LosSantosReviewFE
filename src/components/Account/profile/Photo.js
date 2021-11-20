@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useState} from 'react';
 import { styled } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
@@ -28,105 +28,69 @@ function ChangePhoto() {
     token = user.data.token; 
   };
 
-  const UploadImage = (e) => {
-    // archivo = e.target.files[0];
-    // var data = new FormData();
-    // var imagedata =e.target.files[0];
-    // data.append("data", imagedata);
-    // console.log(data)
-
-    // SubmitImage()
-    // uploadAction()
-  };
-
   GetSession()
 
-  // const SubmitImage = (e) => {
-  //   axios({
-  //     method: "put",
-  //     url: `https://lossantos-api.herokuapp.com/api/uploads/user/`+uid,
-  //     headers: {
-  //       // "x-token": token
-  //       "Content-Type": "multipart/form-data",
-  //       "Accept": "application/json",
-  //     },
-  //     data: {
-  //       'archivo': archivo
-        
-  //     },
-  //   })
-  //     .then((res) => {
-  //       console.log(res.data);
+  const [file,setFile] = useState(null)
 
-  //     })
-  //     .catch((err) => {
-  //       const errorMsg = JSON.stringify(err.request.response);
-  //       alert(errorMsg);
-  //     });
-  //   };
+  const selectImage = (e) => {
+    setFile(e.target.files[0])
+  }
 
-  const uploadAction = (e) => {
-    var archivo = new FormData();
-    var imagedata = document.querySelector('input[type="file"]').files[0];
-    archivo.append("data", imagedata);
-    console.log(archivo)
-    console.log(imagedata)
-    fetch("https://lossantos-api.herokuapp.com/api/uploads/user/" +uid, {
-   
-      method: "PUT",
-      headers: {
-        "Content-Type": "multipart/form-data",
-        "Accept": "application/json",
-        "type": "formData"
-      },
-      body: archivo
-        
-    }).then(function (res) {
-      if (res.ok) {
-        alert("Perfect! ");
-      } else if (res.status == 401) {
-        alert("Oops! ");
-      }
-    }, function (e) {
-      alert("Error submitting form!");
-    });
-
-    
+  const uploadImage = () => {
+    if(!file){
+      alert('No has seleccionado una imagen')
+      return
     }
-    return (
-        <div className="change-photo ">
-          <form encType="multipart/form-data" >
-           <input type="file" name="fileName" /> 
-          <input type="button" value="upload" onClick={uploadAction.bind(this)}></input>
-          </form >
 
-        <Avatar
-          alt="Avatar"
-          src={`${process.env.PUBLIC_URL}/assets/img/avatars/Alberto.jpg`}
-          sx={{ width: 180, height: 180 }}
-          className="avatar"
-        />
-        <Stack
-          direction="row"
-          alignItems="center"
-          spacing={2}
-          className="camera"
+    const formData = new FormData()
+    formData.append('archivo', file)
+
+    fetch('https://lossantos-api.herokuapp.com/api/uploads/user/' + uid, {
+      method: 'PUT',
+      body: formData
+    }).then(res=> res.text())
+    .then(res => console.log(res))
+    .catch(err => {
+      console.error(err)
+    })
+
+    setFile(null)
+  }
+
+  return (
+    <div className="change-photo ">
+      <form encType="multipart/form-data" >
+       <input onChange={selectImage} type="file" name="fileName"/>
+       <input onClick={uploadImage} type="button" value="upload"></input>
+      </form >
+  
+    <Avatar
+      alt="Avatar"
+      src={`${process.env.PUBLIC_URL}/assets/img/avatars/Alberto.jpg`}
+      sx={{ width: 180, height: 180 }}
+      className="avatar"
+    />
+    <Stack
+      direction="row"
+      alignItems="center"
+      spacing={2}
+      className="camera"
+    >
+      <label htmlFor="icon-button-file" className="btn-camera">
+        <Input accept="image/*" id="icon-button-file" type="file" />
+        <IconButton
+          color="primary"
+          aria-label="upload picture"
+          component="span"
+         
         >
-          <label htmlFor="icon-button-file" className="btn-camera">
-            <Input accept="image/*" id="icon-button-file" type="file" />
-            <IconButton
-              color="primary"
-              aria-label="upload picture"
-              component="span"
-             
-            >
-              <PhotoCamera />
-              <p className="text-upload">Upload</p>
-            </IconButton>
-          </label>
-        </Stack>
-      </div>
-      );
+          <PhotoCamera />
+          <p className="text-upload">Upload</p>
+        </IconButton>
+      </label>
+    </Stack>
+  </div>
+  );
 }
 
 export default ChangePhoto;
