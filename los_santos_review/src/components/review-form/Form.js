@@ -183,16 +183,6 @@ function FormReview() {
           });
       };
 
-      const EditContent = (e) => { 
-        window.localStorage.setItem(
-            'content' , JSON.stringify(SelectedContent)
-          )
-    
-      };
-
-    
-
-
     return (
         <>
 
@@ -202,7 +192,7 @@ function FormReview() {
         </Row>
 
             <Form>
-                <Row className="mb-3 mt-3">
+                <Row className="mt-3">
 
                     <Form.Group as={Col} controlId="formGridState">
                       <Form.Label>Content</Form.Label>
@@ -212,8 +202,8 @@ function FormReview() {
                         <option>The last of us  II</option>
                         <option>God Of War</option>
                       </Form.Select> */}
-                        <div className="right mt-1">
-                            <Button className="comment-icon editable" href="/content-form" onClick = {EditContent}><EditIcon/> Edit Content</Button>
+                        <div className="right mt-2">
+                            <Button className="comment-icon editable" href="/content-form" ><EditIcon/> Edit Content</Button>
                         </div> 
                     </Form.Group>
                 </Row>
@@ -291,7 +281,57 @@ function FormReview() {
                 </Form.Group>
 
                 <div className="right">
-                    <Button variant="primary" className="button submit margin" onClick = {Submit}>SUBMIT</Button>
+                    <Button variant="primary" className="button submit margin" onClick = {Submit}>ADD</Button>
+                </div>
+            </Form>
+
+        <Row>
+            <Title title="Edit Review" class = "title"/> 
+            <hr></hr>
+        </Row>
+
+            <Form>
+                <Row className="mt-3 mb-3">
+                    <Form.Group as={Col} controlId="formGridState">
+                      <Form.Label>Select Review</Form.Label>
+                      <Select options={ContentsDropdown} styles={styles} placeholder ="Choose Review" onChange={DropdownCategoryHandler}  />
+                    </Form.Group>
+                </Row>
+              
+
+                <Row className="">
+                    <Form.Group as={Col} controlId="formGridState">
+                      <Form.Label>Content</Form.Label>
+                      <Select options={ContentsDropdown} styles={styles} placeholder ="Choose Content to Review" onChange={DropdownCategoryHandler}  />
+                        <div className="right mt-2">
+                            <Button className="comment-icon editable" href="/content-form"><EditIcon/> Edit Content</Button>
+                        </div> 
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="formGridTitle">
+                      <Form.Label>Title</Form.Label>
+                      <Form.Control placeholder="Enter Review Title" onChange={titleHandler}/>
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="formGridSubtitlle" >
+                      <Form.Label>Subtitle</Form.Label>
+                      <Form.Control placeholder="Enter Review Subtitle" onChange={subtitleHandler} />
+                    </Form.Group>
+                </Row>
+
+            
+                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                  <Form.Label>Los Santos Review</Form.Label>
+                  <Form.Control as="textarea" rows={3} onChange={bodyHandler}/>
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="">
+                    <Form.Label>Rating </Form.Label>
+                     <SliderBar/>
+                </Form.Group>
+
+                <div className="right">
+                    <Button variant="primary" className="button submit margin" onClick = {Submit}>EDIT</Button>
                     <Button variant="primary" className="button submit delete" >DELETE</Button>
                 </div>
             </Form>

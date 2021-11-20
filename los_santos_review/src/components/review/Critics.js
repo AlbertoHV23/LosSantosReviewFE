@@ -120,10 +120,6 @@ function Critics() {
                               <Card.Text className="center">
                                 Score: 77%
                               </Card.Text>
-                              <div className="right">
-                                <Button className="comment-icon"><EditIcon/></Button>
-                                <Button className="comment-icon"><DeleteIcon/></Button>
-                              </div>
                             </Card.Body>
                         </Card>
 
