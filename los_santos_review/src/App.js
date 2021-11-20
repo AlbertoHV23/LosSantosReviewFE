@@ -65,6 +65,12 @@ function App() {
         <Route path="/security" exact>
           <Account />
         </Route>
+        <Route path="/edit-category" exact>
+          <EditCategoryForm/>
+        </Route>
+        <Route path="/edit-content" exact>
+          <EditContentForm />
+        </Route>
       </Switch>
     </Router>
   );
