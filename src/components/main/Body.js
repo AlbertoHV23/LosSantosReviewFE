@@ -32,24 +32,6 @@ function Body() {
           "content",
           JSON.stringify(res.data.contents)
         );
-
-        // res.data.contents.forEach(element => {
-        //   index++;
-        //   //console.log(index)
-
-        // Contents.push({
-        //   title: element.title,
-        //   description: element.description,
-        //   realiseDate: element.realiseDate,
-        //   trailerLink: element.trailerLink,
-        //   duration: element.duration,
-        //   category: element.category,
-        //   subcategory: element.subcategory,
-        //   image: element.image,
-        //   uid: element.uid
-
-        // });
-        // })
       })
       .catch((err) => {
         const errorMsg = JSON.parse(err.request.response);

@@ -230,6 +230,7 @@ function FormContent() {
     const TrailerHandler = (e) =>{ trailer = e.target.value}
 
     const Submit = (e) => {
+      trailer  = trailer.replace('watch?v=', 'embed/')
         axios({
           method: "post",
           url: `https://lossantos-api.herokuapp.com/api/content/`,

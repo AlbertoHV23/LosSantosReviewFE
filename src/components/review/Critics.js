@@ -39,7 +39,7 @@ function Critics() {
       };
     
       const Submit = (e) => {
-        // SubmitComment();
+        SubmitComment();
         SubmitRate();
       };
 
@@ -189,6 +189,29 @@ function Critics() {
         </Row>
 
         */}
+        <Col xs={12} md={12}>
+                        <Card className="mb-4 mt-4 comment">
+                            <Card.Header className="d-flex">
+                                <div className="pic">
+                                    <Profile/>
+                                </div>
+                                <div>
+                                    <h3 className="user">Gordon Ramsay</h3>
+                                    <h3>Owner of Creative Ltd.</h3>
+                                </div>
+                            </Card.Header>
+                            <Card.Body>
+                              <Card.Text>
+                                Some quick example text to build on the card title and make up the bulk
+                                of the card's content.
+                              </Card.Text>
+                              <Card.Text className="center">
+                                Score: 77%
+                              </Card.Text>
+                            </Card.Body>
+                        </Card>
+
+                    </Col>
 
         {Array.from({ length: 3 }).map((_, idx) => (
             <Row>
