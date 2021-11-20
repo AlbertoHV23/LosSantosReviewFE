@@ -1,8 +1,8 @@
 import React from "react";
 
-function Example(){
+function Example(props){
     return (
-        <img className="example" src= {`${process.env.PUBLIC_URL}/assets/img/tlous.webp`} alt = "Alternative text"/>
+        <img className="example" src= {props.source} alt = "Alternative text"/>
      );
 }
 
