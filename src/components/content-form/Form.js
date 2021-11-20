@@ -284,6 +284,7 @@ function FormContent() {
       body: formData
     })
     .then(res=> res.text())
+    .then(res => console.log(res))
     .catch(err => {
       console.error(err)
     })
