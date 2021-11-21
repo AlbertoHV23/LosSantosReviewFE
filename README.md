@@ -1,73 +1,88 @@
-# Getting Started with Create React App
+# Los Santos Review 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Integrantes:
+* Alberto Daniel Hernandez Villanueva 1814187
+* Romelia Alejandra Gonzalez Soto 1937840
+* Edgar Donato Calvillo Lumbreras 1937846
+* Luis Gerardo Becerra Jimenez 1825240
 
-## Available Scripts
+# Carpetas
+## Pages
+En esta carpeta estaran todas las paginas que serán urilizadas en el proyecto. Cada pagina tendra su propio folder donde se almacenara el jsx y el sccs de estas misma.
 
-In the project directory, you can run:
+## Componentes
+Cada page tendra su propio folder donde estaran alojados todos los componentes que se utilizen en este mismo.
+Tambien cuenta con una carpeta "common" donde estaran los componentes compartidos.
 
-### `npm start`
+## Styles
+CSS que se puedan usar en distintos lugares como la paleta de colores.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Themes
+Temas que se utilizaran en la aplicacion.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Rutas
+## Host:
+https://lossantosreviews.firebaseapp.com/login
+## Dev:
+http://localhost:3000/login
+## Login:
+/login
+## Sign Up:
+/signup
+## Main:
+/main
+## Review:
+/review
+## Search:
+/search
+## Review Form:
+/review-form
+## Content Form:
+/content-form
+## Category | Subcategory | Classification Form:
+/category-form
+## Company Form:
+/Company-form
+## Account:
+/myaccount
+## Edit content:
+/edit-content
+## Edit category:
+/edit-category
+## Profile:
+/profile
 
-### `npm test`
+# Librerias que se han utilizado
+## Npm
+```bash
+npm install
+//Google Button
+npm install --save react-google-button
+// Slider
+npm install react-bootstrap-range-slider
+// Date picker
+npm install react-bootstrap-date-picker
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Material Ui
+```bash
+npm install @mui/material @emotion/react @emotion/styled
+npm install @mui/material @mui/styled-engine-sc styled-components
+npm install @mui/icons-material
+npm install react-grid-system --save
+```
 
-### `npm run build`
+## Router
+```bash
+npm install react-router-dom
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## SASS
+```bash
+npm install node-sass --save
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
-##Titulo x
+## BOOTSRAP
+```bash
+npm install react-bootstrap@next bootstrap@5.1.1
+```
